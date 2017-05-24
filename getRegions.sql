@@ -1,1 +1,1 @@
-SELECT DISTINCT(T1.txt),T1.regionname,NULL As P,NULL As F from farben AS T1;
+SELECT DISTINCT(T1.color),T1.regionname,NULL As P,NULL As F from regions AS T1;

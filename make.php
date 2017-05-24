@@ -1,7 +1,7 @@
 <?php
 
 $xsl_filename="map.xsl";
-$mapfile="map_hcl.xml";
+$mapfile="regions.xml";
 $punktefile="punkte.xml";
 include("xslt_process.php");
 ?>
