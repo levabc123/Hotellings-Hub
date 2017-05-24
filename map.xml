@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<resultset statement="SELECT DISTINCT(T1.txt),T1.regionname,NULL As P,NULL As F from farben AS T1
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <row>
+	<field name="txt">rgba(0,153,0,0.6)</field>
+	<field name="regionname">Norden (Grün)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="txt">rgba(0,204,255,0.31)</field>
+	<field name="regionname">Ost (Blau)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="txt">rgba(105,105,105,0.6)</field>
+	<field name="regionname">Mitte (Grau)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="txt">rgba(244,108,74,0.6)</field>
+	<field name="regionname">Süden (Rot)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="txt">rgba(255,255,0,0.6)</field>
+	<field name="regionname">Süd-West (Gelb)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+<product>productname</product>
+<version>0.5</version>
+</resultset>
