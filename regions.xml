@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<resultset statement="SELECT DISTINCT(T1.color),T1.regionname,NULL As P,NULL As F from regions AS T1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <row>
+	<field name="color">rgba(0,153,0,0.6)</field>
+	<field name="regionname">North (Green)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="color">rgba(0,204,255,0.31)</field>
+	<field name="regionname">East (Blue)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="color">rgba(105,105,105,0.6)</field>
+	<field name="regionname">West (Grey)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="color">rgba(244,108,74,0.6)</field>
+	<field name="regionname">South (Red)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
+	<field name="color">rgba(255,255,0,0.6)</field>
+	<field name="regionname">South-West (Yellow)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+</resultset>
