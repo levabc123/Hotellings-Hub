@@ -62,7 +62,7 @@
 	<div class="col-sm-6"><h1><xsl:value-of select="./Product"/> Version <xsl:value-of select="./Version"/></h1></div>
       </div>
       <hr/>
-<form action="make.php" method="post">
+<form action="index.php" method="post">
       <div class="row">
 	<div class="col-sm-6">
 		<br/>
