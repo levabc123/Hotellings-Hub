@@ -12,3 +12,5 @@ P: price per unit
 M: units (may be restricted to full truck load)
 F: basis freight
 fi: freight deviation by delivery area
+
+6/2017
