@@ -160,7 +160,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			</h3> 
-			<div id="map" class="map" style="width:100%"><div id="info"></div></div>
+			<div id="map" class="map" style="width:100%"><div id="popup"></div><div id="info"></div></div>
 		</div>
 		</div>
 	</div>  <!-- ende row -->
@@ -340,7 +340,8 @@ source: new ol.source.OSM()
           zoom: zoomvalue 
         })
       });
-
+<!--interactions.. -->
+<!-- 1) Mouse over Circles -->
       var info = $('#info');
       info.tooltip({
         animation: false,
@@ -353,9 +354,13 @@ source: new ol.source.OSM()
           left: pixel[0] + 'px',
           top: (pixel[1]-15) + 'px'
         });
-        var feature = map.forEachFeatureAtPixel(pixel, function(feature) {
-          return feature;
-        },null,function(layer){return layer===vector1;});
+        var feature = map.forEachFeatureAtPixel(
+	pixel, 
+	function(feature) {
+          return feature;},
+	null,
+	function(layer){return layer===vector1;});
+
         if (feature) {
           info.tooltip('hide')
               .attr('data-original-title', feature.get('name'))
@@ -376,6 +381,41 @@ source: new ol.source.OSM()
         displayFeatureInfo(map.getEventPixel(evt.originalEvent));
       });
       
+<!--2) click on icon -->
+
+ var element = document.getElementById('popup');
+
+      var popup = new ol.Overlay({
+        element: element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+      });
+      map.addOverlay(popup);
+
+   map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature) {
+              return feature;
+            },
+	    null,
+	    function(layer){return layer===vector3;}
+	    );
+        if (feature) {
+          var coordinates = feature.getGeometry().getCoordinates();
+          popup.setPosition(coordinates);
+          $(element).popover({
+            'placement': 'top',
+            'html': true,
+            'content': feature.get('name')
+          });
+          $(element).popover('show');
+        } else {
+          $(element).popover('destroy');
+        }
+      });
+
+
     
     </script>
   </body>
