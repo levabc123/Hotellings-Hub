@@ -304,18 +304,20 @@ source: new ol.source.OSM()
 
 <!-- Layer for ICONS -->
  var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point([0, 0]),
-        name: 'Null Island',
+        geometry: new ol.geom.Point(ol.proj.transform([-72.0704, 46.678], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d',
         population: 4000,
         rainfall: 500
       });
 
       var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-          anchor: [0.5, 46],
+          anchor: [0.05, 20],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
-          src: 'https://openlayers.org/en/v4.2.0/examples/data/icon.png'
+          src: 'HexFabrik2.png',
+	  scale: 0.1
         }))
       });
 
