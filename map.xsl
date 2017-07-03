@@ -303,10 +303,37 @@ source: new ol.source.OSM()
 <!--ENDE ... Layer for CIRCLE IDs -->
 
 <!-- Layer for ICONS -->
+ var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point([0, 0]),
+        name: 'Null Island',
+        population: 4000,
+        rainfall: 500
+      });
+
+      var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: 'https://openlayers.org/en/v4.2.0/examples/data/icon.png'
+        }))
+      });
+
+      iconFeature.setStyle(iconStyle);
+
+      var vectorSource = new ol.source.Vector({
+        features: [iconFeature]
+      });
+
+      var vector3 = new ol.layer.Vector({
+        source: vectorSource
+      });
+
+
 <!--ENDE ... Layer for ICONS -->
       var map = new ol.Map({
       interactions: ol.interaction.defaults({mouseWheelZoom:false}),
-        layers: [raster,vector1, vector2],
+        layers: [raster,vector1, vector2,vector3],
         target: 'map',
         view: new ol.View({
           center: [-11250000,4800000],
@@ -328,7 +355,7 @@ source: new ol.source.OSM()
         });
         var feature = map.forEachFeatureAtPixel(pixel, function(feature) {
           return feature;
-        });
+        },null,function(layer){return layer===vector1;});
         if (feature) {
           info.tooltip('hide')
               .attr('data-original-title', feature.get('name'))
