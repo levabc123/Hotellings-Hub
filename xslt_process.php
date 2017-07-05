@@ -5,7 +5,23 @@
   $dom->load($punktefile);
   $x=$dom->documentElement;
   $xp=new DOMXPath($dom);
+
+  $dom2 = new DOMDocument;
+  $dom2->load($iconfile);
+  $y=$dom2->documentElement;
+  $yp=new DOMXPath($dom2);
+ 
+//test simple adding
+  $element=$dom->createElement('iconlist');
+  $dom->documentElement->appendChild($element);
+  $nodelist=$xp->query("//iconlist");
+  $icon_node=$nodelist->item(0);
+  $node = $dom2->documentElement;
+  $node2= $dom->importNode($node,true);
+  $icon_node->appendChild($node2);
+ 
   $xsl= new DOMDocument;
+
   $region_xml = simplexml_load_file($mapfile);
   // Initialize Formel element
   $formeldata=$dom->createElement('Formel');
@@ -22,6 +38,7 @@
       $region->appendChild($F);
       $formeldata->appendChild($region);
   };
+ 
   // add some fixed values to that element
   $menge=$dom->createElement('Menge',$_POST['M']);
   $formeldata->appendChild($menge);
