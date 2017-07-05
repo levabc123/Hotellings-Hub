@@ -209,14 +209,14 @@
 
 	<!-- loop through templates to precreate formula -->
  	<xsl:variable name="currentP">
-        <xsl:call-template name="filterregionP"> 
+         <xsl:call-template name="filterregionP"> 
             <xsl:with-param name="filterValue" select="field[@name='Region']" /> 
-        </xsl:call-template>
+         </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="currentF">
-        <xsl:call-template name="filterregionF"> 
+         <xsl:call-template name="filterregionF"> 
             <xsl:with-param name="filterValue" select="field[@name='Region']" />
-        </xsl:call-template>
+         </xsl:call-template>
 	</xsl:variable>
 
 	var radius=<xsl:value-of select="field[@name='radius']"/>;
@@ -409,7 +409,7 @@ source: new ol.source.OSM()
           $(element).popover({
             'placement': 'top',
             'html': true,
-            'content': feature.get('name')
+            'content': '<img src="./refinery01.jpg" alt="Foto" width="120"/>'
           });
           $(element).popover('show');
         } else {

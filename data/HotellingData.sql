@@ -273,7 +273,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`abrus`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`abuta`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `ALL2Point` AS select `A`.`ID` AS `site`,`B`.`id` AS `punkt` from (`ALL2012` `A` join `punkte` `B`) where (((111 * 111) * (((`A`.`y` - `B`.`N`) * (`A`.`y` - `B`.`N`)) + (((cos(((`A`.`y` * 3.14) / 180)) * cos(((`A`.`y` * 3.14) / 180))) * (`A`.`x` - `B`.`O`)) * (`A`.`x` - `B`.`O`)))) < ((`B`.`radius` / 1000) * (`B`.`radius` / 1000))) order by `A`.`ID` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -292,7 +292,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`abrus`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`abuta`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `alpha` AS select `A`.`id` AS `id`,`B`.`color` AS `farbe`,`C`.`regionname` AS `region`,round(acos(((cos(((`B`.`CenterN` * 3.14) / 180)) * (`A`.`O` - `B`.`CenterO`)) / sqrt(((((cos(((`B`.`CenterN` * 3.14) / 180)) * cos(((`B`.`CenterN` * 3.14) / 180))) * (`A`.`O` - `B`.`CenterO`)) * (`A`.`O` - `B`.`CenterO`)) + ((`A`.`N` - `B`.`CenterN`) * (`A`.`N` - `B`.`CenterN`)))))),3) AS `alpha` from ((`punkte` `A` join `region_tiles` `B` on(((`A`.`N` < `B`.`p1N`) and (`A`.`O` > `B`.`p1O`) and (`A`.`N` > `B`.`p2N`) and (`A`.`O` < `B`.`p2O`)))) join `regions` `C` on((`B`.`color` = `C`.`color`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -311,7 +311,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`abrus`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`abuta`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `dist` AS select `A`.`id` AS `id`,`B`.`color` AS `regions`,(111 * sqrt((((`A`.`N` - `B`.`CenterN`) * (`A`.`N` - `B`.`CenterN`)) + (((cos(((`B`.`CenterN` * 3.14) / 180)) * cos(((`B`.`CenterN` * 3.14) / 180))) * (`A`.`O` - `B`.`CenterO`)) * (`A`.`O` - `B`.`CenterO`))))) AS `dist` from (`punkte` `A` join `region_tiles` `B` on(((`A`.`N` < `B`.`p1N`) and (`A`.`O` > `B`.`p1O`) and (`A`.`N` > `B`.`p2N`) and (`A`.`O` < `B`.`p2O`)))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -330,7 +330,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`abrus`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`abuta`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `select_airport` AS select `ALL2012`.`ID` AS `id` from `ALL2012` where (`ALL2012`.`type` = 'airport') */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -349,7 +349,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`abrus`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`abuta`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `select_all` AS select `ALL2012`.`ID` AS `id` from `ALL2012` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -368,7 +368,7 @@ UNLOCK TABLES;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`abrus`@`localhost` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`abuta`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `select_biodiesel` AS select `ALL2012`.`ID` AS `id` from `ALL2012` where (`ALL2012`.`type` = 'biodieselplant') */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
