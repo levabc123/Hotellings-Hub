@@ -311,6 +311,8 @@ source: new ol.source.OSM()
         rainfall: 500
       });
 
+	iconFeature.set('name','foo');
+	iconFeature.set('head','Kopf<br/>');
       var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
           anchor: [0.05, 20],
@@ -322,7 +324,6 @@ source: new ol.source.OSM()
       });
 
       iconFeature.setStyle(iconStyle);
-
       var vectorSource = new ol.source.Vector({
         features: [iconFeature]
       });
@@ -342,7 +343,7 @@ source: new ol.source.OSM()
           zoom: zoomvalue 
         })
       });
-<!--interactions.. -->
+<!--==================== interactions..================ -->
 <!-- 1) Mouse over Circles -->
       var info = $('#info');
       info.tooltip({
@@ -409,7 +410,7 @@ source: new ol.source.OSM()
           $(element).popover({
             'placement': 'top',
             'html': true,
-            'content': '<img src="./refinery01.jpg" alt="Foto" width="120"/>'
+            'content': "Bild".concat(feature.get('head').concat("",feature.get('name')),'<img src="./refinery01.jpg" alt="Foto" width="120"/>')
           });
           $(element).popover('show');
         } else {
