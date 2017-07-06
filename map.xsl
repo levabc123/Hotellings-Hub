@@ -320,7 +320,7 @@ source: new ol.source.OSM()
 	  scale: 0.1
         }))
       });
-     var iconFeature = new ol.Feature({
+     iconFeature = new ol.Feature({
         geometry: new ol.geom.Point(ol.proj.transform([<xsl:value-of select="field[@name='O']"/>, <xsl:value-of select="field[@name='N']"/>], 'EPSG:4326',     
   'EPSG:3857')), 
         name: 'Refinery - 550kbbl/d'
@@ -329,8 +329,8 @@ source: new ol.source.OSM()
       iconFeature.set('head','<xsl:value-of select="field[@name='type']"/>');
       iconFeature.set('foto','<xsl:value-of select="field[@name='photo_file']"/>');
       iconFeature.setStyle(iconStyle);
-      vector3.getSource().addFeature(iconFeature);
-    </xsl:for-each>
+      vector3.getSource().addFeatures(iconFeature);
+   </xsl:for-each> 
       <!-- fill now all IconFeatures into the vector layer 3 -->
      
       <!-- </xsl:for-each> -->
