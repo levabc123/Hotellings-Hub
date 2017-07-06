@@ -303,60 +303,37 @@ source: new ol.source.OSM()
 <!--ENDE ... Layer for CIRCLE IDs -->
 
 <!-- Layer for ICONS -->
-<!-- <xsl:for-each select="//iconlist/row"> -->
 
+        var vector3 = new ol.layer.Vector({
+        source: new ol.source.vector(),
+	minResolution : 0.001,
+	maxResolution : 12500
+      });
+
+    <xsl:for-each select="//iconlist/resultset/row">
      var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
           anchor: [0.05, 20],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
-          src: 'HexFabrik2.png',
+          src: '<xsl:value-of select="field[@name='base_file']"/>',
 	  scale: 0.1
         }))
       });
-
-  var iconFeatures=[];
-
-  var iconFeature1 = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([-72.0704, 46.678], 'EPSG:4326',     
+     var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([<xsl:value-of select="field[@name='O']"/>, <xsl:value-of select="field[@name='N']"/>], 'EPSG:4326',     
   'EPSG:3857')), 
-        name: 'Refinery - 550kbbl/d',
-        population: 4000,
-        rainfall: 500
+        name: 'Refinery - 550kbbl/d'
       });
-      iconFeature1.set('name','foo');
-      iconFeature1.set('head','foo2');
-      iconFeature1.setStyle(iconStyle);
-
-
-  var iconFeature2 = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([-79.0704, 46.678], 'EPSG:4326',     
-  'EPSG:3857')), 
-        name: 'Refinery - 550kbbl/d',
-        population: 4000,
-        rainfall: 500
-      });
-
-	iconFeature2.set('name','foo');
-	iconFeature2.set('head','foo2');
-        iconFeature2.setStyle(iconStyle);
-
-
-	iconFeatures.push(iconFeature1);
- 	iconFeatures.push(iconFeature2);
-
-        
-
-            var vectorSource = new ol.source.Vector({
-        features: iconFeatures
-      });
-
-      var vector3 = new ol.layer.Vector({
-        source: vectorSource,
-	minResolution : 0.001,
-	maxResolution : 12500
-      });
-<!-- </xsl:for-each> -->
+      iconFeature.set('name','<xsl:value-of select="field[@name='id']"/>');
+      iconFeature.set('head','<xsl:value-of select="field[@name='type']"/>');
+      iconFeature.set('foto','<xsl:value-of select="field[@name='photo_file']"/>');
+      iconFeature.setStyle(iconStyle);
+      vector3.getSource().addFeature(iconFeature);
+    </xsl:for-each>
+      <!-- fill now all IconFeatures into the vector layer 3 -->
+     
+      <!-- </xsl:for-each> -->
 
 
 <!--ENDE ... Layer for ICONS -->
@@ -422,6 +399,8 @@ source: new ol.source.OSM()
       });
       map.addOverlay(popup);
 
+
+
    map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
             function(feature) {
@@ -432,12 +411,15 @@ source: new ol.source.OSM()
 	    );
         if (feature) {
           var coordinates = feature.getGeometry().getCoordinates();
+	var fotofile=feature.get('foto');
+<!--	var content_concatter=["Test","<img src='",$fotofile,"bla.png' />"]; --> <!-- ,feature.get('foto_file'),"' />"]; -->
+
           popup.setPosition(coordinates);
           $(element).popover({
             'placement': 'top',
             'html': true,
-            'content': "Bild".concat(feature.get('head').concat("",feature.get('name')),'<img src="./refinery01.jpg" alt="Foto" width="120"/>')
-          });
+            'content': "Bild".concat(feature.get('name')," ",feature.get('foto'))<!--.concat(content_concatter) --> <!-- feature.get('head').concat("<img src='bla'/>",feature.get('foto_file'))) -->
+	   });
           $(element).popover('show');
         } else {
           $(element).popover('destroy');
