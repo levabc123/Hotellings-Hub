@@ -279,16 +279,16 @@ source: new ol.source.OSM()
 		<xsl:choose>
 			<xsl:when test="../Kreisanzeige='E'">
 			   <!--  -->
-			   text: '<xsl:value-of select=" format-number(( $currentP * $M) + ( $currentF * ( 1 + field[@name='fi'])),0) " />' ,
-			   scale: schriftgr
+		   text: '<xsl:value-of select=" format-number(( $currentP * $M) + ( $currentF * ( 1 + field[@name='fi'])),0) " />' ,
+		   scale: schriftgr
 		   	</xsl:when>
 			<xsl:when test="../Kreisanzeige='id'">
-			   text:'<xsl:value-of select="field[@name='punkt']"/>',
-			   scale: schriftgr
+		   text:'<xsl:value-of select="field[@name='punkt']"/>',
+		   scale: schriftgr
 		   	</xsl:when>
 			<xsl:when test="../Kreisanzeige='fi'">
-			   text:'<xsl:value-of select="field[@name='fi']"/>',
-			   scale:  schriftgr
+		   text:'<xsl:value-of select="field[@name='fi']"/>',
+		   scale:  schriftgr
 		   	</xsl:when>
 		</xsl:choose>
 		})
@@ -303,17 +303,9 @@ source: new ol.source.OSM()
 <!--ENDE ... Layer for CIRCLE IDs -->
 
 <!-- Layer for ICONS -->
- var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([-72.0704, 46.678], 'EPSG:4326',     
-  'EPSG:3857')), 
-        name: 'Refinery - 550kbbl/d',
-        population: 4000,
-        rainfall: 500
-      });
+<!-- <xsl:for-each select="//iconlist/row"> -->
 
-	iconFeature.set('name','foo');
-	iconFeature.set('head','Kopf<br/>');
-      var iconStyle = new ol.style.Style({
+     var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
           anchor: [0.05, 20],
           anchorXUnits: 'fraction',
@@ -323,14 +315,48 @@ source: new ol.source.OSM()
         }))
       });
 
-      iconFeature.setStyle(iconStyle);
-      var vectorSource = new ol.source.Vector({
-        features: [iconFeature]
+  var iconFeatures=[];
+
+  var iconFeature1 = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-72.0704, 46.678], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d',
+        population: 4000,
+        rainfall: 500
+      });
+      iconFeature1.set('name','foo');
+      iconFeature1.set('head','foo2');
+      iconFeature1.setStyle(iconStyle);
+
+
+  var iconFeature2 = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-79.0704, 46.678], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d',
+        population: 4000,
+        rainfall: 500
+      });
+
+	iconFeature2.set('name','foo');
+	iconFeature2.set('head','foo2');
+        iconFeature2.setStyle(iconStyle);
+
+
+	iconFeatures.push(iconFeature1);
+ 	iconFeatures.push(iconFeature2);
+
+        
+
+            var vectorSource = new ol.source.Vector({
+        features: iconFeatures
       });
 
       var vector3 = new ol.layer.Vector({
-        source: vectorSource
+        source: vectorSource,
+	minResolution : 0.001,
+	maxResolution : 12500
       });
+<!-- </xsl:for-each> -->
 
 
 <!--ENDE ... Layer for ICONS -->
@@ -417,8 +443,6 @@ source: new ol.source.OSM()
           $(element).popover('destroy');
         }
       });
-
-
     
     </script>
   </body>

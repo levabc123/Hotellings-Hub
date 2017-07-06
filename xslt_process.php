@@ -62,13 +62,11 @@
   // instantiate XSLTProcessor
   $proc=new XSLTProcessor;
   $result = $proc->importStyleSheet($xsl);
-   $dom2 = new DOMDocument;
+    $dom2 = new DOMDocument;
     $dom2->load($iconfile);
     $x2=$dom2->documentElement;
 
  $dom->documentElement->appendChild($dom->importNode($dom2->documentElement));
-  echo $dom->saveXML();
- 
- // echo $proc->transformToXML($dom);
+ echo $proc->transformToXML($dom);
 
 ?> 
