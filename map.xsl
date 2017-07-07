@@ -305,11 +305,12 @@ source: new ol.source.OSM()
 <!-- Layer for ICONS -->
 
         var vector3 = new ol.layer.Vector({
-        source: new ol.source.vector(),
+        source: new ol.source.Vector(),
 	minResolution : 0.001,
 	maxResolution : 12500
       });
 
+    var iconFeatures = [];
     <xsl:for-each select="//iconlist/resultset/row">
      var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
@@ -329,8 +330,11 @@ source: new ol.source.OSM()
       iconFeature.set('head','<xsl:value-of select="field[@name='type']"/>');
       iconFeature.set('foto','<xsl:value-of select="field[@name='photo_file']"/>');
       iconFeature.setStyle(iconStyle);
-      vector3.getSource().addFeatures(iconFeature);
-   </xsl:for-each> 
+      iconFeatures.push(iconFeature);
+    </xsl:for-each> 
+     console.log(iconFeatures.length);
+     vector3.getSource().addFeatures(iconFeatures);
+
       <!-- fill now all IconFeatures into the vector layer 3 -->
      
       <!-- </xsl:for-each> -->
@@ -410,12 +414,14 @@ source: new ol.source.OSM()
 	    function(layer){return layer===vector3;}
 	    );
         if (feature) {
+          $(element).popover('destroy');
           var coordinates = feature.getGeometry().getCoordinates();
-	var fotofile=feature.get('foto');
+	  var fotofile=feature.get('foto');
 <!--	var content_concatter=["Test","<img src='",$fotofile,"bla.png' />"]; --> <!-- ,feature.get('foto_file'),"' />"]; -->
 
           popup.setPosition(coordinates);
           $(element).popover({
+	    'title': "IconPopover",
             'placement': 'top',
             'html': true,
             'content': "Bild".concat(feature.get('name')," ",feature.get('foto'))<!--.concat(content_concatter) --> <!-- feature.get('head').concat("<img src='bla'/>",feature.get('foto_file'))) -->
