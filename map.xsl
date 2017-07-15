@@ -421,10 +421,10 @@ source: new ol.source.OSM()
 
           popup.setPosition(coordinates);
           $(element).popover({
-	    'title': <![CDATA[feature.get('name')]]>,
+	    'title': <![CDATA['<h3>'+feature.get('head')+' - '+feature.get('name')+'</h3>']]>,
             'placement': 'top',
             'html': true,
-            'content': <![CDATA['<img src="HexFabrik'+feature.get('name')+'.png"/>']]> 
+            'content': <![CDATA['<img src="'+feature.get('foto')+'" width="250px"/>']]> 
 	   });
           $(element).popover('show');
         } else {
