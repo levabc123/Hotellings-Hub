@@ -421,7 +421,7 @@ source: new ol.source.OSM()
 
           popup.setPosition(coordinates);
           $(element).popover({
-	    'title': <![CDATA['feature.get('name')']]>,
+	    'title': <![CDATA[feature.get('name')]]>,
             'placement': 'top',
             'html': true,
             'content': <![CDATA['<img src="HexFabrik'+feature.get('name')+'.png"/>']]> 
