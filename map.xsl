@@ -250,7 +250,7 @@ source: new ol.source.OSM()
         source: new ol.source.Vector(),
         style: styleFunction,
 	minResolution : 0.001,
-	maxResolution : 1000,
+	maxResolution : 12500,
 	visible : true
       });
      
@@ -307,7 +307,7 @@ source: new ol.source.OSM()
         var vector3 = new ol.layer.Vector({
         source: new ol.source.Vector(),
 	minResolution : 0.001,
-	maxResolution : 12500
+	maxResolution : 7500
       });
 
     var iconFeatures = [];
@@ -329,6 +329,7 @@ source: new ol.source.OSM()
       iconFeature.set('name','<xsl:value-of select="field[@name='id']"/>');
       iconFeature.set('head','<xsl:value-of select="field[@name='type']"/>');
       iconFeature.set('foto','<xsl:value-of select="field[@name='photo_file']"/>');
+      iconFeature.set('txt','<xsl:value-of select="field[@name='desc_html']"/>');
       iconFeature.setStyle(iconStyle);
       iconFeatures.push(iconFeature);
     </xsl:for-each> 
@@ -424,7 +425,7 @@ source: new ol.source.OSM()
 	    'title': <![CDATA['<h3>'+feature.get('head')+' - '+feature.get('name')+'</h3>']]>,
             'placement': 'top',
             'html': true,
-            'content': <![CDATA['<img src="'+feature.get('foto')+'" width="250px"/>']]> 
+            'content': <![CDATA['<p>'+feature.get('txt')+'</p><img src="'+feature.get('foto')+'" width="250px"/>']]> 
 	   });
           $(element).popover('show');
         } else {

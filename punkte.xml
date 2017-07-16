@@ -11,7 +11,7 @@ T4.radius,
 ROUND(-0.3+dist/2000,3) AS fi
 FROM 
 (	SELECT 
-	distinct T6g.punkt FROM select_all AS T3 
+	distinct T6g.punkt FROM select_airport AS T3 
 	JOIN 
 	(	select 
 		site,
@@ -30,2749 +30,2401 @@ ORDER BY punkt
 " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <row>
 	<field name="punkt">767</field>
-	<field name="dist">1297</field>
-	<field name="alpha">1.227</field>
+	<field name="dist">2153</field>
+	<field name="alpha">1.154</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">27.000</field>
 	<field name="O">-82.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.349</field>
+	<field name="fi">0.777</field>
   </row>
 
   <row>
 	<field name="punkt">771</field>
-	<field name="dist">1366</field>
-	<field name="alpha">1.106</field>
+	<field name="dist">2222</field>
+	<field name="alpha">1.089</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">27.000</field>
 	<field name="O">-80.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.383</field>
+	<field name="fi">0.811</field>
   </row>
 
   <row>
 	<field name="punkt">1410</field>
-	<field name="dist">1469</field>
-	<field name="alpha">2.285</field>
+	<field name="dist">1899</field>
+	<field name="alpha">1.778</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">28.000</field>
 	<field name="O">-98.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.435</field>
+	<field name="fi">0.649</field>
   </row>
 
   <row>
 	<field name="punkt">1412</field>
-	<field name="dist">1413</field>
-	<field name="alpha">2.238</field>
+	<field name="dist">1884</field>
+	<field name="alpha">1.737</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">28.000</field>
 	<field name="O">-97.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.407</field>
+	<field name="fi">0.642</field>
   </row>
 
   <row>
 	<field name="punkt">1440</field>
-	<field name="dist">1164</field>
-	<field name="alpha">1.265</field>
+	<field name="dist">2020</field>
+	<field name="alpha">1.168</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">28.000</field>
 	<field name="O">-83.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.282</field>
+	<field name="fi">0.710</field>
   </row>
 
   <row>
 	<field name="punkt">1442</field>
-	<field name="dist">1193</field>
-	<field name="alpha">1.195</field>
+	<field name="dist">2052</field>
+	<field name="alpha">1.133</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">28.000</field>
 	<field name="O">-82.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.297</field>
+	<field name="fi">0.726</field>
   </row>
 
   <row>
 	<field name="punkt">2087</field>
-	<field name="dist">1328</field>
-	<field name="alpha">2.290</field>
+	<field name="dist">1775</field>
+	<field name="alpha">1.748</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">29.000</field>
 	<field name="O">-97.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.364</field>
-  </row>
-
-  <row>
-	<field name="punkt">2089</field>
-	<field name="dist">1272</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">29.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.336</field>
+	<field name="fi">0.587</field>
   </row>
 
   <row>
 	<field name="punkt">2117</field>
-	<field name="dist">1091</field>
-	<field name="alpha">1.158</field>
+	<field name="dist">1952</field>
+	<field name="alpha">1.108</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">29.000</field>
 	<field name="O">-82.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.245</field>
+	<field name="fi">0.676</field>
   </row>
 
   <row>
 	<field name="punkt">2119</field>
-	<field name="dist">1129</field>
-	<field name="alpha">1.087</field>
+	<field name="dist">1989</field>
+	<field name="alpha">1.073</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">29.000</field>
 	<field name="O">-81.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.264</field>
-  </row>
-
-  <row>
-	<field name="punkt">2766</field>
-	<field name="dist">1131</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">30.000</field>
-	<field name="O">-95.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.265</field>
+	<field name="fi">0.694</field>
   </row>
 
   <row>
 	<field name="punkt">2768</field>
-	<field name="dist">1079</field>
-	<field name="alpha">2.175</field>
+	<field name="dist">1638</field>
+	<field name="alpha">1.617</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">30.000</field>
 	<field name="O">-94.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.239</field>
+	<field name="fi">0.519</field>
   </row>
 
   <row>
 	<field name="punkt">2770</field>
-	<field name="dist">1032</field>
-	<field name="alpha">2.105</field>
+	<field name="dist">1636</field>
+	<field name="alpha">1.569</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">30.000</field>
 	<field name="O">-93.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.216</field>
+	<field name="fi">0.518</field>
   </row>
 
   <row>
 	<field name="punkt">2772</field>
-	<field name="dist">990</field>
-	<field name="alpha">2.029</field>
+	<field name="dist">1638</field>
+	<field name="alpha">1.521</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">30.000</field>
 	<field name="O">-92.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.195</field>
-  </row>
-
-  <row>
-	<field name="punkt">2774</field>
-	<field name="dist">954</field>
-	<field name="alpha">1.946</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">30.000</field>
-	<field name="O">-91.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.177</field>
+	<field name="fi">0.519</field>
   </row>
 
   <row>
 	<field name="punkt">2776</field>
-	<field name="dist">926</field>
-	<field name="alpha">1.858</field>
+	<field name="dist">1654</field>
+	<field name="alpha">1.425</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">30.000</field>
 	<field name="O">-90.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.163</field>
+	<field name="fi">0.527</field>
   </row>
 
   <row>
 	<field name="punkt">2792</field>
-	<field name="dist">990</field>
-	<field name="alpha">1.113</field>
+	<field name="dist">1853</field>
+	<field name="alpha">1.082</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">30.000</field>
 	<field name="O">-82.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.195</field>
+	<field name="fi">0.627</field>
   </row>
 
   <row>
 	<field name="punkt">3425</field>
-	<field name="dist">1170</field>
-	<field name="alpha">0.726</field>
+	<field name="dist">1767</field>
+	<field name="alpha">1.662</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
 	<field name="N">31.000</field>
 	<field name="O">-103.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.285</field>
+	<field name="fi">0.583</field>
   </row>
 
   <row>
 	<field name="punkt">3427</field>
-	<field name="dist">1237</field>
-	<field name="alpha">0.679</field>
+	<field name="dist">1761</field>
+	<field name="alpha">1.619</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
 	<field name="N">31.000</field>
 	<field name="O">-102.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.318</field>
+	<field name="fi">0.581</field>
   </row>
 
   <row>
 	<field name="punkt">3435</field>
-	<field name="dist">1237</field>
-	<field name="alpha">2.462</field>
+	<field name="dist">1575</field>
+	<field name="alpha">1.822</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">31.000</field>
 	<field name="O">-98.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.318</field>
+	<field name="fi">0.487</field>
   </row>
 
   <row>
 	<field name="punkt">3445</field>
-	<field name="dist">938</field>
-	<field name="alpha">2.165</field>
+	<field name="dist">1525</field>
+	<field name="alpha">1.569</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">31.000</field>
 	<field name="O">-93.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.169</field>
-  </row>
-
-  <row>
-	<field name="punkt">3455</field>
-	<field name="dist">782</field>
-	<field name="alpha">1.683</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">31.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.091</field>
+	<field name="fi">0.463</field>
   </row>
 
   <row>
 	<field name="punkt">3463</field>
-	<field name="dist">820</field>
-	<field name="alpha">1.245</field>
+	<field name="dist">1684</field>
+	<field name="alpha">1.133</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">31.000</field>
 	<field name="O">-84.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.110</field>
+	<field name="fi">0.542</field>
   </row>
 
   <row>
 	<field name="punkt">3465</field>
-	<field name="dist">852</field>
-	<field name="alpha">1.148</field>
+	<field name="dist">1718</field>
+	<field name="alpha">1.092</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">31.000</field>
 	<field name="O">-83.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.126</field>
+	<field name="fi">0.559</field>
   </row>
 
   <row>
 	<field name="punkt">4084</field>
-	<field name="dist">689</field>
-	<field name="alpha">1.314</field>
+	<field name="dist">1819</field>
+	<field name="alpha">2.007</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
 	<field name="N">32.000</field>
 	<field name="O">-111.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
+	<field name="fi">0.609</field>
   </row>
 
   <row>
 	<field name="punkt">4102</field>
-	<field name="dist">1170</field>
-	<field name="alpha">0.605</field>
+	<field name="dist">1651</field>
+	<field name="alpha">1.622</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
 	<field name="N">32.000</field>
 	<field name="O">-102.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.285</field>
+	<field name="fi">0.525</field>
   </row>
 
   <row>
 	<field name="punkt">4110</field>
-	<field name="dist">1170</field>
-	<field name="alpha">2.536</field>
+	<field name="dist">1467</field>
+	<field name="alpha">1.841</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">32.000</field>
 	<field name="O">-98.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.285</field>
+	<field name="fi">0.434</field>
   </row>
 
   <row>
 	<field name="punkt">4112</field>
-	<field name="dist">1100</field>
-	<field name="alpha">2.491</field>
+	<field name="dist">1448</field>
+	<field name="alpha">1.788</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">32.000</field>
 	<field name="O">-97.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.250</field>
+	<field name="fi">0.424</field>
   </row>
 
   <row>
 	<field name="punkt">4128</field>
-	<field name="dist">689</field>
-	<field name="alpha">1.828</field>
+	<field name="dist">1450</field>
+	<field name="alpha">1.349</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">32.000</field>
 	<field name="O">-89.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
-  </row>
-
-  <row>
-	<field name="punkt">4136</field>
-	<field name="dist">689</field>
-	<field name="alpha">1.314</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">32.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
-  </row>
-
-  <row>
-	<field name="punkt">4138</field>
-	<field name="dist">716</field>
-	<field name="alpha">1.195</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">32.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.058</field>
-  </row>
-
-  <row>
-	<field name="punkt">4144</field>
-	<field name="dist">848</field>
-	<field name="alpha">0.903</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">32.000</field>
-	<field name="O">-81.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.124</field>
-  </row>
-
-  <row>
-	<field name="punkt">4747</field>
-	<field name="dist">656</field>
-	<field name="alpha">2.133</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">33.000</field>
-	<field name="O">-117.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.028</field>
-  </row>
-
-  <row>
-	<field name="punkt">4757</field>
-	<field name="dist">562</field>
-	<field name="alpha">1.414</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">33.000</field>
-	<field name="O">-112.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.019</field>
-  </row>
-
-  <row>
-	<field name="punkt">4769</field>
-	<field name="dist">827</field>
-	<field name="alpha">0.736</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">33.000</field>
-	<field name="O">-106.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.113</field>
-  </row>
-
-  <row>
-	<field name="punkt">4785</field>
-	<field name="dist">1111</field>
-	<field name="alpha">2.619</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-98.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.255</field>
-  </row>
-
-  <row>
-	<field name="punkt">4787</field>
-	<field name="dist">1036</field>
-	<field name="alpha">2.576</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.218</field>
-  </row>
-
-  <row>
-	<field name="punkt">4789</field>
-	<field name="dist">963</field>
-	<field name="alpha">2.528</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.182</field>
-  </row>
-
-  <row>
-	<field name="punkt">4797</field>
-	<field name="dist">707</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-92.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.053</field>
-  </row>
-
-  <row>
-	<field name="punkt">4807</field>
-	<field name="dist">555</field>
-	<field name="alpha">1.571</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-87.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.022</field>
-  </row>
-
-  <row>
-	<field name="punkt">4811</field>
-	<field name="dist">582</field>
-	<field name="alpha">1.265</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.009</field>
-  </row>
-
-  <row>
-	<field name="punkt">4815</field>
-	<field name="dist">656</field>
-	<field name="alpha">1.008</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-83.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.028</field>
-  </row>
-
-  <row>
-	<field name="punkt">4821</field>
-	<field name="dist">827</field>
-	<field name="alpha">0.736</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">33.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.113</field>
-  </row>
-
-  <row>
-	<field name="punkt">5418</field>
-	<field name="dist">688</field>
-	<field name="alpha">2.440</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">34.000</field>
-	<field name="O">-119.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
-  </row>
-
-  <row>
-	<field name="punkt">5420</field>
-	<field name="dist">623</field>
-	<field name="alpha">2.349</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">34.000</field>
-	<field name="O">-118.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.012</field>
-  </row>
-
-  <row>
-	<field name="punkt">5422</field>
-	<field name="dist">565</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">34.000</field>
-	<field name="O">-117.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.017</field>
-  </row>
-
-  <row>
-	<field name="punkt">5430</field>
-	<field name="dist">444</field>
-	<field name="alpha">1.571</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">34.000</field>
-	<field name="O">-113.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.078</field>
-  </row>
-
-  <row>
-	<field name="punkt">5432</field>
-	<field name="dist">453</field>
-	<field name="alpha">1.376</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">34.000</field>
-	<field name="O">-112.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.074</field>
-  </row>
-
-  <row>
-	<field name="punkt">5436</field>
-	<field name="dist">516</field>
-	<field name="alpha">1.037</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">34.000</field>
-	<field name="O">-110.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.042</field>
-  </row>
-
-  <row>
-	<field name="punkt">5462</field>
-	<field name="dist">981</field>
-	<field name="alpha">2.672</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.191</field>
-  </row>
-
-  <row>
-	<field name="punkt">5472</field>
-	<field name="dist">623</field>
-	<field name="alpha">2.349</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-92.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.012</field>
-  </row>
-
-  <row>
-	<field name="punkt">5484</field>
-	<field name="dist">453</field>
-	<field name="alpha">1.376</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-86.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.074</field>
-  </row>
-
-  <row>
-	<field name="punkt">5486</field>
-	<field name="dist">477</field>
-	<field name="alpha">1.195</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.061</field>
-  </row>
-
-  <row>
-	<field name="punkt">5488</field>
-	<field name="dist">516</field>
-	<field name="alpha">1.037</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.042</field>
-  </row>
-
-  <row>
-	<field name="punkt">5492</field>
-	<field name="dist">623</field>
-	<field name="alpha">0.793</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-82.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.012</field>
-  </row>
-
-  <row>
-	<field name="punkt">5494</field>
-	<field name="dist">688</field>
-	<field name="alpha">0.702</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-81.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
-  </row>
-
-  <row>
-	<field name="punkt">5498</field>
-	<field name="dist">829</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">34.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.114</field>
-  </row>
-
-  <row>
-	<field name="punkt">6093</field>
-	<field name="dist">622</field>
-	<field name="alpha">2.576</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">35.000</field>
-	<field name="O">-119.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.011</field>
-  </row>
-
-  <row>
-	<field name="punkt">6095</field>
-	<field name="dist">550</field>
-	<field name="alpha">2.491</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">35.000</field>
-	<field name="O">-118.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.025</field>
-  </row>
-
-  <row>
-	<field name="punkt">6107</field>
-	<field name="dist">344</field>
-	<field name="alpha">1.314</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">35.000</field>
-	<field name="O">-112.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">6109</field>
-	<field name="dist">376</field>
-	<field name="alpha">1.087</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">35.000</field>
-	<field name="O">-111.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.112</field>
-  </row>
-
-  <row>
-	<field name="punkt">6113</field>
-	<field name="dist">483</field>
-	<field name="alpha">0.761</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">35.000</field>
-	<field name="O">-109.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.058</field>
-  </row>
-
-  <row>
-	<field name="punkt">6115</field>
-	<field name="dist">550</field>
-	<field name="alpha">0.651</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">35.000</field>
-	<field name="O">-108.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.025</field>
-  </row>
-
-  <row>
-	<field name="punkt">6139</field>
-	<field name="dist">855</field>
-	<field name="alpha">2.742</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.127</field>
-  </row>
-
-  <row>
-	<field name="punkt">6147</field>
-	<field name="dist">550</field>
-	<field name="alpha">2.491</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-92.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.025</field>
-  </row>
-
-  <row>
-	<field name="punkt">6151</field>
-	<field name="dist">424</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.088</field>
-  </row>
-
-  <row>
-	<field name="punkt">6159</field>
-	<field name="dist">344</field>
-	<field name="alpha">1.314</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-86.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">6161</field>
-	<field name="dist">376</field>
-	<field name="alpha">1.087</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.112</field>
-  </row>
-
-  <row>
-	<field name="punkt">6167</field>
-	<field name="dist">550</field>
-	<field name="alpha">0.651</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-82.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.025</field>
-  </row>
-
-  <row>
-	<field name="punkt">6169</field>
-	<field name="dist">622</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-81.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.011</field>
-  </row>
-
-  <row>
-	<field name="punkt">6171</field>
-	<field name="dist">697</field>
-	<field name="alpha">0.498</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.049</field>
-  </row>
-
-  <row>
-	<field name="punkt">6173</field>
-	<field name="dist">775</field>
-	<field name="alpha">0.444</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.088</field>
-  </row>
-
-  <row>
-	<field name="punkt">6177</field>
-	<field name="dist">936</field>
-	<field name="alpha">0.364</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">35.000</field>
-	<field name="O">-77.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.168</field>
-  </row>
-
-  <row>
-	<field name="punkt">6776</field>
-	<field name="dist">283</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">36.000</field>
-	<field name="O">-115.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.159</field>
-  </row>
-
-  <row>
-	<field name="punkt">6782</field>
-	<field name="dist">239</field>
-	<field name="alpha">1.195</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">36.000</field>
-	<field name="O">-112.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.181</field>
-  </row>
-
-  <row>
-	<field name="punkt">6794</field>
-	<field name="dist">651</field>
-	<field name="alpha">0.348</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">36.000</field>
-	<field name="O">-106.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.026</field>
-  </row>
-
-  <row>
-	<field name="punkt">6802</field>
-	<field name="dist">988</field>
-	<field name="alpha">0.227</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">36.000</field>
-	<field name="O">-102.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.194</field>
-  </row>
-
-  <row>
-	<field name="punkt">6812</field>
-	<field name="dist">903</field>
-	<field name="alpha">2.893</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.151</field>
-  </row>
-
-  <row>
-	<field name="punkt">6814</field>
-	<field name="dist">818</field>
-	<field name="alpha">2.867</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.109</field>
-  </row>
-
-  <row>
-	<field name="punkt">6818</field>
-	<field name="dist">651</field>
-	<field name="alpha">2.794</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-94.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.026</field>
-  </row>
-
-  <row>
-	<field name="punkt">6826</field>
-	<field name="dist">344</field>
-	<field name="alpha">2.440</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">6838</field>
-	<field name="dist">344</field>
-	<field name="alpha">0.702</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">6844</field>
-	<field name="dist">570</field>
-	<field name="alpha">0.400</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-81.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.015</field>
-  </row>
-
-  <row>
-	<field name="punkt">6846</field>
-	<field name="dist">651</field>
-	<field name="alpha">0.348</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.026</field>
-  </row>
-
-  <row>
-	<field name="punkt">6848</field>
-	<field name="dist">734</field>
-	<field name="alpha">0.307</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.067</field>
-  </row>
-
-  <row>
-	<field name="punkt">6850</field>
-	<field name="dist">818</field>
-	<field name="alpha">0.275</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">36.000</field>
-	<field name="O">-78.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.109</field>
-  </row>
-
-  <row>
-	<field name="punkt">7437</field>
-	<field name="dist">795</field>
-	<field name="alpha">3.002</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">37.000</field>
-	<field name="O">-122.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.098</field>
-  </row>
-
-  <row>
-	<field name="punkt">7441</field>
-	<field name="dist">622</field>
-	<field name="alpha">2.962</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">37.000</field>
-	<field name="O">-120.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.011</field>
-  </row>
-
-  <row>
-	<field name="punkt">7461</field>
-	<field name="dist">285</field>
-	<field name="alpha">0.400</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">37.000</field>
-	<field name="O">-110.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.158</field>
-  </row>
-
-  <row>
-	<field name="punkt">7465</field>
-	<field name="dist">451</field>
-	<field name="alpha">0.248</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">37.000</field>
-	<field name="O">-108.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.074</field>
-  </row>
-
-  <row>
-	<field name="punkt">7479</field>
-	<field name="dist">1056</field>
-	<field name="alpha">0.105</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">37.000</field>
-	<field name="O">-101.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.228</field>
-  </row>
-
-  <row>
-	<field name="punkt">7487</field>
-	<field name="dist">882</field>
-	<field name="alpha">3.015</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">37.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.141</field>
-  </row>
-
-  <row>
-	<field name="punkt">7501</field>
-	<field name="dist">285</field>
-	<field name="alpha">2.742</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">37.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.158</field>
-  </row>
-
-  <row>
-	<field name="punkt">7503</field>
-	<field name="dist">207</field>
-	<field name="alpha">2.576</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">37.000</field>
-	<field name="O">-89.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.196</field>
-  </row>
-
-  <row>
-	<field name="punkt">7513</field>
-	<field name="dist">285</field>
-	<field name="alpha">0.400</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">37.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.158</field>
-  </row>
-
-  <row>
-	<field name="punkt">7521</field>
-	<field name="dist">622</field>
-	<field name="alpha">0.179</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">37.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.011</field>
-  </row>
-
-  <row>
-	<field name="punkt">7523</field>
-	<field name="dist">709</field>
-	<field name="alpha">0.157</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">37.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.054</field>
-  </row>
-
-  <row>
-	<field name="punkt">8112</field>
-	<field name="dist">787</field>
-	<field name="alpha" xsi:nil="true" />
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-122.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.094</field>
-  </row>
-
-  <row>
-	<field name="punkt">8114</field>
-	<field name="dist">700</field>
-	<field name="alpha">3.142</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-121.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.050</field>
-  </row>
-
-  <row>
-	<field name="punkt">8122</field>
-	<field name="dist">350</field>
-	<field name="alpha">3.142</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-117.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.125</field>
-  </row>
-
-  <row>
-	<field name="punkt">8140</field>
-	<field name="dist">437</field>
-	<field name="alpha">0.000</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-108.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.081</field>
-  </row>
-
-  <row>
-	<field name="punkt">8150</field>
-	<field name="dist">875</field>
-	<field name="alpha">0.000</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.137</field>
-  </row>
-
-  <row>
-	<field name="punkt">8154</field>
-	<field name="dist">1050</field>
-	<field name="alpha">0.000</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-101.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.225</field>
-  </row>
-
-  <row>
-	<field name="punkt">8156</field>
-	<field name="dist">1137</field>
-	<field name="alpha" xsi:nil="true" />
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">38.000</field>
-	<field name="O">-100.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.269</field>
-  </row>
-
-  <row>
-	<field name="punkt">8160</field>
-	<field name="dist">962</field>
-	<field name="alpha">3.142</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-98.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.181</field>
-  </row>
-
-  <row>
-	<field name="punkt">8162</field>
-	<field name="dist">875</field>
-	<field name="alpha">3.142</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.137</field>
-  </row>
-
-  <row>
-	<field name="punkt">8178</field>
-	<field name="dist">175</field>
-	<field name="alpha">3.142</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-89.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.213</field>
-  </row>
-
-  <row>
-	<field name="punkt">8180</field>
-	<field name="dist">87</field>
-	<field name="alpha">3.142</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.256</field>
-  </row>
-
-  <row>
-	<field name="punkt">8182</field>
-	<field name="dist">0</field>
-	<field name="alpha" xsi:nil="true" />
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-87.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.300</field>
-  </row>
-
-  <row>
-	<field name="punkt">8184</field>
-	<field name="dist">87</field>
-	<field name="alpha">0.000</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-86.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.256</field>
-  </row>
-
-  <row>
-	<field name="punkt">8186</field>
-	<field name="dist">175</field>
-	<field name="alpha">0.000</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.213</field>
-  </row>
-
-  <row>
-	<field name="punkt">8194</field>
-	<field name="dist">525</field>
-	<field name="alpha">0.000</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">38.000</field>
-	<field name="O">-81.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.038</field>
-  </row>
-
-  <row>
-	<field name="punkt">8791</field>
-	<field name="dist">622</field>
-	<field name="alpha">2.962</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">39.000</field>
-	<field name="O">-120.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.011</field>
-  </row>
-
-  <row>
-	<field name="punkt">8817</field>
-	<field name="dist">537</field>
-	<field name="alpha">0.208</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">39.000</field>
-	<field name="O">-107.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.032</field>
-  </row>
-
-  <row>
-	<field name="punkt">8837</field>
-	<field name="dist">882</field>
-	<field name="alpha">3.015</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.141</field>
-  </row>
-
-  <row>
-	<field name="punkt">8839</field>
-	<field name="dist">795</field>
-	<field name="alpha">3.002</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.098</field>
-  </row>
-
-  <row>
-	<field name="punkt">8841</field>
-	<field name="dist">709</field>
-	<field name="alpha">2.984</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-95.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.054</field>
-  </row>
-
-  <row>
-	<field name="punkt">8847</field>
-	<field name="dist">451</field>
-	<field name="alpha">2.893</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-92.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.074</field>
-  </row>
-
-  <row>
-	<field name="punkt">8851</field>
-	<field name="dist">285</field>
-	<field name="alpha">2.742</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.158</field>
-  </row>
-
-  <row>
-	<field name="punkt">8855</field>
-	<field name="dist">141</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.229</field>
-  </row>
-
-  <row>
-	<field name="punkt">8861</field>
-	<field name="dist">207</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.196</field>
-  </row>
-
-  <row>
-	<field name="punkt">8863</field>
-	<field name="dist">285</field>
-	<field name="alpha">0.400</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.158</field>
-  </row>
-
-  <row>
-	<field name="punkt">8871</field>
-	<field name="dist">622</field>
-	<field name="alpha">0.179</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.011</field>
-  </row>
-
-  <row>
-	<field name="punkt">8877</field>
-	<field name="dist">882</field>
-	<field name="alpha">0.126</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">39.000</field>
-	<field name="O">-77.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.141</field>
-  </row>
-
-  <row>
-	<field name="punkt">9462</field>
-	<field name="dist">818</field>
-	<field name="alpha">2.867</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">40.000</field>
-	<field name="O">-122.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.109</field>
-  </row>
-
-  <row>
-	<field name="punkt">9466</field>
-	<field name="dist">651</field>
-	<field name="alpha">2.794</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">40.000</field>
-	<field name="O">-120.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.026</field>
-  </row>
-
-  <row>
-	<field name="punkt">9496</field>
-	<field name="dist">734</field>
-	<field name="alpha">0.307</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">40.000</field>
-	<field name="O">-105.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.067</field>
-  </row>
-
-  <row>
-	<field name="punkt">9500</field>
-	<field name="dist">903</field>
-	<field name="alpha">0.248</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">40.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.151</field>
-  </row>
-
-  <row>
-	<field name="punkt">9514</field>
-	<field name="dist">818</field>
-	<field name="alpha">2.867</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.109</field>
-  </row>
-
-  <row>
-	<field name="punkt">9516</field>
-	<field name="dist">734</field>
-	<field name="alpha">2.834</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-95.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.067</field>
-  </row>
-
-  <row>
-	<field name="punkt">9524</field>
-	<field name="dist">414</field>
-	<field name="alpha">2.576</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-91.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.093</field>
-  </row>
-
-  <row>
-	<field name="punkt">9528</field>
-	<field name="dist">283</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-89.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.159</field>
-  </row>
-
-  <row>
-	<field name="punkt">9530</field>
-	<field name="dist">239</field>
-	<field name="alpha">1.946</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.181</field>
-  </row>
-
-  <row>
-	<field name="punkt">9534</field>
-	<field name="dist">239</field>
-	<field name="alpha">1.195</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-86.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.181</field>
-  </row>
-
-  <row>
-	<field name="punkt">9538</field>
-	<field name="dist">344</field>
-	<field name="alpha">0.702</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">9540</field>
-	<field name="dist">414</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-83.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.093</field>
-  </row>
-
-  <row>
-	<field name="punkt">9546</field>
-	<field name="dist">651</field>
-	<field name="alpha">0.348</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.026</field>
-  </row>
-
-  <row>
-	<field name="punkt">9552</field>
-	<field name="dist">903</field>
-	<field name="alpha">0.248</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">40.000</field>
-	<field name="O">-77.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.151</field>
-  </row>
-
-  <row>
-	<field name="punkt">10133</field>
-	<field name="dist">1018</field>
-	<field name="alpha">2.808</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">41.000</field>
-	<field name="O">-124.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.209</field>
-  </row>
-
-  <row>
-	<field name="punkt">10149</field>
-	<field name="dist">424</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">41.000</field>
-	<field name="O">-116.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.088</field>
-  </row>
-
-  <row>
-	<field name="punkt">10157</field>
-	<field name="dist">344</field>
-	<field name="alpha">1.314</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">41.000</field>
-	<field name="O">-112.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">10171</field>
-	<field name="dist">775</field>
-	<field name="alpha">0.444</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">41.000</field>
-	<field name="O">-105.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.088</field>
-  </row>
-
-  <row>
-	<field name="punkt">10175</field>
-	<field name="dist">936</field>
-	<field name="alpha">0.364</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">41.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.168</field>
-  </row>
-
-  <row>
-	<field name="punkt">10179</field>
-	<field name="dist">1101</field>
-	<field name="alpha">0.307</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">41.000</field>
-	<field name="O">-101.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.251</field>
-  </row>
-
-  <row>
-	<field name="punkt">10185</field>
-	<field name="dist">1018</field>
-	<field name="alpha">2.808</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-98.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.209</field>
-  </row>
-
-  <row>
-	<field name="punkt">10187</field>
-	<field name="dist">936</field>
-	<field name="alpha">2.778</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.168</field>
-  </row>
-
-  <row>
-	<field name="punkt">10189</field>
-	<field name="dist">855</field>
-	<field name="alpha">2.742</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-96.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.127</field>
-  </row>
-
-  <row>
-	<field name="punkt">10199</field>
-	<field name="dist">483</field>
-	<field name="alpha">2.381</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-91.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.058</field>
-  </row>
-
-  <row>
-	<field name="punkt">10205</field>
-	<field name="dist">344</field>
-	<field name="alpha">1.828</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">10209</field>
-	<field name="dist">344</field>
-	<field name="alpha">1.314</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-86.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.128</field>
-  </row>
-
-  <row>
-	<field name="punkt">10211</field>
-	<field name="dist">376</field>
-	<field name="alpha">1.087</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.112</field>
-  </row>
-
-  <row>
-	<field name="punkt">10213</field>
-	<field name="dist">424</field>
-	<field name="alpha">0.903</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.088</field>
-  </row>
-
-  <row>
-	<field name="punkt">10221</field>
-	<field name="dist">697</field>
-	<field name="alpha">0.498</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.049</field>
-  </row>
-
-  <row>
-	<field name="punkt">10223</field>
-	<field name="dist">775</field>
-	<field name="alpha">0.444</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.088</field>
-  </row>
-
-  <row>
-	<field name="punkt">10225</field>
-	<field name="dist">855</field>
-	<field name="alpha">0.400</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-78.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.127</field>
-  </row>
-
-  <row>
-	<field name="punkt">10227</field>
-	<field name="dist">936</field>
-	<field name="alpha">0.364</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">41.000</field>
-	<field name="O">-77.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.168</field>
-  </row>
-
-  <row>
-	<field name="punkt">10812</field>
-	<field name="dist">904</field>
-	<field name="alpha">2.628</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">42.000</field>
-	<field name="O">-122.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.152</field>
-  </row>
-
-  <row>
-	<field name="punkt">10832</field>
-	<field name="dist">453</field>
-	<field name="alpha">1.376</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">42.000</field>
-	<field name="O">-112.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.074</field>
-  </row>
-
-  <row>
-	<field name="punkt">10842</field>
-	<field name="dist">688</field>
-	<field name="alpha">0.702</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">42.000</field>
-	<field name="O">-107.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
-  </row>
-
-  <row>
-	<field name="punkt">10850</field>
-	<field name="dist">981</field>
-	<field name="alpha">0.470</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">42.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.191</field>
-  </row>
-
-  <row>
-	<field name="punkt">10870</field>
-	<field name="dist">688</field>
-	<field name="alpha">2.440</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-93.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.044</field>
-  </row>
-
-  <row>
-	<field name="punkt">10872</field>
-	<field name="dist">623</field>
-	<field name="alpha">2.349</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-92.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.012</field>
-  </row>
-
-  <row>
-	<field name="punkt">10878</field>
-	<field name="dist">477</field>
-	<field name="alpha">1.946</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-89.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.061</field>
-  </row>
-
-  <row>
-	<field name="punkt">10880</field>
-	<field name="dist">453</field>
-	<field name="alpha">1.765</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.074</field>
-  </row>
-
-  <row>
-	<field name="punkt">10886</field>
-	<field name="dist">477</field>
-	<field name="alpha">1.195</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-85.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.061</field>
-  </row>
-
-  <row>
-	<field name="punkt">10888</field>
-	<field name="dist">516</field>
-	<field name="alpha">1.037</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.042</field>
-  </row>
-
-  <row>
-	<field name="punkt">10896</field>
-	<field name="dist">756</field>
-	<field name="alpha">0.627</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-80.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.078</field>
-  </row>
-
-  <row>
-	<field name="punkt">10898</field>
-	<field name="dist">829</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.114</field>
-  </row>
-
-  <row>
-	<field name="punkt">10902</field>
-	<field name="dist">981</field>
-	<field name="alpha">0.470</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">42.000</field>
-	<field name="O">-77.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.191</field>
-  </row>
-
-  <row>
-	<field name="punkt">11499</field>
-	<field name="dist">614</field>
-	<field name="alpha">2.013</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">43.000</field>
-	<field name="O">-116.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.007</field>
-  </row>
-
-  <row>
-	<field name="punkt">11505</field>
-	<field name="dist">555</field>
-	<field name="alpha">1.571</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">43.000</field>
-	<field name="O">-113.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.022</field>
-  </row>
-
-  <row>
-	<field name="punkt">11519</field>
-	<field name="dist">827</field>
-	<field name="alpha">0.736</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">43.000</field>
-	<field name="O">-106.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.113</field>
-  </row>
-
-  <row>
-	<field name="punkt">11521</field>
-	<field name="dist">893</field>
-	<field name="alpha">0.670</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">43.000</field>
-	<field name="O">-105.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.147</field>
-  </row>
-
-  <row>
-	<field name="punkt">11525</field>
-	<field name="dist">1036</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">43.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.218</field>
-  </row>
-
-  <row>
-	<field name="punkt">11541</field>
-	<field name="dist">893</field>
-	<field name="alpha">2.471</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-95.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.147</field>
-  </row>
-
-  <row>
-	<field name="punkt">11543</field>
-	<field name="dist">827</field>
-	<field name="alpha">2.405</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-94.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.113</field>
-  </row>
-
-  <row>
-	<field name="punkt">11545</field>
-	<field name="dist">764</field>
-	<field name="alpha">2.328</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-93.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.082</field>
-  </row>
-
-  <row>
-	<field name="punkt">11551</field>
-	<field name="dist">614</field>
-	<field name="alpha">2.013</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.007</field>
-  </row>
-
-  <row>
-	<field name="punkt">11555</field>
-	<field name="dist">562</field>
-	<field name="alpha">1.727</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.019</field>
-  </row>
-
-  <row>
-	<field name="punkt">11559</field>
-	<field name="dist">562</field>
-	<field name="alpha">1.414</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-86.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">-0.019</field>
-  </row>
-
-  <row>
-	<field name="punkt">11563</field>
-	<field name="dist">614</field>
-	<field name="alpha">1.129</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.007</field>
-  </row>
-
-  <row>
-	<field name="punkt">11573</field>
-	<field name="dist">893</field>
-	<field name="alpha">0.670</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-79.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.147</field>
-  </row>
-
-  <row>
-	<field name="punkt">11575</field>
-	<field name="dist">963</field>
-	<field name="alpha">0.614</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-78.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.182</field>
-  </row>
-
-  <row>
-	<field name="punkt">11577</field>
-	<field name="dist">1036</field>
-	<field name="alpha">0.565</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">43.000</field>
-	<field name="O">-77.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.218</field>
-  </row>
-
-  <row>
-	<field name="punkt">12160</field>
-	<field name="dist">1100</field>
-	<field name="alpha">2.491</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">44.000</field>
-	<field name="O">-123.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.250</field>
-  </row>
-
-  <row>
-	<field name="punkt">12164</field>
-	<field name="dist">966</field>
-	<field name="alpha">2.381</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">44.000</field>
-	<field name="O">-121.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.183</field>
-  </row>
-
-  <row>
-	<field name="punkt">12172</field>
-	<field name="dist">752</field>
-	<field name="alpha">2.055</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">44.000</field>
-	<field name="O">-117.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.076</field>
-  </row>
-
-  <row>
-	<field name="punkt">12190</field>
-	<field name="dist">797</field>
-	<field name="alpha">0.990</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">44.000</field>
-	<field name="O">-108.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.098</field>
-  </row>
-
-  <row>
-	<field name="punkt">12198</field>
-	<field name="dist">1031</field>
-	<field name="alpha">0.702</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">44.000</field>
-	<field name="O">-104.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.216</field>
-  </row>
-
-  <row>
-	<field name="punkt">12200</field>
-	<field name="dist">1100</field>
-	<field name="alpha">0.651</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">44.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.250</field>
-  </row>
-
-  <row>
-	<field name="punkt">12216</field>
-	<field name="dist">966</field>
-	<field name="alpha">2.381</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">44.000</field>
-	<field name="O">-95.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.183</field>
-  </row>
-
-  <row>
-	<field name="punkt">12224</field>
-	<field name="dist">752</field>
-	<field name="alpha">2.055</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">44.000</field>
-	<field name="O">-91.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.076</field>
-  </row>
-
-  <row>
-	<field name="punkt">12226</field>
-	<field name="dist">716</field>
-	<field name="alpha">1.946</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">44.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.058</field>
-  </row>
-
-  <row>
-	<field name="punkt">12230</field>
-	<field name="dist">672</field>
-	<field name="alpha">1.701</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">44.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.036</field>
-  </row>
-
-  <row>
-	<field name="punkt">12835</field>
-	<field name="dist">1170</field>
-	<field name="alpha">2.415</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">45.000</field>
-	<field name="O">-123.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.285</field>
-  </row>
-
-  <row>
-	<field name="punkt">12849</field>
-	<field name="dist">820</field>
-	<field name="alpha">1.897</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">45.000</field>
-	<field name="O">-116.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.110</field>
-  </row>
-
-  <row>
-	<field name="punkt">12853</field>
-	<field name="dist">782</field>
-	<field name="alpha">1.683</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">45.000</field>
-	<field name="O">-114.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.091</field>
-  </row>
-
-  <row>
-	<field name="punkt">12867</field>
-	<field name="dist">938</field>
-	<field name="alpha">0.977</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">45.000</field>
-	<field name="O">-107.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.169</field>
-  </row>
-
-  <row>
-	<field name="punkt">12887</field>
-	<field name="dist">1170</field>
-	<field name="alpha">2.415</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">45.000</field>
-	<field name="O">-97.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.285</field>
-  </row>
-
-  <row>
-	<field name="punkt">12895</field>
-	<field name="dist">938</field>
-	<field name="alpha">2.165</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">45.000</field>
-	<field name="O">-93.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.169</field>
-  </row>
-
-  <row>
-	<field name="punkt">13508</field>
-	<field name="dist">1309</field>
-	<field name="alpha">2.396</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">46.000</field>
-	<field name="O">-124.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.355</field>
-  </row>
-
-  <row>
-	<field name="punkt">13510</field>
-	<field name="dist">1247</field>
-	<field name="alpha">2.349</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">46.000</field>
-	<field name="O">-123.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.323</field>
-  </row>
-
-  <row>
-	<field name="punkt">13516</field>
-	<field name="dist">1079</field>
-	<field name="alpha">2.175</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">46.000</field>
-	<field name="O">-120.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.239</field>
-  </row>
-
-  <row>
-	<field name="punkt">13520</field>
-	<field name="dist">990</field>
-	<field name="alpha">2.029</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">46.000</field>
-	<field name="O">-118.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.195</field>
-  </row>
-
-  <row>
-	<field name="punkt">13534</field>
-	<field name="dist">905</field>
-	<field name="alpha">1.376</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">46.000</field>
-	<field name="O">-111.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.153</field>
-  </row>
-
-  <row>
-	<field name="punkt">13536</field>
-	<field name="dist">926</field>
-	<field name="alpha">1.283</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">46.000</field>
-	<field name="O">-110.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.163</field>
-  </row>
-
-  <row>
-	<field name="punkt">13576</field>
-	<field name="dist">926</field>
-	<field name="alpha">1.858</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">46.000</field>
-	<field name="O">-90.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.163</field>
-  </row>
-
-  <row>
-	<field name="punkt">13578</field>
-	<field name="dist">905</field>
-	<field name="alpha">1.765</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">46.000</field>
-	<field name="O">-89.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.153</field>
-  </row>
-
-  <row>
-	<field name="punkt">13580</field>
-	<field name="dist">892</field>
-	<field name="alpha">1.669</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">46.000</field>
-	<field name="O">-88.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.146</field>
-  </row>
-
-  <row>
-	<field name="punkt">13588</field>
-	<field name="dist">926</field>
-	<field name="alpha">1.283</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">46.000</field>
-	<field name="O">-84.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.163</field>
-  </row>
-
-  <row>
-	<field name="punkt">14183</field>
-	<field name="dist">1387</field>
-	<field name="alpha">2.338</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-124.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.394</field>
-  </row>
-
-  <row>
-	<field name="punkt">14185</field>
-	<field name="dist">1328</field>
-	<field name="alpha">2.290</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-123.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.364</field>
-  </row>
-
-  <row>
-	<field name="punkt">14187</field>
-	<field name="dist">1272</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-122.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.336</field>
-  </row>
-
-  <row>
-	<field name="punkt">14193</field>
-	<field name="dist">1129</field>
-	<field name="alpha">2.055</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-119.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.264</field>
-  </row>
-
-  <row>
-	<field name="punkt">14197</field>
-	<field name="dist">1059</field>
-	<field name="alpha">1.908</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-117.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.229</field>
-  </row>
-
-  <row>
-	<field name="punkt">14203</field>
-	<field name="dist">1003</field>
-	<field name="alpha">1.658</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-114.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.201</field>
-  </row>
-
-  <row>
-	<field name="punkt">14221</field>
-	<field name="dist">1220</field>
-	<field name="alpha">0.960</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-105.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.310</field>
-  </row>
-
-  <row>
-	<field name="punkt">14225</field>
-	<field name="dist">1328</field>
-	<field name="alpha">0.852</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-103.000</field>
-	<field name="radius">30000</field>
-	<field name="fi">0.364</field>
-  </row>
-
-  <row>
-	<field name="punkt">14229</field>
-	<field name="dist">1449</field>
-	<field name="alpha">0.761</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">47.000</field>
-	<field name="O">-101.000</field>
 	<field name="radius">30000</field>
 	<field name="fi">0.425</field>
   </row>
 
   <row>
-	<field name="punkt">14237</field>
-	<field name="dist">1328</field>
-	<field name="alpha">2.290</field>
+	<field name="punkt">4136</field>
+	<field name="dist">1550</field>
+	<field name="alpha">1.149</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
-	<field name="N">47.000</field>
-	<field name="O">-97.000</field>
+	<field name="N">32.000</field>
+	<field name="O">-85.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.364</field>
+	<field name="fi">0.475</field>
   </row>
 
   <row>
-	<field name="punkt">14247</field>
-	<field name="dist">1091</field>
-	<field name="alpha">1.984</field>
+	<field name="punkt">4138</field>
+	<field name="dist">1584</field>
+	<field name="alpha">1.104</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
-	<field name="N">47.000</field>
-	<field name="O">-92.000</field>
+	<field name="N">32.000</field>
+	<field name="O">-84.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.245</field>
+	<field name="fi">0.492</field>
   </row>
 
   <row>
-	<field name="punkt">14862</field>
-	<field name="dist">1361</field>
-	<field name="alpha">2.188</field>
-	<field name="farbe">rgba(0,204,255,0.31)</field>
-	<field name="Region">East (Blue)</field>
-	<field name="N">48.000</field>
-	<field name="O">-122.000</field>
+	<field name="punkt">4144</field>
+	<field name="dist">1703</field>
+	<field name="alpha">0.979</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">32.000</field>
+	<field name="O">-81.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.380</field>
+	<field name="fi">0.552</field>
   </row>
 
   <row>
-	<field name="punkt">14872</field>
-	<field name="dist">1164</field>
-	<field name="alpha">1.876</field>
+	<field name="punkt">4747</field>
+	<field name="dist">1965</field>
+	<field name="alpha">2.243</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
-	<field name="N">48.000</field>
+	<field name="N">33.000</field>
 	<field name="O">-117.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.282</field>
+	<field name="fi">0.683</field>
   </row>
 
   <row>
-	<field name="punkt">14904</field>
-	<field name="dist">1528</field>
-	<field name="alpha">0.813</field>
+	<field name="punkt">4757</field>
+	<field name="dist">1754</field>
+	<field name="alpha">2.073</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
-	<field name="N">48.000</field>
-	<field name="O">-101.000</field>
+	<field name="N">33.000</field>
+	<field name="O">-112.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.464</field>
+	<field name="fi">0.577</field>
   </row>
 
   <row>
-	<field name="punkt">14912</field>
-	<field name="dist">1413</field>
-	<field name="alpha">2.238</field>
-	<field name="farbe">rgba(105,105,105,0.6)</field>
-	<field name="Region">West (Grey)</field>
-	<field name="N">48.000</field>
-	<field name="O">-97.000</field>
+	<field name="punkt">4769</field>
+	<field name="dist">1586</field>
+	<field name="alpha">1.819</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">33.000</field>
+	<field name="O">-106.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.407</field>
+	<field name="fi">0.493</field>
   </row>
 
   <row>
-	<field name="punkt">14914</field>
+	<field name="punkt">4785</field>
 	<field name="dist">1361</field>
-	<field name="alpha">2.188</field>
+	<field name="alpha">1.862</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
-	<field name="N">48.000</field>
-	<field name="O">-96.000</field>
+	<field name="N">33.000</field>
+	<field name="O">-98.000</field>
 	<field name="radius">30000</field>
 	<field name="fi">0.380</field>
   </row>
 
   <row>
-	<field name="punkt">14922</field>
-	<field name="dist">1193</field>
-	<field name="alpha">1.946</field>
+	<field name="punkt">4787</field>
+	<field name="dist">1340</field>
+	<field name="alpha">1.806</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
-	<field name="N">48.000</field>
+	<field name="N">33.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.370</field>
+  </row>
+
+  <row>
+	<field name="punkt">4789</field>
+	<field name="dist">1324</field>
+	<field name="alpha">1.748</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">33.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.362</field>
+  </row>
+
+  <row>
+	<field name="punkt">4807</field>
+	<field name="dist">1387</field>
+	<field name="alpha">1.220</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">33.000</field>
+	<field name="O">-87.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.394</field>
+  </row>
+
+  <row>
+	<field name="punkt">4811</field>
+	<field name="dist">1449</field>
+	<field name="alpha">1.118</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">33.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.425</field>
+  </row>
+
+  <row>
+	<field name="punkt">4815</field>
+	<field name="dist">1525</field>
+	<field name="alpha">1.025</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">33.000</field>
+	<field name="O">-83.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.462</field>
+  </row>
+
+  <row>
+	<field name="punkt">4821</field>
+	<field name="dist">1660</field>
+	<field name="alpha">0.903</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">33.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.530</field>
+  </row>
+
+  <row>
+	<field name="punkt">5418</field>
+	<field name="dist">1982</field>
+	<field name="alpha">2.338</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">34.000</field>
+	<field name="O">-119.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.691</field>
+  </row>
+
+  <row>
+	<field name="punkt">5420</field>
+	<field name="dist">1930</field>
+	<field name="alpha">2.310</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">34.000</field>
+	<field name="O">-118.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.665</field>
+  </row>
+
+  <row>
+	<field name="punkt">5422</field>
+	<field name="dist">1880</field>
+	<field name="alpha">2.280</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">34.000</field>
+	<field name="O">-117.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.640</field>
+  </row>
+
+  <row>
+	<field name="punkt">5430</field>
+	<field name="dist">1698</field>
+	<field name="alpha">2.144</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">34.000</field>
+	<field name="O">-113.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.549</field>
+  </row>
+
+  <row>
+	<field name="punkt">5432</field>
+	<field name="dist">1658</field>
+	<field name="alpha">2.105</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">34.000</field>
+	<field name="O">-112.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.529</field>
+  </row>
+
+  <row>
+	<field name="punkt">5436</field>
+	<field name="dist">1586</field>
+	<field name="alpha">2.023</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">34.000</field>
+	<field name="O">-110.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.493</field>
+  </row>
+
+  <row>
+	<field name="punkt">5472</field>
+	<field name="dist">1195</field>
+	<field name="alpha">1.502</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
 	<field name="O">-92.000</field>
 	<field name="radius">30000</field>
 	<field name="fi">0.297</field>
   </row>
 
   <row>
-	<field name="punkt">15535</field>
-	<field name="dist">1502</field>
-	<field name="alpha">2.193</field>
+	<field name="punkt">5484</field>
+	<field name="dist">1315</field>
+	<field name="alpha">1.135</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
+	<field name="O">-86.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.358</field>
+  </row>
+
+  <row>
+	<field name="punkt">5486</field>
+	<field name="dist">1350</field>
+	<field name="alpha">1.082</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.375</field>
+  </row>
+
+  <row>
+	<field name="punkt">5488</field>
+	<field name="dist">1389</field>
+	<field name="alpha">1.032</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.395</field>
+  </row>
+
+  <row>
+	<field name="punkt">5492</field>
+	<field name="dist">1476</field>
+	<field name="alpha">0.940</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
+	<field name="O">-82.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.438</field>
+  </row>
+
+  <row>
+	<field name="punkt">5494</field>
+	<field name="dist">1524</field>
+	<field name="alpha">0.898</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
+	<field name="O">-81.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.462</field>
+  </row>
+
+  <row>
+	<field name="punkt">5498</field>
+	<field name="dist">1627</field>
+	<field name="alpha">0.822</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">34.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.514</field>
+  </row>
+
+  <row>
+	<field name="punkt">6095</field>
+	<field name="dist">1850</field>
+	<field name="alpha">2.350</field>
 	<field name="farbe">rgba(0,204,255,0.31)</field>
 	<field name="Region">East (Blue)</field>
-	<field name="N">49.000</field>
+	<field name="N">35.000</field>
+	<field name="O">-118.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.625</field>
+  </row>
+
+  <row>
+	<field name="punkt">6107</field>
+	<field name="dist">1563</field>
+	<field name="alpha">2.142</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">35.000</field>
+	<field name="O">-112.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.482</field>
+  </row>
+
+  <row>
+	<field name="punkt">6109</field>
+	<field name="dist">1523</field>
+	<field name="alpha">2.100</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">35.000</field>
+	<field name="O">-111.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.462</field>
+  </row>
+
+  <row>
+	<field name="punkt">6113</field>
+	<field name="dist">1453</field>
+	<field name="alpha">2.009</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">35.000</field>
+	<field name="O">-109.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.426</field>
+  </row>
+
+  <row>
+	<field name="punkt">6115</field>
+	<field name="dist">1422</field>
+	<field name="alpha">1.961</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">35.000</field>
+	<field name="O">-108.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.411</field>
+  </row>
+
+  <row>
+	<field name="punkt">6139</field>
+	<field name="dist">1106</field>
+	<field name="alpha">1.783</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.253</field>
+  </row>
+
+  <row>
+	<field name="punkt">6147</field>
+	<field name="dist">1084</field>
+	<field name="alpha">1.495</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-92.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.242</field>
+  </row>
+
+  <row>
+	<field name="punkt">6151</field>
+	<field name="dist">1107</field>
+	<field name="alpha">1.353</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-90.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.254</field>
+  </row>
+
+  <row>
+	<field name="punkt">6159</field>
+	<field name="dist">1215</field>
+	<field name="alpha">1.096</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-86.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.308</field>
+  </row>
+
+  <row>
+	<field name="punkt">6161</field>
+	<field name="dist">1253</field>
+	<field name="alpha">1.040</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.327</field>
+  </row>
+
+  <row>
+	<field name="punkt">6167</field>
+	<field name="dist">1388</field>
+	<field name="alpha">0.893</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-82.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.394</field>
+  </row>
+
+  <row>
+	<field name="punkt">6169</field>
+	<field name="dist">1439</field>
+	<field name="alpha">0.850</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-81.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.419</field>
+  </row>
+
+  <row>
+	<field name="punkt">6171</field>
+	<field name="dist">1492</field>
+	<field name="alpha">0.810</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.446</field>
+  </row>
+
+  <row>
+	<field name="punkt">6173</field>
+	<field name="dist">1548</field>
+	<field name="alpha">0.773</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.474</field>
+  </row>
+
+  <row>
+	<field name="punkt">6177</field>
+	<field name="dist">1664</field>
+	<field name="alpha">0.707</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">35.000</field>
+	<field name="O">-77.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.532</field>
+  </row>
+
+  <row>
+	<field name="punkt">6776</field>
+	<field name="dist">1613</field>
+	<field name="alpha">2.298</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">36.000</field>
+	<field name="O">-115.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.506</field>
+  </row>
+
+  <row>
+	<field name="punkt">6782</field>
+	<field name="dist">1471</field>
+	<field name="alpha">2.182</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">36.000</field>
+	<field name="O">-112.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.435</field>
+  </row>
+
+  <row>
+	<field name="punkt">6794</field>
+	<field name="dist">1266</field>
+	<field name="alpha">1.883</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">36.000</field>
+	<field name="O">-106.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.333</field>
+  </row>
+
+  <row>
+	<field name="punkt">6812</field>
+	<field name="dist">1019</field>
+	<field name="alpha">1.882</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.210</field>
+  </row>
+
+  <row>
+	<field name="punkt">6814</field>
+	<field name="dist">998</field>
+	<field name="alpha">1.807</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.199</field>
+  </row>
+
+  <row>
+	<field name="punkt">6818</field>
+	<field name="dist">973</field>
+	<field name="alpha">1.649</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-94.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.187</field>
+  </row>
+
+  <row>
+	<field name="punkt">6826</field>
+	<field name="dist">999</field>
+	<field name="alpha">1.328</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-90.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.200</field>
+  </row>
+
+  <row>
+	<field name="punkt">6838</field>
+	<field name="dist">1204</field>
+	<field name="alpha">0.937</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.302</field>
+  </row>
+
+  <row>
+	<field name="punkt">6844</field>
+	<field name="dist">1358</field>
+	<field name="alpha">0.796</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-81.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.379</field>
+  </row>
+
+  <row>
+	<field name="punkt">6846</field>
+	<field name="dist">1414</field>
+	<field name="alpha">0.756</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.407</field>
+  </row>
+
+  <row>
+	<field name="punkt">6848</field>
+	<field name="dist">1472</field>
+	<field name="alpha">0.719</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.436</field>
+  </row>
+
+  <row>
+	<field name="punkt">6850</field>
+	<field name="dist">1532</field>
+	<field name="alpha">0.686</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">36.000</field>
+	<field name="O">-78.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.466</field>
+  </row>
+
+  <row>
+	<field name="punkt">7441</field>
+	<field name="dist">1818</field>
+	<field name="alpha">2.496</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">37.000</field>
+	<field name="O">-120.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.609</field>
+  </row>
+
+  <row>
+	<field name="punkt">7461</field>
+	<field name="dist">1294</field>
+	<field name="alpha">2.135</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">37.000</field>
+	<field name="O">-110.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.347</field>
+  </row>
+
+  <row>
+	<field name="punkt">7465</field>
+	<field name="dist">1220</field>
+	<field name="alpha">2.030</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">37.000</field>
+	<field name="O">-108.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.310</field>
+  </row>
+
+  <row>
+	<field name="punkt">7479</field>
+	<field name="dist">1093</field>
+	<field name="alpha">1.579</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">37.000</field>
+	<field name="O">-101.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.247</field>
+  </row>
+
+  <row>
+	<field name="punkt">7487</field>
+	<field name="dist">914</field>
+	<field name="alpha">1.919</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">37.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.157</field>
+  </row>
+
+  <row>
+	<field name="punkt">7503</field>
+	<field name="dist">916</field>
+	<field name="alpha">1.216</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">37.000</field>
+	<field name="O">-89.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.158</field>
+  </row>
+
+  <row>
+	<field name="punkt">7513</field>
+	<field name="dist">1116</field>
+	<field name="alpha">0.878</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">37.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.258</field>
+  </row>
+
+  <row>
+	<field name="punkt">7523</field>
+	<field name="dist">1402</field>
+	<field name="alpha">0.660</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">37.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.401</field>
+  </row>
+
+  <row>
+	<field name="punkt">8112</field>
+	<field name="dist">1881</field>
+	<field name="alpha">2.592</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-122.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.640</field>
+  </row>
+
+  <row>
+	<field name="punkt">8114</field>
+	<field name="dist">1817</field>
+	<field name="alpha">2.570</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-121.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.608</field>
+  </row>
+
+  <row>
+	<field name="punkt">8122</field>
+	<field name="dist">1570</field>
+	<field name="alpha">2.465</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-117.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.485</field>
+  </row>
+
+  <row>
+	<field name="punkt">8140</field>
+	<field name="dist">1121</field>
+	<field name="alpha">2.074</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-108.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.261</field>
+  </row>
+
+  <row>
+	<field name="punkt">8150</field>
+	<field name="dist">995</field>
+	<field name="alpha">1.733</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.198</field>
+  </row>
+
+  <row>
+	<field name="punkt">8154</field>
+	<field name="dist">982</field>
+	<field name="alpha">1.580</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-101.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.191</field>
+  </row>
+
+  <row>
+	<field name="punkt">8156</field>
+	<field name="dist">985</field>
+	<field name="alpha">1.503</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">38.000</field>
+	<field name="O">-100.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.192</field>
+  </row>
+
+  <row>
+	<field name="punkt">8160</field>
+	<field name="dist">844</field>
+	<field name="alpha">2.053</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">38.000</field>
+	<field name="O">-98.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.122</field>
+  </row>
+
+  <row>
+	<field name="punkt">8162</field>
+	<field name="dist">811</field>
+	<field name="alpha">1.966</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">38.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.105</field>
+  </row>
+
+  <row>
+	<field name="punkt">8178</field>
+	<field name="dist">813</field>
+	<field name="alpha">1.168</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">38.000</field>
+	<field name="O">-89.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.107</field>
+  </row>
+
+  <row>
+	<field name="punkt">8184</field>
+	<field name="dist">932</field>
+	<field name="alpha">0.932</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">38.000</field>
+	<field name="O">-86.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.166</field>
+  </row>
+
+  <row>
+	<field name="punkt">8186</field>
+	<field name="dist">981</field>
+	<field name="alpha">0.868</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">38.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.190</field>
+  </row>
+
+  <row>
+	<field name="punkt">8194</field>
+	<field name="dist">1209</field>
+	<field name="alpha">0.667</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">38.000</field>
+	<field name="O">-81.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.304</field>
+  </row>
+
+  <row>
+	<field name="punkt">8791</field>
+	<field name="dist">1693</field>
+	<field name="alpha">2.601</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">39.000</field>
+	<field name="O">-120.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.547</field>
+  </row>
+
+  <row>
+	<field name="punkt">8817</field>
+	<field name="dist">988</field>
+	<field name="alpha">2.061</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">39.000</field>
+	<field name="O">-107.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.194</field>
+  </row>
+
+  <row>
+	<field name="punkt">8837</field>
+	<field name="dist">710</field>
+	<field name="alpha">2.027</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.055</field>
+  </row>
+
+  <row>
+	<field name="punkt">8839</field>
+	<field name="dist">679</field>
+	<field name="alpha">1.922</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.039</field>
+  </row>
+
+  <row>
+	<field name="punkt">8841</field>
+	<field name="dist">656</field>
+	<field name="alpha">1.809</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-95.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.028</field>
+  </row>
+
+  <row>
+	<field name="punkt">8847</field>
+	<field name="dist">642</field>
+	<field name="alpha">1.443</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-92.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.021</field>
+  </row>
+
+  <row>
+	<field name="punkt">8861</field>
+	<field name="dist">899</field>
+	<field name="alpha">0.788</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.149</field>
+  </row>
+
+  <row>
+	<field name="punkt">8863</field>
+	<field name="dist">956</field>
+	<field name="alpha">0.729</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.178</field>
+  </row>
+
+  <row>
+	<field name="punkt">8871</field>
+	<field name="dist">1210</field>
+	<field name="alpha">0.555</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.305</field>
+  </row>
+
+  <row>
+	<field name="punkt">8877</field>
+	<field name="dist">1417</field>
+	<field name="alpha">0.467</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">39.000</field>
+	<field name="O">-77.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.408</field>
+  </row>
+
+  <row>
+	<field name="punkt">9462</field>
+	<field name="dist">1775</field>
+	<field name="alpha">2.699</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">40.000</field>
+	<field name="O">-122.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.588</field>
+  </row>
+
+  <row>
+	<field name="punkt">9496</field>
+	<field name="dist">822</field>
+	<field name="alpha">1.961</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">40.000</field>
+	<field name="O">-105.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.111</field>
+  </row>
+
+  <row>
+	<field name="punkt">9500</field>
+	<field name="dist">777</field>
+	<field name="alpha">1.779</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">40.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.089</field>
+  </row>
+
+  <row>
+	<field name="punkt">9514</field>
+	<field name="dist">576</field>
+	<field name="alpha">1.988</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.012</field>
+  </row>
+
+  <row>
+	<field name="punkt">9516</field>
+	<field name="dist">548</field>
+	<field name="alpha">1.857</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-95.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.026</field>
+  </row>
+
+  <row>
+	<field name="punkt">9524</field>
+	<field name="dist">550</field>
+	<field name="alpha">1.274</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-91.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.025</field>
+  </row>
+
+  <row>
+	<field name="punkt">9528</field>
+	<field name="dist">615</field>
+	<field name="alpha">1.026</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-89.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.008</field>
+  </row>
+
+  <row>
+	<field name="punkt">9530</field>
+	<field name="dist">659</field>
+	<field name="alpha">0.924</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-88.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.030</field>
+  </row>
+
+  <row>
+	<field name="punkt">9534</field>
+	<field name="dist">765</field>
+	<field name="alpha">0.758</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-86.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.082</field>
+  </row>
+
+  <row>
+	<field name="punkt">9538</field>
+	<field name="dist">886</field>
+	<field name="alpha">0.636</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.143</field>
+  </row>
+
+  <row>
+	<field name="punkt">9540</field>
+	<field name="dist">951</field>
+	<field name="alpha">0.586</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-83.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.175</field>
+  </row>
+
+  <row>
+	<field name="punkt">9546</field>
+	<field name="dist">1155</field>
+	<field name="alpha">0.473</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.278</field>
+  </row>
+
+  <row>
+	<field name="punkt">9552</field>
+	<field name="dist">1370</field>
+	<field name="alpha">0.394</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">40.000</field>
+	<field name="O">-77.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.385</field>
+  </row>
+
+  <row>
+	<field name="punkt">10133</field>
+	<field name="dist">1872</field>
+	<field name="alpha">2.787</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">41.000</field>
+	<field name="O">-124.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.636</field>
+  </row>
+
+  <row>
+	<field name="punkt">10149</field>
+	<field name="dist">1319</field>
+	<field name="alpha">2.627</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">41.000</field>
+	<field name="O">-116.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.360</field>
+  </row>
+
+  <row>
+	<field name="punkt">10157</field>
+	<field name="dist">1065</field>
+	<field name="alpha">2.486</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">41.000</field>
+	<field name="O">-112.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.233</field>
+  </row>
+
+  <row>
+	<field name="punkt">10171</field>
+	<field name="dist">721</field>
+	<field name="alpha">2.020</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">41.000</field>
+	<field name="O">-105.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.060</field>
+  </row>
+
+  <row>
+	<field name="punkt">10175</field>
+	<field name="dist">669</field>
+	<field name="alpha">1.814</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">41.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.035</field>
+  </row>
+
+  <row>
+	<field name="punkt">10179</field>
+	<field name="dist">649</field>
+	<field name="alpha">1.585</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">41.000</field>
+	<field name="O">-101.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.025</field>
+  </row>
+
+  <row>
+	<field name="punkt">10185</field>
+	<field name="dist">570</field>
+	<field name="alpha">2.327</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-98.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.015</field>
+  </row>
+
+  <row>
+	<field name="punkt">10187</field>
+	<field name="dist">520</field>
+	<field name="alpha">2.216</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.040</field>
+  </row>
+
+  <row>
+	<field name="punkt">10189</field>
+	<field name="dist">476</field>
+	<field name="alpha">2.083</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.062</field>
+  </row>
+
+  <row>
+	<field name="punkt">10199</field>
+	<field name="dist">445</field>
+	<field name="alpha">1.201</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-91.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.077</field>
+  </row>
+
+  <row>
+	<field name="punkt">10205</field>
+	<field name="dist">575</field>
+	<field name="alpha">0.807</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-88.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.013</field>
+  </row>
+
+  <row>
+	<field name="punkt">10211</field>
+	<field name="dist">758</field>
+	<field name="alpha">0.580</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.079</field>
+  </row>
+
+  <row>
+	<field name="punkt">10213</field>
+	<field name="dist">825</field>
+	<field name="alpha">0.527</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.113</field>
+  </row>
+
+  <row>
+	<field name="punkt">10221</field>
+	<field name="dist">1109</field>
+	<field name="alpha">0.384</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.255</field>
+  </row>
+
+  <row>
+	<field name="punkt">10223</field>
+	<field name="dist">1183</field>
+	<field name="alpha">0.359</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.291</field>
+  </row>
+
+  <row>
+	<field name="punkt">10225</field>
+	<field name="dist">1257</field>
+	<field name="alpha">0.337</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-78.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.328</field>
+  </row>
+
+  <row>
+	<field name="punkt">10227</field>
+	<field name="dist">1332</field>
+	<field name="alpha">0.317</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">41.000</field>
+	<field name="O">-77.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.366</field>
+  </row>
+
+  <row>
+	<field name="punkt">10812</field>
+	<field name="dist">1692</field>
+	<field name="alpha">2.818</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">42.000</field>
+	<field name="O">-122.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.546</field>
+  </row>
+
+  <row>
+	<field name="punkt">10832</field>
+	<field name="dist">1002</field>
+	<field name="alpha">2.574</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">42.000</field>
+	<field name="O">-112.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.201</field>
+  </row>
+
+  <row>
+	<field name="punkt">10842</field>
+	<field name="dist">711</field>
+	<field name="alpha">2.283</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">42.000</field>
+	<field name="O">-107.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.056</field>
+  </row>
+
+  <row>
+	<field name="punkt">10850</field>
+	<field name="dist">562</field>
+	<field name="alpha">1.861</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">42.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.019</field>
+  </row>
+
+  <row>
+	<field name="punkt">10872</field>
+	<field name="dist">315</field>
+	<field name="alpha">1.307</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-92.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.142</field>
+  </row>
+
+  <row>
+	<field name="punkt">10878</field>
+	<field name="dist">441</field>
+	<field name="alpha">0.762</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-89.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.080</field>
+  </row>
+
+  <row>
+	<field name="punkt">10880</field>
+	<field name="dist">501</field>
+	<field name="alpha">0.653</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-88.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.050</field>
+  </row>
+
+  <row>
+	<field name="punkt">10886</field>
+	<field name="dist">703</field>
+	<field name="alpha">0.447</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-85.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.052</field>
+  </row>
+
+  <row>
+	<field name="punkt">10896</field>
+	<field name="dist">1073</field>
+	<field name="alpha">0.288</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-80.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.236</field>
+  </row>
+
+  <row>
+	<field name="punkt">10898</field>
+	<field name="dist">1148</field>
+	<field name="alpha">0.268</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.274</field>
+  </row>
+
+  <row>
+	<field name="punkt">10902</field>
+	<field name="dist">1301</field>
+	<field name="alpha">0.236</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">42.000</field>
+	<field name="O">-77.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.351</field>
+  </row>
+
+  <row>
+	<field name="punkt">11499</field>
+	<field name="dist">1225</field>
+	<field name="alpha">2.785</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">43.000</field>
+	<field name="O">-116.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.313</field>
+  </row>
+
+  <row>
+	<field name="punkt">11525</field>
+	<field name="dist">457</field>
+	<field name="alpha">1.931</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">43.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.072</field>
+  </row>
+
+  <row>
+	<field name="punkt">11541</field>
+	<field name="dist">247</field>
+	<field name="alpha">2.246</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-95.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.176</field>
+  </row>
+
+  <row>
+	<field name="punkt">11551</field>
+	<field name="dist">308</field>
+	<field name="alpha">0.678</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-90.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.146</field>
+  </row>
+
+  <row>
+	<field name="punkt">11555</field>
+	<field name="dist">442</field>
+	<field name="alpha">0.452</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-88.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.079</field>
+  </row>
+
+  <row>
+	<field name="punkt">11559</field>
+	<field name="dist">588</field>
+	<field name="alpha">0.335</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-86.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.006</field>
+  </row>
+
+  <row>
+	<field name="punkt">11563</field>
+	<field name="dist">739</field>
+	<field name="alpha">0.265</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.069</field>
+  </row>
+
+  <row>
+	<field name="punkt">11573</field>
+	<field name="dist">1124</field>
+	<field name="alpha">0.173</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-79.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.262</field>
+  </row>
+
+  <row>
+	<field name="punkt">11575</field>
+	<field name="dist">1202</field>
+	<field name="alpha">0.161</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-78.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.301</field>
+  </row>
+
+  <row>
+	<field name="punkt">11577</field>
+	<field name="dist">1280</field>
+	<field name="alpha">0.151</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">43.000</field>
+	<field name="O">-77.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.340</field>
+  </row>
+
+  <row>
+	<field name="punkt">12160</field>
+	<field name="dist">1709</field>
+	<field name="alpha">2.955</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">44.000</field>
 	<field name="O">-123.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.451</field>
+	<field name="fi">0.555</field>
+  </row>
+
+  <row>
+	<field name="punkt">12164</field>
+	<field name="dist">1560</field>
+	<field name="alpha">2.937</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">44.000</field>
+	<field name="O">-121.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.480</field>
+  </row>
+
+  <row>
+	<field name="punkt">12172</field>
+	<field name="dist">1264</field>
+	<field name="alpha">2.889</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">44.000</field>
+	<field name="O">-117.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.332</field>
+  </row>
+
+  <row>
+	<field name="punkt">12190</field>
+	<field name="dist">626</field>
+	<field name="alpha">2.612</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">44.000</field>
+	<field name="O">-108.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.013</field>
+  </row>
+
+  <row>
+	<field name="punkt">12200</field>
+	<field name="dist">355</field>
+	<field name="alpha">2.042</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">44.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.123</field>
+  </row>
+
+  <row>
+	<field name="punkt">12216</field>
+	<field name="dist">175</field>
+	<field name="alpha">2.653</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">44.000</field>
+	<field name="O">-95.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.212</field>
+  </row>
+
+  <row>
+	<field name="punkt">12224</field>
+	<field name="dist">181</field>
+	<field name="alpha">0.472</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">44.000</field>
+	<field name="O">-91.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.210</field>
+  </row>
+
+  <row>
+	<field name="punkt">12226</field>
+	<field name="dist">253</field>
+	<field name="alpha">0.330</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">44.000</field>
+	<field name="O">-90.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.173</field>
+  </row>
+
+  <row>
+	<field name="punkt">12230</field>
+	<field name="dist">406</field>
+	<field name="alpha">0.204</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">44.000</field>
+	<field name="O">-88.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.097</field>
+  </row>
+
+  <row>
+	<field name="punkt">12835</field>
+	<field name="dist">1692</field>
+	<field name="alpha">3.020</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">45.000</field>
+	<field name="O">-123.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.546</field>
+  </row>
+
+  <row>
+	<field name="punkt">12849</field>
+	<field name="dist">1167</field>
+	<field name="alpha">2.965</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">45.000</field>
+	<field name="O">-116.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.283</field>
+  </row>
+
+  <row>
+	<field name="punkt">12853</field>
+	<field name="dist">1017</field>
+	<field name="alpha">2.938</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">45.000</field>
+	<field name="O">-114.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.209</field>
+  </row>
+
+  <row>
+	<field name="punkt">12867</field>
+	<field name="dist">508</field>
+	<field name="alpha">2.726</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">45.000</field>
+	<field name="O">-107.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.046</field>
+  </row>
+
+  <row>
+	<field name="punkt">12887</field>
+	<field name="dist">314</field>
+	<field name="alpha">3.049</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">45.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.143</field>
+  </row>
+
+  <row>
+	<field name="punkt">12895</field>
+	<field name="dist">29</field>
+	<field name="alpha">1.462</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">45.000</field>
+	<field name="O">-93.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.285</field>
+  </row>
+
+  <row>
+	<field name="punkt">13508</field>
+	<field name="dist">1758</field>
+	<field name="alpha">3.088</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">46.000</field>
+	<field name="O">-124.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.579</field>
+  </row>
+
+  <row>
+	<field name="punkt">13510</field>
+	<field name="dist">1683</field>
+	<field name="alpha">3.085</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">46.000</field>
+	<field name="O">-123.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.541</field>
+  </row>
+
+  <row>
+	<field name="punkt">13516</field>
+	<field name="dist">1455</field>
+	<field name="alpha">3.077</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">46.000</field>
+	<field name="O">-120.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.428</field>
+  </row>
+
+  <row>
+	<field name="punkt">13520</field>
+	<field name="dist">1304</field>
+	<field name="alpha">3.069</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">46.000</field>
+	<field name="O">-118.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.352</field>
+  </row>
+
+  <row>
+	<field name="punkt">13534</field>
+	<field name="dist">774</field>
+	<field name="alpha">3.019</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">46.000</field>
+	<field name="O">-111.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.087</field>
+  </row>
+
+  <row>
+	<field name="punkt">13536</field>
+	<field name="dist">699</field>
+	<field name="alpha">3.006</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">46.000</field>
+	<field name="O">-110.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.050</field>
+  </row>
+
+  <row>
+	<field name="punkt">13576</field>
+	<field name="dist">278</field>
+	<field name="alpha">0.528</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">46.000</field>
+	<field name="O">-90.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.161</field>
+  </row>
+
+  <row>
+	<field name="punkt">13578</field>
+	<field name="dist">348</field>
+	<field name="alpha">0.414</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">46.000</field>
+	<field name="O">-89.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.126</field>
+  </row>
+
+  <row>
+	<field name="punkt">13580</field>
+	<field name="dist">421</field>
+	<field name="alpha">0.338</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">46.000</field>
+	<field name="O">-88.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.089</field>
+  </row>
+
+  <row>
+	<field name="punkt">13588</field>
+	<field name="dist">727</field>
+	<field name="alpha">0.194</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">46.000</field>
+	<field name="O">-84.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.063</field>
+  </row>
+
+  <row>
+	<field name="punkt">14183</field>
+	<field name="dist">1756</field>
+	<field name="alpha">3.132</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-124.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.578</field>
+  </row>
+
+  <row>
+	<field name="punkt">14185</field>
+	<field name="dist">1680</field>
+	<field name="alpha">3.132</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-123.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.540</field>
+  </row>
+
+  <row>
+	<field name="punkt">14187</field>
+	<field name="dist">1604</field>
+	<field name="alpha">3.131</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-122.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.502</field>
+  </row>
+
+  <row>
+	<field name="punkt">14197</field>
+	<field name="dist">1224</field>
+	<field name="alpha">3.128</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-117.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.312</field>
+  </row>
+
+  <row>
+	<field name="punkt">14203</field>
+	<field name="dist">997</field>
+	<field name="alpha">3.125</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-114.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.198</field>
+  </row>
+
+  <row>
+	<field name="punkt">14221</field>
+	<field name="dist">313</field>
+	<field name="alpha">3.088</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-105.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.143</field>
+  </row>
+
+  <row>
+	<field name="punkt">14225</field>
+	<field name="dist">162</field>
+	<field name="alpha">3.039</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">47.000</field>
+	<field name="O">-103.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.219</field>
+  </row>
+
+  <row>
+	<field name="punkt">14237</field>
+	<field name="dist">401</field>
+	<field name="alpha">2.465</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">47.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.100</field>
+  </row>
+
+  <row>
+	<field name="punkt">14247</field>
+	<field name="dist">264</field>
+	<field name="alpha">1.255</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">47.000</field>
+	<field name="O">-92.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.168</field>
+  </row>
+
+  <row>
+	<field name="punkt">14862</field>
+	<field name="dist">1609</field>
+	<field name="alpha">3.062</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">48.000</field>
+	<field name="O">-122.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.505</field>
+  </row>
+
+  <row>
+	<field name="punkt">14872</field>
+	<field name="dist">1231</field>
+	<field name="alpha">3.038</field>
+	<field name="farbe">rgba(0,204,255,0.31)</field>
+	<field name="Region">East (Blue)</field>
+	<field name="N">48.000</field>
+	<field name="O">-117.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">0.315</field>
+  </row>
+
+  <row>
+	<field name="punkt">14912</field>
+	<field name="dist">478</field>
+	<field name="alpha">2.283</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">48.000</field>
+	<field name="O">-97.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.061</field>
+  </row>
+
+  <row>
+	<field name="punkt">14914</field>
+	<field name="dist">431</field>
+	<field name="alpha">2.144</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">48.000</field>
+	<field name="O">-96.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.085</field>
+  </row>
+
+  <row>
+	<field name="punkt">14922</field>
+	<field name="dist">371</field>
+	<field name="alpha">1.348</field>
+	<field name="farbe">rgba(105,105,105,0.6)</field>
+	<field name="Region">West (Grey)</field>
+	<field name="N">48.000</field>
+	<field name="O">-92.000</field>
+	<field name="radius">30000</field>
+	<field name="fi">-0.114</field>
   </row>
 
   <row>
 	<field name="punkt">15587</field>
-	<field name="dist">1502</field>
-	<field name="alpha">2.193</field>
+	<field name="dist">567</field>
+	<field name="alpha">2.155</field>
 	<field name="farbe">rgba(105,105,105,0.6)</field>
 	<field name="Region">West (Grey)</field>
 	<field name="N">49.000</field>
 	<field name="O">-97.000</field>
 	<field name="radius">30000</field>
-	<field name="fi">0.451</field>
+	<field name="fi">-0.017</field>
   </row>
 </resultset>

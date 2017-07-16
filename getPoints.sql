@@ -9,7 +9,7 @@ T4.radius,
 ROUND(-0.3+dist/2000,3) AS fi
 FROM 
 (	SELECT 
-	distinct T6g.punkt FROM select_biodiesel AS T3 
+	distinct T6g.punkt FROM select_airport AS T3 
 	JOIN 
 	(	select 
 		site,

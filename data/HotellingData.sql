@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.1.73, for redhat-linux-gnu (x86_64)
 --
--- Host: localhost    Database: abrus
+-- Host: localhost    Database: abuta
 -- ------------------------------------------------------
 -- Server version	5.1.73-log
 
@@ -57,6 +57,60 @@ SET character_set_client = utf8;
   `punkt` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `IconTypes`
+--
+
+DROP TABLE IF EXISTS `IconTypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `IconTypes` (
+  `type` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `IconTypes`
+--
+
+LOCK TABLES `IconTypes` WRITE;
+/*!40000 ALTER TABLE `IconTypes` DISABLE KEYS */;
+INSERT INTO `IconTypes` VALUES ('Bioplant'),('Refinery (USA)'),('RefineryUSA');
+/*!40000 ALTER TABLE `IconTypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Icons`
+--
+
+DROP TABLE IF EXISTS `Icons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Icons` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `base_file` text COLLATE utf8_unicode_ci NOT NULL,
+  `photo_file` text COLLATE utf8_unicode_ci NOT NULL,
+  `N` double NOT NULL,
+  `O` double NOT NULL,
+  `desc_html` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  CONSTRAINT `Icons_ibfk_1` FOREIGN KEY (`type`) REFERENCES `IconTypes` (`type`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Icons`
+--
+
+LOCK TABLES `Icons` WRITE;
+/*!40000 ALTER TABLE `Icons` DISABLE KEYS */;
+INSERT INTO `Icons` VALUES (1,'Refinery (USA)','./pictures/HexFactory.white.png','./pictures/ref_mandan.jpg',46.85,-100.88,'<p>Mandan Refinery<br/> TESORO</p>'),(2,'Refinery (USA)','./pictures/HexFactory.white.png','./pictures/ref_pine_bend.jpg',44.74,-93.04,'<p>Pine Bent Refinery<br/>Flint Hill</p>');
+/*!40000 ALTER TABLE `Icons` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Temporary table structure for view `alpha`
@@ -169,7 +223,7 @@ CREATE TABLE `region_tiles` (
 
 LOCK TABLES `region_tiles` WRITE;
 /*!40000 ALTER TABLE `region_tiles` DISABLE KEYS */;
-INSERT INTO `region_tiles` VALUES (49.5,-127,26,-99,'rgba(0,204,255,0.31)',2,38,-113),(49.5,-99,26,-76,'rgba(105,105,105,0.6)',3,38,-87);
+INSERT INTO `region_tiles` VALUES (49.5,-127,26,-99,'rgba(0,204,255,0.31)',2,46.85,-100.88),(49.5,-99,26,-76,'rgba(105,105,105,0.6)',3,44.74,-93.04);
 /*!40000 ALTER TABLE `region_tiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,4 +437,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-24 18:27:16
+-- Dump completed on 2017-07-16 16:49:53
