@@ -44,7 +44,7 @@
   <div class="rcorners">
 	<h2>formula calculator*</h2>
 	<form action="make_tab.php" method="post" id="FormelInput">
-		<p>trade size M : <input type="text" name="M" value="{//formel/Menge}" min="0" id="menge"/></p>
+		<p>trade size M : <input type="text" name="M" value="{//Formel/Menge}" min="0" id="menge"/></p>
 	<div class="table-responsive">
 	    <table class="table">
 	    <thead>
