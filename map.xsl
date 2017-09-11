@@ -429,11 +429,11 @@ var geojsonObject = {
 	function(feature) {
           return feature;},
 	null,
-	function(layer){return layer===vector1;});
+	function(layer){return(layer===vector1||layer===vectorLayerPLZ2);});
 
         if (feature) {
           info.tooltip('hide')
-              .attr('data-original-title', feature.get('name'))
+              .attr('data-original-title', 'test')
               .tooltip('fixTitle')
               .tooltip('show')
 	      .tooltip('html',true);
