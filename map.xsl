@@ -261,6 +261,27 @@ source: new ol.source.OSM()
         })
       });
 
+     var defaultEuropa2 = function(feature){
+	 style = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+         	 	color: '#0000ff',
+          		width: 2
+           		}),
+		fill: new ol.style.Fill({
+                color: 'rgba(0, 153, 0, 0.4)'
+              		})
+		});
+	if(feature.get('N3NM')!='DEB3F Kaiserslautern, Landkreis')
+	{
+		return style;
+	}
+	else
+	{
+		return style;
+	};
+	};
+
+
       var vectorEuropa = new ol.layer.Vector({
         id: 'europa',
         source: new ol.source.Vector({
@@ -268,7 +289,7 @@ source: new ol.source.OSM()
           url: './bsp8/nutsv9_lea.geojson',
 	  format: new ol.format.GeoJSON()
         }),
-        style: defaultEuropa
+        style: defaultEuropa2
       });
 
 
@@ -374,7 +395,7 @@ source: new ol.source.OSM()
 <!--ENDE ... Layer for ICONS -->
       var map = new ol.Map({
       interactions: ol.interaction.defaults({mouseWheelZoom:false}),
-        layers: [raster,vector1, vector2,vector3],
+        layers: [raster,vector1, vector2,vector3,vectorEuropa],
         target: 'map',
         view: new ol.View({
           center: [-11250000,4800000],

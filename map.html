@@ -159,7 +159,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:767<br>center: 27.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.349<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:767<br>center: 27.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.777<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -181,7 +181,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:771<br>center: 27.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.383<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:771<br>center: 27.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.811<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -203,7 +203,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:1410<br>center: 28.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.435<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:1410<br>center: 28.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.649<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -225,7 +225,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:1412<br>center: 28.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.407<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:1412<br>center: 28.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.642<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -247,7 +247,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:1440<br>center: 28.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.282<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:1440<br>center: 28.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.710<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -269,7 +269,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:1442<br>center: 28.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.297<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:1442<br>center: 28.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.726<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -291,29 +291,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2087<br>center: 29.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.364<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-96.000,29.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2089<br>center: 29.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.336<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2087<br>center: 29.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.587<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -335,7 +313,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2117<br>center: 29.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.245<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2117<br>center: 29.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.676<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -357,29 +335,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2119<br>center: 29.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.264<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-95.000,30.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2766<br>center: 30.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : 0.265<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2119<br>center: 29.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.694<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -401,7 +357,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2768<br>center: 30.000°N/ -94.000°O<br>radius: 30000 m<br>freight correction f : 0.239<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2768<br>center: 30.000°N/ -94.000°O<br>radius: 30000 m<br>freight correction f : 0.519<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -423,7 +379,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2770<br>center: 30.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.216<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2770<br>center: 30.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.518<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -445,29 +401,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2772<br>center: 30.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.195<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-91.000,30.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2774<br>center: 30.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : 0.177<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2772<br>center: 30.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.519<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -489,7 +423,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2776<br>center: 30.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.163<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2776<br>center: 30.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.527<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -511,7 +445,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:2792<br>center: 30.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.195<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:2792<br>center: 30.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.627<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -533,7 +467,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3425<br>center: 31.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.285<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:3425<br>center: 31.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.583<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -555,7 +489,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3427<br>center: 31.000°N/ -102.000°O<br>radius: 30000 m<br>freight correction f : 0.318<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:3427<br>center: 31.000°N/ -102.000°O<br>radius: 30000 m<br>freight correction f : 0.581<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -577,7 +511,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3435<br>center: 31.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.318<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:3435<br>center: 31.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.487<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -599,29 +533,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3445<br>center: 31.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.169<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-88.000,31.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3455<br>center: 31.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : 0.091<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:3445<br>center: 31.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.463<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -643,7 +555,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3463<br>center: 31.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.110<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:3463<br>center: 31.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.542<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -665,7 +577,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:3465<br>center: 31.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.126<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:3465<br>center: 31.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.559<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -687,7 +599,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4084<br>center: 32.000°N/ -111.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4084<br>center: 32.000°N/ -111.000°O<br>radius: 30000 m<br>freight correction f : 0.609<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -709,7 +621,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4102<br>center: 32.000°N/ -102.000°O<br>radius: 30000 m<br>freight correction f : 0.285<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4102<br>center: 32.000°N/ -102.000°O<br>radius: 30000 m<br>freight correction f : 0.525<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -731,7 +643,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4110<br>center: 32.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.285<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4110<br>center: 32.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.434<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -753,7 +665,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4112<br>center: 32.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.250<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4112<br>center: 32.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.424<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -775,7 +687,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4128<br>center: 32.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4128<br>center: 32.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : 0.425<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -797,7 +709,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4136<br>center: 32.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4136<br>center: 32.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.475<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -819,7 +731,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4138<br>center: 32.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.058<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4138<br>center: 32.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.492<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -841,7 +753,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4144<br>center: 32.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.124<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4144<br>center: 32.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.552<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -863,7 +775,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4747<br>center: 33.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.028<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4747<br>center: 33.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.683<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -885,7 +797,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4757<br>center: 33.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : -0.019<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4757<br>center: 33.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : 0.577<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -907,7 +819,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4769<br>center: 33.000°N/ -106.000°O<br>radius: 30000 m<br>freight correction f : 0.113<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4769<br>center: 33.000°N/ -106.000°O<br>radius: 30000 m<br>freight correction f : 0.493<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -929,7 +841,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4785<br>center: 33.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.255<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4785<br>center: 33.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.380<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -951,7 +863,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4787<br>center: 33.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.218<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4787<br>center: 33.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.370<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -973,29 +885,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4789<br>center: 33.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.182<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-92.000,33.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4797<br>center: 33.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.053<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4789<br>center: 33.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.362<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1017,7 +907,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4807<br>center: 33.000°N/ -87.000°O<br>radius: 30000 m<br>freight correction f : -0.022<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4807<br>center: 33.000°N/ -87.000°O<br>radius: 30000 m<br>freight correction f : 0.394<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1039,7 +929,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4811<br>center: 33.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.009<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4811<br>center: 33.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.425<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1061,7 +951,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4815<br>center: 33.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.028<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4815<br>center: 33.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.462<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1083,7 +973,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:4821<br>center: 33.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.113<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:4821<br>center: 33.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.530<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1105,7 +995,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5418<br>center: 34.000°N/ -119.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5418<br>center: 34.000°N/ -119.000°O<br>radius: 30000 m<br>freight correction f : 0.691<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1127,7 +1017,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5420<br>center: 34.000°N/ -118.000°O<br>radius: 30000 m<br>freight correction f : 0.012<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5420<br>center: 34.000°N/ -118.000°O<br>radius: 30000 m<br>freight correction f : 0.665<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1149,7 +1039,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5422<br>center: 34.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : -0.017<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5422<br>center: 34.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.640<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1171,7 +1061,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5430<br>center: 34.000°N/ -113.000°O<br>radius: 30000 m<br>freight correction f : -0.078<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5430<br>center: 34.000°N/ -113.000°O<br>radius: 30000 m<br>freight correction f : 0.549<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1193,7 +1083,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5432<br>center: 34.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : -0.074<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5432<br>center: 34.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : 0.529<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1215,29 +1105,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5436<br>center: 34.000°N/ -110.000°O<br>radius: 30000 m<br>freight correction f : -0.042<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-97.000,34.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5462<br>center: 34.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.191<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5436<br>center: 34.000°N/ -110.000°O<br>radius: 30000 m<br>freight correction f : 0.493<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1259,7 +1127,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5472<br>center: 34.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.012<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5472<br>center: 34.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.297<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1281,7 +1149,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5484<br>center: 34.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.074<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5484<br>center: 34.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : 0.358<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1303,7 +1171,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5486<br>center: 34.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.061<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5486<br>center: 34.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.375<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1325,7 +1193,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5488<br>center: 34.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.042<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5488<br>center: 34.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.395<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1347,7 +1215,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5492<br>center: 34.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.012<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5492<br>center: 34.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.438<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1369,7 +1237,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5494<br>center: 34.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5494<br>center: 34.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.462<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1391,29 +1259,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:5498<br>center: 34.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.114<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-119.000,35.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6093<br>center: 35.000°N/ -119.000°O<br>radius: 30000 m<br>freight correction f : 0.011<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:5498<br>center: 34.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.514<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1435,7 +1281,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6095<br>center: 35.000°N/ -118.000°O<br>radius: 30000 m<br>freight correction f : -0.025<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6095<br>center: 35.000°N/ -118.000°O<br>radius: 30000 m<br>freight correction f : 0.625<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1457,7 +1303,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6107<br>center: 35.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6107<br>center: 35.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : 0.482<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1479,7 +1325,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6109<br>center: 35.000°N/ -111.000°O<br>radius: 30000 m<br>freight correction f : -0.112<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6109<br>center: 35.000°N/ -111.000°O<br>radius: 30000 m<br>freight correction f : 0.462<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1501,7 +1347,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6113<br>center: 35.000°N/ -109.000°O<br>radius: 30000 m<br>freight correction f : -0.058<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6113<br>center: 35.000°N/ -109.000°O<br>radius: 30000 m<br>freight correction f : 0.426<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1523,7 +1369,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6115<br>center: 35.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : -0.025<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6115<br>center: 35.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : 0.411<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1545,7 +1391,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6139<br>center: 35.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.127<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6139<br>center: 35.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.253<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1567,7 +1413,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6147<br>center: 35.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : -0.025<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6147<br>center: 35.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.242<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1589,7 +1435,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6151<br>center: 35.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.088<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6151<br>center: 35.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.254<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1611,7 +1457,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6159<br>center: 35.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6159<br>center: 35.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : 0.308<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1633,7 +1479,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6161<br>center: 35.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.112<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6161<br>center: 35.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.327<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1655,7 +1501,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6167<br>center: 35.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : -0.025<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6167<br>center: 35.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.394<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1677,7 +1523,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6169<br>center: 35.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.011<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6169<br>center: 35.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.419<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1699,7 +1545,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6171<br>center: 35.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.049<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6171<br>center: 35.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.446<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1721,7 +1567,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6173<br>center: 35.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.088<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6173<br>center: 35.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.474<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1743,7 +1589,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6177<br>center: 35.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.168<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6177<br>center: 35.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.532<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1765,7 +1611,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6776<br>center: 36.000°N/ -115.000°O<br>radius: 30000 m<br>freight correction f : -0.159<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6776<br>center: 36.000°N/ -115.000°O<br>radius: 30000 m<br>freight correction f : 0.506<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1787,7 +1633,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6782<br>center: 36.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : -0.181<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6782<br>center: 36.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : 0.435<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1809,29 +1655,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6794<br>center: 36.000°N/ -106.000°O<br>radius: 30000 m<br>freight correction f : 0.026<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-102.000,36.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6802<br>center: 36.000°N/ -102.000°O<br>radius: 30000 m<br>freight correction f : 0.194<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6794<br>center: 36.000°N/ -106.000°O<br>radius: 30000 m<br>freight correction f : 0.333<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1853,7 +1677,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6812<br>center: 36.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.151<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6812<br>center: 36.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.210<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1875,7 +1699,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6814<br>center: 36.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.109<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6814<br>center: 36.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.199<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1897,7 +1721,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6818<br>center: 36.000°N/ -94.000°O<br>radius: 30000 m<br>freight correction f : 0.026<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6818<br>center: 36.000°N/ -94.000°O<br>radius: 30000 m<br>freight correction f : 0.187<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1919,7 +1743,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6826<br>center: 36.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6826<br>center: 36.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.200<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1941,7 +1765,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6838<br>center: 36.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6838<br>center: 36.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.302<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1963,7 +1787,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6844<br>center: 36.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : -0.015<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6844<br>center: 36.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.379<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -1985,7 +1809,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6846<br>center: 36.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.026<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6846<br>center: 36.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.407<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2007,7 +1831,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6848<br>center: 36.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.067<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6848<br>center: 36.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.436<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2029,29 +1853,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:6850<br>center: 36.000°N/ -78.000°O<br>radius: 30000 m<br>freight correction f : 0.109<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-122.000,37.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7437<br>center: 37.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.098<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:6850<br>center: 36.000°N/ -78.000°O<br>radius: 30000 m<br>freight correction f : 0.466<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2073,7 +1875,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7441<br>center: 37.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.011<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7441<br>center: 37.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.609<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2095,7 +1897,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7461<br>center: 37.000°N/ -110.000°O<br>radius: 30000 m<br>freight correction f : -0.158<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7461<br>center: 37.000°N/ -110.000°O<br>radius: 30000 m<br>freight correction f : 0.347<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2117,7 +1919,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7465<br>center: 37.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : -0.074<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7465<br>center: 37.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : 0.310<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2139,7 +1941,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7479<br>center: 37.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.228<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7479<br>center: 37.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.247<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2161,29 +1963,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7487<br>center: 37.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.141<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-90.000,37.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7501<br>center: 37.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.158<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7487<br>center: 37.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.157<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2205,7 +1985,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7503<br>center: 37.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : -0.196<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7503<br>center: 37.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : 0.158<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2227,29 +2007,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7513<br>center: 37.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.158<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-80.000,37.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7521<br>center: 37.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.011<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7513<br>center: 37.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.258<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2271,7 +2029,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:7523<br>center: 37.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.054<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:7523<br>center: 37.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.401<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2293,7 +2051,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8112<br>center: 38.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.094<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8112<br>center: 38.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.640<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2315,7 +2073,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8114<br>center: 38.000°N/ -121.000°O<br>radius: 30000 m<br>freight correction f : 0.050<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8114<br>center: 38.000°N/ -121.000°O<br>radius: 30000 m<br>freight correction f : 0.608<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2337,7 +2095,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8122<br>center: 38.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : -0.125<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8122<br>center: 38.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.485<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2359,7 +2117,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8140<br>center: 38.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : -0.081<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8140<br>center: 38.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : 0.261<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2381,7 +2139,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8150<br>center: 38.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.137<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8150<br>center: 38.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.198<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2403,7 +2161,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8154<br>center: 38.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.225<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8154<br>center: 38.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.191<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2425,7 +2183,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8156<br>center: 38.000°N/ -100.000°O<br>radius: 30000 m<br>freight correction f : 0.269<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8156<br>center: 38.000°N/ -100.000°O<br>radius: 30000 m<br>freight correction f : 0.192<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2447,7 +2205,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8160<br>center: 38.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.181<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8160<br>center: 38.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.122<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2469,7 +2227,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8162<br>center: 38.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.137<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8162<br>center: 38.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.105<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2491,51 +2249,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8178<br>center: 38.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : -0.213<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-88.000,38.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8180<br>center: 38.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.256<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-87.000,38.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8182<br>center: 38.000°N/ -87.000°O<br>radius: 30000 m<br>freight correction f : -0.300<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8178<br>center: 38.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : 0.107<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2557,7 +2271,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8184<br>center: 38.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.256<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8184<br>center: 38.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : 0.166<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2579,7 +2293,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8186<br>center: 38.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.213<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8186<br>center: 38.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.190<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2601,7 +2315,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8194<br>center: 38.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : -0.038<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8194<br>center: 38.000°N/ -81.000°O<br>radius: 30000 m<br>freight correction f : 0.304<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2623,7 +2337,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8791<br>center: 39.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.011<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8791<br>center: 39.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.547<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2645,7 +2359,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8817<br>center: 39.000°N/ -107.000°O<br>radius: 30000 m<br>freight correction f : -0.032<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8817<br>center: 39.000°N/ -107.000°O<br>radius: 30000 m<br>freight correction f : 0.194<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2667,7 +2381,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8837<br>center: 39.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.141<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8837<br>center: 39.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.055<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2689,7 +2403,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8839<br>center: 39.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.098<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8839<br>center: 39.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.039<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2711,7 +2425,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8841<br>center: 39.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : 0.054<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8841<br>center: 39.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : 0.028<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2733,51 +2447,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8847<br>center: 39.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : -0.074<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-90.000,39.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8851<br>center: 39.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.158<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-88.000,39.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8855<br>center: 39.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.229<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8847<br>center: 39.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.021<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2799,7 +2469,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8861<br>center: 39.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.196<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8861<br>center: 39.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.149<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2821,7 +2491,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8863<br>center: 39.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.158<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8863<br>center: 39.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.178<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2843,7 +2513,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8871<br>center: 39.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.011<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8871<br>center: 39.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.305<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2865,7 +2535,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:8877<br>center: 39.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.141<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:8877<br>center: 39.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.408<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2887,29 +2557,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9462<br>center: 40.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.109<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-120.000,40.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9466<br>center: 40.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.026<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9462<br>center: 40.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.588<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2931,7 +2579,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9496<br>center: 40.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : 0.067<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9496<br>center: 40.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : 0.111<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2953,7 +2601,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9500<br>center: 40.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.151<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9500<br>center: 40.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.089<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2975,7 +2623,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9514<br>center: 40.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.109<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9514<br>center: 40.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : -0.012<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -2997,7 +2645,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9516<br>center: 40.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : 0.067<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9516<br>center: 40.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : -0.026<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3019,7 +2667,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9524<br>center: 40.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : -0.093<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9524<br>center: 40.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : -0.025<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3041,7 +2689,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9528<br>center: 40.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : -0.159<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9528<br>center: 40.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : 0.008<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3063,7 +2711,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9530<br>center: 40.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.181<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9530<br>center: 40.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : 0.030<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3085,7 +2733,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9534<br>center: 40.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.181<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9534<br>center: 40.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : 0.082<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3107,7 +2755,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9538<br>center: 40.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9538<br>center: 40.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.143<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3129,7 +2777,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9540<br>center: 40.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : -0.093<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9540<br>center: 40.000°N/ -83.000°O<br>radius: 30000 m<br>freight correction f : 0.175<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3151,7 +2799,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9546<br>center: 40.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.026<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9546<br>center: 40.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.278<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3173,7 +2821,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:9552<br>center: 40.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.151<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:9552<br>center: 40.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.385<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3195,7 +2843,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10133<br>center: 41.000°N/ -124.000°O<br>radius: 30000 m<br>freight correction f : 0.209<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10133<br>center: 41.000°N/ -124.000°O<br>radius: 30000 m<br>freight correction f : 0.636<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3217,7 +2865,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10149<br>center: 41.000°N/ -116.000°O<br>radius: 30000 m<br>freight correction f : -0.088<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10149<br>center: 41.000°N/ -116.000°O<br>radius: 30000 m<br>freight correction f : 0.360<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3239,7 +2887,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10157<br>center: 41.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10157<br>center: 41.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : 0.233<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3261,7 +2909,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10171<br>center: 41.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : 0.088<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10171<br>center: 41.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : 0.060<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3283,7 +2931,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10175<br>center: 41.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.168<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10175<br>center: 41.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.035<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3305,7 +2953,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10179<br>center: 41.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.251<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10179<br>center: 41.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.025<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3327,7 +2975,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10185<br>center: 41.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : 0.209<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10185<br>center: 41.000°N/ -98.000°O<br>radius: 30000 m<br>freight correction f : -0.015<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3349,7 +2997,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10187<br>center: 41.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.168<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10187<br>center: 41.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : -0.040<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3371,7 +3019,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10189<br>center: 41.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.127<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10189<br>center: 41.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : -0.062<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3393,7 +3041,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10199<br>center: 41.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : -0.058<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10199<br>center: 41.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : -0.077<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3415,29 +3063,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10205<br>center: 41.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-86.000,41.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10209<br>center: 41.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.128<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10205<br>center: 41.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.013<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3459,7 +3085,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10211<br>center: 41.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.112<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10211<br>center: 41.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.079<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3481,7 +3107,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10213<br>center: 41.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.088<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10213<br>center: 41.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.113<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3503,7 +3129,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10221<br>center: 41.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.049<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10221<br>center: 41.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.255<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3525,7 +3151,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10223<br>center: 41.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.088<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10223<br>center: 41.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.291<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3547,7 +3173,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10225<br>center: 41.000°N/ -78.000°O<br>radius: 30000 m<br>freight correction f : 0.127<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10225<br>center: 41.000°N/ -78.000°O<br>radius: 30000 m<br>freight correction f : 0.328<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3569,7 +3195,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10227<br>center: 41.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.168<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10227<br>center: 41.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.366<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3591,7 +3217,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10812<br>center: 42.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.152<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10812<br>center: 42.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.546<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3613,7 +3239,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10832<br>center: 42.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : -0.074<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10832<br>center: 42.000°N/ -112.000°O<br>radius: 30000 m<br>freight correction f : 0.201<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3635,7 +3261,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10842<br>center: 42.000°N/ -107.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10842<br>center: 42.000°N/ -107.000°O<br>radius: 30000 m<br>freight correction f : 0.056<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3657,29 +3283,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10850<br>center: 42.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.191<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-93.000,42.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10870<br>center: 42.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.044<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10850<br>center: 42.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : -0.019<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3701,7 +3305,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10872<br>center: 42.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.012<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10872<br>center: 42.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : -0.142<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3723,7 +3327,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10878<br>center: 42.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : -0.061<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10878<br>center: 42.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : -0.080<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3745,7 +3349,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10880<br>center: 42.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.074<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10880<br>center: 42.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.050<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3767,29 +3371,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10886<br>center: 42.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : -0.061<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-84.000,42.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10888<br>center: 42.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : -0.042<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10886<br>center: 42.000°N/ -85.000°O<br>radius: 30000 m<br>freight correction f : 0.052<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3811,7 +3393,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10896<br>center: 42.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.078<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10896<br>center: 42.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.236<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3833,7 +3415,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10898<br>center: 42.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.114<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10898<br>center: 42.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.274<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3855,7 +3437,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:10902<br>center: 42.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.191<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:10902<br>center: 42.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.351<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3877,73 +3459,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11499<br>center: 43.000°N/ -116.000°O<br>radius: 30000 m<br>freight correction f : 0.007<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-113.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11505<br>center: 43.000°N/ -113.000°O<br>radius: 30000 m<br>freight correction f : -0.022<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-106.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11519<br>center: 43.000°N/ -106.000°O<br>radius: 30000 m<br>freight correction f : 0.113<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-105.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11521<br>center: 43.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : 0.147<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11499<br>center: 43.000°N/ -116.000°O<br>radius: 30000 m<br>freight correction f : 0.313<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3965,7 +3481,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11525<br>center: 43.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.218<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11525<br>center: 43.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : -0.072<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -3987,51 +3503,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11541<br>center: 43.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : 0.147<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-94.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11543<br>center: 43.000°N/ -94.000°O<br>radius: 30000 m<br>freight correction f : 0.113<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-93.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(105,105,105,0.6)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11545<br>center: 43.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.082<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11541<br>center: 43.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : -0.176<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4053,7 +3525,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11551<br>center: 43.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.007<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11551<br>center: 43.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.146<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4075,7 +3547,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11555<br>center: 43.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.019<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11555<br>center: 43.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.079<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4097,7 +3569,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11559<br>center: 43.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.019<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11559<br>center: 43.000°N/ -86.000°O<br>radius: 30000 m<br>freight correction f : -0.006<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4119,7 +3591,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11563<br>center: 43.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.007<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11563<br>center: 43.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.069<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4141,7 +3613,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11573<br>center: 43.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.147<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11573<br>center: 43.000°N/ -79.000°O<br>radius: 30000 m<br>freight correction f : 0.262<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4163,7 +3635,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11575<br>center: 43.000°N/ -78.000°O<br>radius: 30000 m<br>freight correction f : 0.182<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11575<br>center: 43.000°N/ -78.000°O<br>radius: 30000 m<br>freight correction f : 0.301<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4185,7 +3657,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:11577<br>center: 43.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.218<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:11577<br>center: 43.000°N/ -77.000°O<br>radius: 30000 m<br>freight correction f : 0.340<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4207,7 +3679,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12160<br>center: 44.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.250<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12160<br>center: 44.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.555<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4229,7 +3701,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12164<br>center: 44.000°N/ -121.000°O<br>radius: 30000 m<br>freight correction f : 0.183<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12164<br>center: 44.000°N/ -121.000°O<br>radius: 30000 m<br>freight correction f : 0.480<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4251,7 +3723,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12172<br>center: 44.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.076<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12172<br>center: 44.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.332<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4273,29 +3745,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12190<br>center: 44.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : 0.098<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-104.000,44.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12198<br>center: 44.000°N/ -104.000°O<br>radius: 30000 m<br>freight correction f : 0.216<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12190<br>center: 44.000°N/ -108.000°O<br>radius: 30000 m<br>freight correction f : 0.013<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4317,7 +3767,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12200<br>center: 44.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.250<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12200<br>center: 44.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : -0.123<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4339,7 +3789,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12216<br>center: 44.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : 0.183<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12216<br>center: 44.000°N/ -95.000°O<br>radius: 30000 m<br>freight correction f : -0.212<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4361,7 +3811,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12224<br>center: 44.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : 0.076<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12224<br>center: 44.000°N/ -91.000°O<br>radius: 30000 m<br>freight correction f : -0.210<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4383,7 +3833,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12226<br>center: 44.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.058<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12226<br>center: 44.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.173<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4405,7 +3855,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12230<br>center: 44.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : 0.036<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12230<br>center: 44.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.097<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4427,7 +3877,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12835<br>center: 45.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.285<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12835<br>center: 45.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.546<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4449,7 +3899,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12849<br>center: 45.000°N/ -116.000°O<br>radius: 30000 m<br>freight correction f : 0.110<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12849<br>center: 45.000°N/ -116.000°O<br>radius: 30000 m<br>freight correction f : 0.283<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4471,7 +3921,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12853<br>center: 45.000°N/ -114.000°O<br>radius: 30000 m<br>freight correction f : 0.091<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12853<br>center: 45.000°N/ -114.000°O<br>radius: 30000 m<br>freight correction f : 0.209<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4493,7 +3943,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12867<br>center: 45.000°N/ -107.000°O<br>radius: 30000 m<br>freight correction f : 0.169<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12867<br>center: 45.000°N/ -107.000°O<br>radius: 30000 m<br>freight correction f : -0.046<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4515,7 +3965,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12887<br>center: 45.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.285<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12887<br>center: 45.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : -0.143<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4537,7 +3987,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:12895<br>center: 45.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : 0.169<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:12895<br>center: 45.000°N/ -93.000°O<br>radius: 30000 m<br>freight correction f : -0.285<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4559,7 +4009,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13508<br>center: 46.000°N/ -124.000°O<br>radius: 30000 m<br>freight correction f : 0.355<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13508<br>center: 46.000°N/ -124.000°O<br>radius: 30000 m<br>freight correction f : 0.579<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4581,7 +4031,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13510<br>center: 46.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.323<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13510<br>center: 46.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.541<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4603,7 +4053,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13516<br>center: 46.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.239<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13516<br>center: 46.000°N/ -120.000°O<br>radius: 30000 m<br>freight correction f : 0.428<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4625,7 +4075,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13520<br>center: 46.000°N/ -118.000°O<br>radius: 30000 m<br>freight correction f : 0.195<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13520<br>center: 46.000°N/ -118.000°O<br>radius: 30000 m<br>freight correction f : 0.352<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4647,7 +4097,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13534<br>center: 46.000°N/ -111.000°O<br>radius: 30000 m<br>freight correction f : 0.153<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13534<br>center: 46.000°N/ -111.000°O<br>radius: 30000 m<br>freight correction f : 0.087<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4669,7 +4119,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13536<br>center: 46.000°N/ -110.000°O<br>radius: 30000 m<br>freight correction f : 0.163<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13536<br>center: 46.000°N/ -110.000°O<br>radius: 30000 m<br>freight correction f : 0.050<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4691,7 +4141,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13576<br>center: 46.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : 0.163<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13576<br>center: 46.000°N/ -90.000°O<br>radius: 30000 m<br>freight correction f : -0.161<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4713,7 +4163,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13578<br>center: 46.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : 0.153<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13578<br>center: 46.000°N/ -89.000°O<br>radius: 30000 m<br>freight correction f : -0.126<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4735,7 +4185,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13580<br>center: 46.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : 0.146<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13580<br>center: 46.000°N/ -88.000°O<br>radius: 30000 m<br>freight correction f : -0.089<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4757,7 +4207,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:13588<br>center: 46.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.163<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:13588<br>center: 46.000°N/ -84.000°O<br>radius: 30000 m<br>freight correction f : 0.063<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4779,7 +4229,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14183<br>center: 47.000°N/ -124.000°O<br>radius: 30000 m<br>freight correction f : 0.394<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14183<br>center: 47.000°N/ -124.000°O<br>radius: 30000 m<br>freight correction f : 0.578<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4801,7 +4251,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14185<br>center: 47.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.364<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14185<br>center: 47.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.540<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4823,29 +4273,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14187<br>center: 47.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.336<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-119.000,47.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14193<br>center: 47.000°N/ -119.000°O<br>radius: 30000 m<br>freight correction f : 0.264<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14187<br>center: 47.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.502<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4867,7 +4295,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14197<br>center: 47.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.229<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14197<br>center: 47.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.312<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4889,7 +4317,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14203<br>center: 47.000°N/ -114.000°O<br>radius: 30000 m<br>freight correction f : 0.201<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14203<br>center: 47.000°N/ -114.000°O<br>radius: 30000 m<br>freight correction f : 0.198<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4911,7 +4339,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14221<br>center: 47.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : 0.310<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14221<br>center: 47.000°N/ -105.000°O<br>radius: 30000 m<br>freight correction f : -0.143<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4933,29 +4361,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14225<br>center: 47.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : 0.364<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-101.000,47.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14229<br>center: 47.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.425<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14225<br>center: 47.000°N/ -103.000°O<br>radius: 30000 m<br>freight correction f : -0.219<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4977,7 +4383,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14237<br>center: 47.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.364<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14237<br>center: 47.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : -0.100<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -4999,7 +4405,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14247<br>center: 47.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.245<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14247<br>center: 47.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : -0.168<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -5021,7 +4427,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14862<br>center: 48.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.380<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14862<br>center: 48.000°N/ -122.000°O<br>radius: 30000 m<br>freight correction f : 0.505<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -5043,29 +4449,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14872<br>center: 48.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.282<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-101.000,48.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14904<br>center: 48.000°N/ -101.000°O<br>radius: 30000 m<br>freight correction f : 0.464<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14872<br>center: 48.000°N/ -117.000°O<br>radius: 30000 m<br>freight correction f : 0.315<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -5087,7 +4471,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14912<br>center: 48.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.407<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14912<br>center: 48.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : -0.061<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -5109,7 +4493,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14914<br>center: 48.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : 0.380<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14914<br>center: 48.000°N/ -96.000°O<br>radius: 30000 m<br>freight correction f : -0.085<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -5131,29 +4515,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:14922<br>center: 48.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : 0.297<br>E=NaN US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-123.000,49.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-    	featureA = new ol.Feature(circle3857);
-	var fAstyle = new ol.style.Style({
-		stroke: new ol.style.Stroke({
-		width: 1 
- 		 	}),
-		fill: new ol.style.Fill({
-		color: 'rgba(0,204,255,0.31)'
-			}),
-		text: new ol.style.Text({
-			text:'',
-			scale: 0.8
-		})
-		});
-	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:15535<br>center: 49.000°N/ -123.000°O<br>radius: 30000 m<br>freight correction f : 0.451<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:14922<br>center: 48.000°N/ -92.000°O<br>radius: 30000 m<br>freight correction f : -0.114<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
 
@@ -5175,7 +4537,7 @@
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:15587<br>center: 49.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : 0.451<br>E=NaN US Dollar </p>');
+	featureA.set('name','<p>Area ID:15587<br>center: 49.000°N/ -97.000°O<br>radius: 30000 m<br>freight correction f : -0.017<br>E=NaN US Dollar </p>');
 	vector1.getSource().addFeature(featureA);
 
        var raster = new ol.layer.Tile({
@@ -5183,11 +4545,59 @@ source: new ol.source.OSM()
 });
 
 
+     var selectEuropa = new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: '#ff0000',
+            width: 2
+        })
+      });
+
+      var defaultEuropa = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: '#0000ff',
+          width: 2
+        })
+      });
+
+     var defaultEuropa2 = function(feature){
+	 style = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+         	 	color: '#0000ff',
+          		width: 2
+           		}),
+		fill: new ol.style.Fill({
+                color: 'rgba(0, 153, 0, 0.4)'
+              		})
+		});
+	if(feature.get('N3NM')!='DEB3F Kaiserslautern, Landkreis')
+	{
+		return style;
+	}
+	else
+	{
+		return style;
+	};
+	};
+
+
+      var vectorEuropa = new ol.layer.Vector({
+        id: 'europa',
+        source: new ol.source.Vector({
+          projection: 'EPSG:3857',
+          url: './bsp8/nutsv9_lea.geojson',
+	  format: new ol.format.GeoJSON()
+        }),
+        style: defaultEuropa2
+      });
+
+
+
+
         var vector2 = new ol.layer.Vector({
         source: new ol.source.Vector(),
         style: styleFunction,
 	minResolution : 0.001,
-	maxResolution : 1000,
+	maxResolution : 12500,
 	visible : true
       });
      
@@ -5300,21 +4710,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-96.000,29.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-82.000,29.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -5331,21 +4726,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-81.000,29.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-95.000,30.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -5391,21 +4771,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-92.000,30.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-91.000,30.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -5496,21 +4861,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-93.000,31.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-88.000,31.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -5765,21 +5115,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-92.000,33.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-87.000,33.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -5930,21 +5265,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-97.000,34.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-92.000,34.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -6036,21 +5356,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-79.000,34.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-119.000,35.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -6335,21 +5640,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-102.000,36.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-97.000,36.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -6485,21 +5775,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-122.000,37.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-120.000,37.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -6575,21 +5850,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-90.000,37.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-89.000,37.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -6606,21 +5866,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-84.000,37.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-80.000,37.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -6800,36 +6045,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-88.000,38.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-87.000,38.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-86.000,38.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -6965,36 +6180,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-90.000,39.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-88.000,39.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-85.000,39.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -7056,21 +6241,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-122.000,40.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-120.000,40.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -7430,21 +6600,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-86.000,41.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-85.000,41.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -7595,21 +6750,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-93.000,42.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-92.000,42.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -7656,21 +6796,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-85.000,42.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-84.000,42.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -7745,51 +6870,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-113.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-106.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-105.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-103.000,43.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -7806,36 +6886,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-95.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-94.000,43.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-93.000,43.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -8001,21 +7051,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-108.000,44.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-104.000,44.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -8390,21 +7425,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-119.000,47.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-117.000,47.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -8451,21 +7471,6 @@ source: new ol.source.OSM()
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-103.000,47.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-101.000,47.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
 
@@ -8540,21 +7545,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-101.000,48.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-97.000,48.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -8600,21 +7590,6 @@ source: new ol.source.OSM()
 
 	var radius=30000;
         var wgs84Sphere = new ol.Sphere(6378137);
-	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-123.000,49.000 ],radius,64);
-    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
-	featureA = new ol.Feature(circle3857);
-
-	var fAstyle = new ol.style.Style({
-		text: new ol.style.Text({
-		
-		})
-		});
-	featureA.setStyle(fAstyle);
-	vector2.getSource().addFeature(featureA);
-
-
-	var radius=30000;
-        var wgs84Sphere = new ol.Sphere(6378137);
 	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-97.000,49.000 ],radius,64);
     	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
 	featureA = new ol.Feature(circle3857);
@@ -8632,39 +7607,64 @@ source: new ol.source.OSM()
 	});
 
 
- var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([-72.0704, 46.678], 'EPSG:4326',     
-  'EPSG:3857')), 
-        name: 'Refinery - 550kbbl/d',
-        population: 4000,
-        rainfall: 500
+
+        var vector3 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+	minResolution : 0.001,
+	maxResolution : 7500
       });
 
-      var iconStyle = new ol.style.Style({
+    var iconFeatures = [];
+    
+     var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
           anchor: [0.05, 20],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
-          src: 'HexFabrik2.png',
+          src: './pictures/HexFactory.white.png',
 	  scale: 0.1
         }))
       });
-
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-100.88, 46.85], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','1');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_mandan.jpg');
+      iconFeature.set('txt','<p>Mandan Refinery<br/> TESORO</p>');
       iconFeature.setStyle(iconStyle);
-
-      var vectorSource = new ol.source.Vector({
-        features: [iconFeature]
+      iconFeatures.push(iconFeature);
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
       });
-
-      var vector3 = new ol.layer.Vector({
-        source: vectorSource
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-93.04, 44.74], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
       });
+      iconFeature.set('name','2');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_pine_bend.jpg');
+      iconFeature.set('txt','<p>Pine Bent Refinery<br/>Flint Hill</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+     
+     console.log(iconFeatures.length);
+     vector3.getSource().addFeatures(iconFeatures);
 
-
-
+      
       var map = new ol.Map({
       interactions: ol.interaction.defaults({mouseWheelZoom:false}),
-        layers: [raster,vector1, vector2,vector3],
+        layers: [raster,vector1, vector2,vector3,vectorEuropa],
         target: 'map',
         view: new ol.View({
           center: [-11250000,4800000],
@@ -8723,6 +7723,8 @@ source: new ol.source.OSM()
       });
       map.addOverlay(popup);
 
+
+
    map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
             function(feature) {
@@ -8732,20 +7734,23 @@ source: new ol.source.OSM()
 	    function(layer){return layer===vector3;}
 	    );
         if (feature) {
+          $(element).popover('destroy');
           var coordinates = feature.getGeometry().getCoordinates();
+	  var fotofile=feature.get('foto');
+
+
           popup.setPosition(coordinates);
           $(element).popover({
+	    'title': '<h3>'+feature.get('head')+' - '+feature.get('name')+'</h3>',
             'placement': 'top',
             'html': true,
-            'content': '<img src="./refinery02.jpg" alt="Foto">'
-          });
+            'content': '<p>'+feature.get('txt')+'</p><img src="'+feature.get('foto')+'" width="250px"/>' 
+	   });
           $(element).popover('show');
         } else {
           $(element).popover('destroy');
         }
       });
-
-
     
     </script>
 </body>
