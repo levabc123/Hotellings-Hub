@@ -23,8 +23,8 @@
 <html lang="de">
   <head>
 	  <title>product name</title>
-    <link rel="stylesheet" href="http://openlayers.org/en/v3.18.2/css/ol.css" type="text/css"/>
-    <script src="http://openlayers.org/en/v3.18.2/build/ol.js"></script>
+    <link rel="stylesheet" href="http://openlayers.org/en/v4.3.2/css/ol.css" type="text/css"/>
+    <script src="http://openlayers.org/en/v4.3.2/build/ol.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Overlock:regular,italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
     <link href="//fonts.googleapis.com/css?family=Hind:300,regular,500,600,700" rel="stylesheet" type="text/css" />
