@@ -23,6 +23,13 @@
   </row>
 
   <row>
+	<field name="color">rgba(105,105,105,0.59)</field>
+	<field name="regionname">North (Blue)</field>
+	<field name="P" xsi:nil="true" />
+	<field name="F" xsi:nil="true" />
+  </row>
+
+  <row>
 	<field name="color">rgba(244,108,74,0.6)</field>
 	<field name="regionname">South (Red)</field>
 	<field name="P" xsi:nil="true" />

@@ -2,7 +2,7 @@
 
 $xsl_filename="map.xsl";
 $mapfile="regions.xml";
-$punktefile="punkte.xml";
+$punktefile="foo.xml";
 $iconfile="icons.xml";
 include("xslt_process.php");
 ?>
