@@ -197,7 +197,7 @@
       };
 
 
-<!--Layer for CIRCLES -->
+<!--Layer for CIRCLES  AND areas-->
         var vector1 = new ol.layer.Vector({
         source: new ol.source.Vector(),
         style: styleFunction,
@@ -205,6 +205,9 @@
 	maxResolution : 12500,
 	visible : true
       });
+
+var geoJbasis = new ol.format.GeoJSON;
+
 <xsl:for-each select="row">
 
 	<!-- loop through templates to precreate formula -->
@@ -218,6 +221,29 @@
             <xsl:with-param name="filterValue" select="field[@name='Region']" />
          </xsl:call-template>
 	</xsl:variable>
+
+	var pCarea=<xsl:value-of select="field[@name='mpoly']"/>;
+	var geoJgeom=geoJbasis.readGeometry(pCarea);	
+	geoJgeom.transform('EPSG:4326', 'EPSG:3857');
+	var geoJstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: '<xsl:value-of select="field[@name='farbe']"/>'
+			}),
+		text: new ol.style.Text({
+		text:'',
+		scale: 0.8
+		})
+		});
+
+	var geoJfeature = new ol.Feature({
+	  geometry: geoJgeom,
+	  propA: 'Some feature property',
+	});
+	geoJfeature.setStyle(geoJstyle);
+	vector1.getSource().addFeature(geoJfeature); 
 
 	var radius=<xsl:value-of select="field[@name='radius']"/>;
         var wgs84Sphere = new ol.Sphere(6378137);

@@ -1,0 +1,479 @@
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>product name</title>
+<link rel="stylesheet" href="http://openlayers.org/en/v4.3.2/css/ol.css" type="text/css">
+<script src="http://openlayers.org/en/v4.3.2/build/ol.js"></script><script src="https://code.jquery.com/jquery-2.2.3.min.js"></script><link href="http://fonts.googleapis.com/css?family=Overlock:regular,italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Hind:300,regular,500,600,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="oxtab.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><style>
+      #map {
+        position: relative;
+      }
+      #info {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        z-index: 100;
+      }
+      .tooltip.in {
+        opacity: 1;
+      }
+      .tooltip.top .tooltip-arrow {
+        border-top-color:  #516296;
+      }
+      .tooltip-inner {
+        border: 2px solid white;
+	background-color: #516296;
+      }
+    </style>
+</head>
+<body>
+<p id="demo"></p>
+<div class="row">
+<div class="col-sm-6"><h1>Hotellings' Market Place </h1></div>
+<div class="col-sm-6"><h1> Version </h1></div>
+</div>
+<hr>
+<form action="index.php" method="post">
+<div class="row">
+<div class="col-sm-6">
+<br><div class="rcorners">
+<h2>formula calculator*</h2>
+<p>trade size M : <input type="text" name="M" value="" min="0" id="menge"></p>
+<div class="table-responsive"><table class="table">
+<thead><tr>
+<th>region</th>
+<th>P</th>
+<th>F</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>North (Green)</td>
+<td><span style="width: 5em;"><input type="number" name="PNorth (Green)" id="PNorth (Green)" value="" step="0.01"></span></td>
+<td><input type="number" name="FNorth (Green)" id="FNorth (Green)" value="" step="1"></td>
+</tr>
+<tr>
+<td>East (Blue)</td>
+<td><span style="width: 5em;"><input type="number" name="PEast (Blue)" id="PEast (Blue)" value="" step="0.01"></span></td>
+<td><input type="number" name="FEast (Blue)" id="FEast (Blue)" value="" step="1"></td>
+</tr>
+<tr>
+<td>West (Grey)</td>
+<td><span style="width: 5em;"><input type="number" name="PWest (Grey)" id="PWest (Grey)" value="" step="0.01"></span></td>
+<td><input type="number" name="FWest (Grey)" id="FWest (Grey)" value="" step="1"></td>
+</tr>
+<tr>
+<td>South (Red)</td>
+<td><span style="width: 5em;"><input type="number" name="PSouth (Red)" id="PSouth (Red)" value="" step="0.01"></span></td>
+<td><input type="number" name="FSouth (Red)" id="FSouth (Red)" value="" step="1"></td>
+</tr>
+<tr>
+<td>South-West (Yellow)</td>
+<td><span style="width: 5em;"><input type="number" name="PSouth-West (Yellow)" id="PSouth-West (Yellow)" value="" step="0.01"></span></td>
+<td><input type="number" name="FSouth-West (Yellow)" id="FSouth-West (Yellow)" value="" step="1"></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+  *  E = P x M + F x ( 1 + f<sub>i</sub> ) <br></p>
+</div>
+</div>
+<div class="col-sm-6">
+<br><div class="rcorners">
+<h2>explanation</h2>
+<p>calculation results are shown for each area</p>
+</div>
+<br><div><div class="rcorners">
+<h2>shown in the map</h2>
+<input type="radio" name="kreisanzeige" value="id"> area ID<br><input type="radio" name="kreisanzeige" value="fi"> freight correction fi<br><input type="radio" name="kreisanzeige" value="E"> formula price E<br><br><input type="checkbox" name="typesize" value="extragross">large font
+	   	</div></div>
+</div>
+</div>
+<br><div class="row"><div class="col-sm-12"><div class="rcorners">
+<button type="submit" class="btn btn-default">refresh map</button><br><h3>show in areas: 
+			
+				-
+				</h3>
+<div id="map" class="map" style="width:100%">
+<div id="popup"></div>
+<div id="info"></div>
+</div>
+</div></div></div>
+</form>
+<script>
+	var schriftgr=1.0;
+	
+
+	var zwert=1.4;
+	var zoomvalue=5;
+	var styleCache = {};
+        var styleFunction = function(feature) {
+        var radius = 5 + 20;
+        var style = styleCache[radius];
+        if (!style) {
+          style = new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: radius,
+              fill: new ol.style.Fill({
+                color: 'rgba(0, 153, 0, 0.4)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(255, 204, 0, 0.2)',
+                width: 1
+              })
+            })
+          });
+          styleCache[radius] = style;
+        }
+        return style;
+      };
+
+
+
+        var vector1 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+
+
+	var radius=30000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-82.000,27.000 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:767<br>center: 27.000°N/ -82.000°O<br>radius: 30000 m<br>freight correction f : 0.777<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=30000;
+
+var jsonbsp = { "type": "Polygon", "coordinates": [ [ [ 6.378274, 49.550693 ], [ 6.376933, 49.568654 ], [ 6.363125, 49.568210 ], [ 6.362451, 49.577190 ], [ 6.376262, 49.577634 ], [ 6.374919, 49.595594 ], [ 6.388735, 49.596037 ], [ 6.388066, 49.605017 ], [ 6.401885, 49.605458 ], [ 6.401218, 49.614438 ], [ 6.415039, 49.614877 ], [ 6.414374, 49.623858 ], [ 6.428199, 49.624295 ], [ 6.426873, 49.642256 ], [ 6.440703, 49.642692 ], [ 6.439382, 49.660653 ], [ 6.425547, 49.660217 ], [ 6.424883, 49.669197 ], [ 6.438720, 49.669633 ], [ 6.438059, 49.678614 ], [ 6.451899, 49.679049 ], [ 6.451240, 49.688029 ], [ 6.465083, 49.688462 ], [ 6.464425, 49.697443 ], [ 6.492117, 49.698304 ], [ 6.491465, 49.707285 ], [ 6.505314, 49.707713 ], [ 6.504664, 49.716694 ], [ 6.518515, 49.717121 ], [ 6.517868, 49.726102 ], [ 6.504014, 49.725675 ], [ 6.502061, 49.752616 ], [ 6.515923, 49.753043 ], [ 6.512675, 49.797946 ], [ 6.526550, 49.798372 ], [ 6.525902, 49.807352 ], [ 6.498147, 49.806498 ], [ 6.497494, 49.815479 ], [ 6.483614, 49.815049 ], [ 6.482958, 49.824029 ], [ 6.482302, 49.833009 ], [ 6.510072, 49.833867 ], [ 6.509420, 49.842847 ], [ 6.523308, 49.843274 ], [ 6.523957, 49.834293 ], [ 6.537842, 49.834718 ], [ 6.535902, 49.861659 ], [ 6.577583, 49.862924 ], [ 6.576943, 49.871904 ], [ 6.590840, 49.872323 ], [ 6.589565, 49.890284 ], [ 6.603467, 49.890701 ], [ 6.604102, 49.881720 ], [ 6.645802, 49.882960 ], [ 6.645175, 49.891940 ], [ 6.672981, 49.892759 ], [ 6.671736, 49.910721 ], [ 6.713463, 49.911936 ], [ 6.714692, 49.893973 ], [ 6.728596, 49.894374 ], [ 6.729208, 49.885393 ], [ 6.743110, 49.885792 ], [ 6.742501, 49.894774 ], [ 6.756405, 49.895172 ], [ 6.757618, 49.877209 ], [ 6.785417, 49.877999 ], [ 6.786018, 49.869017 ], [ 6.799915, 49.869410 ], [ 6.800513, 49.860428 ], [ 6.786619, 49.860035 ], [ 6.787219, 49.851053 ], [ 6.801111, 49.851446 ], [ 6.800513, 49.860428 ], [ 6.869990, 49.862365 ], [ 6.869405, 49.871347 ], [ 6.883304, 49.871730 ], [ 6.886794, 49.817834 ], [ 6.900678, 49.818214 ], [ 6.901256, 49.809232 ], [ 6.915137, 49.809610 ], [ 6.915712, 49.800627 ], [ 6.901834, 49.800249 ], [ 6.902411, 49.791266 ], [ 6.888536, 49.790886 ], [ 6.889696, 49.772920 ], [ 6.903566, 49.773300 ], [ 6.905296, 49.746351 ], [ 6.933022, 49.747105 ], [ 6.933592, 49.738122 ], [ 6.947453, 49.738496 ], [ 6.948589, 49.720530 ], [ 6.976301, 49.721273 ], [ 6.976863, 49.712290 ], [ 6.963010, 49.711919 ], [ 6.964139, 49.693952 ], [ 6.977987, 49.694323 ], [ 6.979110, 49.676355 ], [ 7.034484, 49.677820 ], [ 7.033933, 49.686804 ], [ 7.047780, 49.687166 ], [ 7.061627, 49.687527 ], [ 7.062173, 49.678543 ], [ 7.048328, 49.678182 ], [ 7.049972, 49.651230 ], [ 7.036136, 49.650868 ], [ 7.036686, 49.641884 ], [ 7.022852, 49.641521 ], [ 7.023405, 49.632537 ], [ 6.995743, 49.631805 ], [ 6.996301, 49.622821 ], [ 6.982473, 49.622453 ], [ 6.981913, 49.631437 ], [ 6.954252, 49.630695 ], [ 6.953687, 49.639678 ], [ 6.939855, 49.639305 ], [ 6.941557, 49.612354 ], [ 6.927733, 49.611979 ], [ 6.927163, 49.620963 ], [ 6.913336, 49.620586 ], [ 6.913908, 49.611602 ], [ 6.886260, 49.610844 ], [ 6.858613, 49.610079 ], [ 6.859195, 49.601096 ], [ 6.845374, 49.600711 ], [ 6.846543, 49.582744 ], [ 6.832727, 49.582358 ], [ 6.832140, 49.591341 ], [ 6.804505, 49.590562 ], [ 6.805097, 49.581579 ], [ 6.791282, 49.581188 ], [ 6.791876, 49.572205 ], [ 6.764252, 49.571417 ], [ 6.764851, 49.562434 ], [ 6.723424, 49.561239 ], [ 6.724030, 49.552257 ], [ 6.710224, 49.551855 ], [ 6.710833, 49.542873 ], [ 6.697030, 49.542470 ], [ 6.697640, 49.533487 ], [ 6.683840, 49.533083 ], [ 6.683226, 49.542065 ], [ 6.614214, 49.540016 ], [ 6.615466, 49.522052 ], [ 6.574077, 49.520803 ], [ 6.572809, 49.538766 ], [ 6.531407, 49.537501 ], [ 6.532048, 49.528520 ], [ 6.518250, 49.528095 ], [ 6.517606, 49.537076 ], [ 6.503806, 49.536649 ], [ 6.504452, 49.527668 ], [ 6.490655, 49.527240 ], [ 6.490006, 49.536221 ], [ 6.476206, 49.535791 ], [ 6.475554, 49.544772 ], [ 6.434148, 49.543471 ], [ 6.433488, 49.552452 ], [ 6.378274, 49.550693 ] ], [ [ 6.685985, 49.704147 ], [ 6.685368, 49.713129 ], [ 6.699220, 49.713534 ], [ 6.698606, 49.722516 ], [ 6.712461, 49.722919 ], [ 6.711849, 49.731901 ], [ 6.739564, 49.732702 ], [ 6.738957, 49.741684 ], [ 6.725097, 49.741284 ], [ 6.724487, 49.750266 ], [ 6.710625, 49.749865 ], [ 6.710012, 49.758846 ], [ 6.682282, 49.758038 ], [ 6.681664, 49.767019 ], [ 6.695532, 49.767425 ], [ 6.694916, 49.776406 ], [ 6.736527, 49.777612 ], [ 6.735918, 49.786594 ], [ 6.722045, 49.786194 ], [ 6.721434, 49.795175 ], [ 6.707559, 49.794773 ], [ 6.706945, 49.803755 ], [ 6.734701, 49.804558 ], [ 6.733482, 49.822521 ], [ 6.705716, 49.821718 ], [ 6.703254, 49.857644 ], [ 6.675468, 49.856834 ], [ 6.676709, 49.838871 ], [ 6.662822, 49.838463 ], [ 6.664690, 49.811520 ], [ 6.650810, 49.811110 ], [ 6.651435, 49.802129 ], [ 6.637558, 49.801718 ], [ 6.638185, 49.792737 ], [ 6.624311, 49.792325 ], [ 6.624940, 49.783344 ], [ 6.583326, 49.782097 ], [ 6.583963, 49.773116 ], [ 6.611700, 49.773949 ], [ 6.612962, 49.755986 ], [ 6.571372, 49.754735 ], [ 6.572011, 49.745754 ], [ 6.558151, 49.745334 ], [ 6.561351, 49.700429 ], [ 6.575198, 49.700849 ], [ 6.574561, 49.709830 ], [ 6.602262, 49.710665 ], [ 6.601630, 49.719646 ], [ 6.615483, 49.720061 ], [ 6.616741, 49.702099 ], [ 6.658287, 49.703333 ], [ 6.657665, 49.712315 ], [ 6.671517, 49.712723 ], [ 6.672136, 49.703741 ], [ 6.685985, 49.704147 ] ] ] };
+
+var jsonbsp3= {'type': 'MultiPolygon','coordinates': [[[[-5e6, 6e6], [-5e6, 8e6], [-3e6, 8e6], [-3e6, 6e6]]],
+              [[[-2e6, 6e6], [-2e6, 8e6], [0, 8e6], [0, 6e6]]],[[[1e6, 6e6], [1e6, 8e6], [3e6, 8e6], [3e6, 6e6]]]]};
+
+
+var jsonbsp4={
+            'type': 'MultiPolygon',
+            'coordinates': [
+              [[[-5e6, 6e6], [-5e6, 8e6], [-3e6, 8e6], [-3e6, 6e6]], [[-4.5e6, 6.12e6], [-4.5e6, 7.14e6], [-3.5e6, 7.14e6], [-3.5e6, 6.12e6]] ],
+              [[[-2e6, 6e6], [-2e6, 8e6], [0, 8e6], [0, 6e6]]],
+              [[[1e6, 6e6], [1e6, 8e6], [3e6, 8e6], [3e6, 6e6]]]
+            ]
+          };
+
+
+
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-80.000,27.000 ],radius,64);
+
+ var gjBase=new ol.format.GeoJSON();
+ var gj_geometry=gjBase.readGeometry(jsonbsp4);
+//var gj_geometry=gjBase.readFeatures(jsonbsp);
+//gj_geometry=gjBase.read(jsonbsp);
+//gj_geometry.transform('EPSG:4326', 'EPSG:3857');
+
+var gj_style = new ol.style.Style({
+	stroke: new ol.style.Stroke({
+	width: 3 
+ 	 	}),
+	fill: new ol.style.Fill({
+	color: 'yellow'
+		}),
+	text: new ol.style.Text({
+		text:'',
+		scale: 0.8
+	})
+});
+
+var gj_feature = new ol.Feature({
+  geometry: gj_geometry,
+  propA: 'Some feature property',
+});
+gj_feature.setStyle(gj_style);
+vector1.getSource().addFeature(gj_feature); 
+
+
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:771<br>center: 27.000°N/ -80.000°O<br>radius: 30000 m<br>freight correction f : 0.811<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+       var raster = new ol.layer.Tile({
+source: new ol.source.OSM()	
+});
+
+
+     var selectEuropa = new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: '#ff0000',
+            width: 2
+        })
+      });
+
+      var defaultEuropa = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: '#0000ff',
+          width: 2
+        })
+      });
+
+     var defaultEuropa2 = function(feature){
+	 style = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+         	 	color: '#0000ff',
+          		width: 2
+           		}),
+		fill: new ol.style.Fill({
+                color: 'rgba(0, 153, 0, 0.4)'
+              		})
+		});
+	if(feature.get('N3NM')!='DEB3F Kaiserslautern, Landkreis')
+	{
+		return style;
+	}
+	else
+	{
+		return style;
+	};
+	};
+
+
+      var vectorEuropa = new ol.layer.Vector({
+        id: 'europa',
+        source: new ol.source.Vector({
+          projection: 'EPSG:3857',
+          <!--url: './bsp8/nutsv9_lea.geojson',-->
+	  format: new ol.format.GeoJSON()
+        }),
+        style: defaultEuropa2
+      });
+
+
+
+
+        var vector2 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+     
+ 
+
+	var radius=30000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-82.000,27.000 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=30000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [-80.000,27.000 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+       var raster = new ol.layer.Tile({
+	source: new ol.source.OSM() 
+	});
+
+
+
+        var vector3 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+	minResolution : 0.001,
+	maxResolution : 7500
+      });
+
+    var iconFeatures = [];
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
+      });
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-100.88, 46.85], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','1');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_mandan.jpg');
+      iconFeature.set('txt','<p>Mandan Refinery<br/> TESORO</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
+      });
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-93.04, 44.74], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','2');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_pine_bend.jpg');
+      iconFeature.set('txt','<p>Pine Bent Refinery<br/>Flint Hill</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+     
+     console.log(iconFeatures.length);
+     vector3.getSource().addFeatures(iconFeatures);
+
+      
+      var map = new ol.Map({
+      interactions: ol.interaction.defaults({mouseWheelZoom:false}),
+        layers: [raster,vector1, vector2,vector3,vectorEuropa],
+        target: 'map',
+        view: new ol.View({
+          center: [-11250000,4800000],
+          zoom: zoomvalue 
+        })
+      });
+
+      var info = $('#info');
+      info.tooltip({
+        animation: false,
+        trigger: 'manual',
+	html: true
+      });
+
+      var displayFeatureInfo = function(pixel) {
+        info.css({
+          left: pixel[0] + 'px',
+          top: (pixel[1]-15) + 'px'
+        });
+        var feature = map.forEachFeatureAtPixel(
+	pixel, 
+	function(feature) {
+          return feature;},
+	null,
+	function(layer){return layer===vector1;});
+
+        if (feature) {
+          info.tooltip('hide')
+              .attr('data-original-title', feature.get('name'))
+              .tooltip('fixTitle')
+              .tooltip('show')
+	      .tooltip('html',true);
+	      ;
+        } else {
+          info.tooltip('hide');
+        }
+      };
+
+      map.on('pointermove', function(evt) {
+        if (evt.dragging) {
+          info.tooltip('hide');
+          return;
+        }
+        displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+      });
+      
+
+
+ var element = document.getElementById('popup');
+
+      var popup = new ol.Overlay({
+        element: element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+      });
+      map.addOverlay(popup);
+
+
+
+   map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature) {
+              return feature;
+            },
+	    null,
+	    function(layer){return layer===vector3;}
+	    );
+        if (feature) {
+          $(element).popover('destroy');
+          var coordinates = feature.getGeometry().getCoordinates();
+	  var fotofile=feature.get('foto');
+
+
+          popup.setPosition(coordinates);
+          $(element).popover({
+	    'title': '<h3>'+feature.get('head')+' - '+feature.get('name')+'</h3>',
+            'placement': 'top',
+            'html': true,
+            'content': '<p>'+feature.get('txt')+'</p><img src="'+feature.get('foto')+'" width="250px"/>' 
+	   });
+          $(element).popover('show');
+        } else {
+          $(element).popover('destroy');
+        }
+      });
+    
+    </script>
+</body>
+</html>
+ 

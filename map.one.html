@@ -1,0 +1,394 @@
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>product name</title>
+<link rel="stylesheet" href="http://openlayers.org/en/v4.3.2/css/ol.css" type="text/css">
+<script src="http://openlayers.org/en/v4.3.2/build/ol.js"></script><script src="https://code.jquery.com/jquery-2.2.3.min.js"></script><link href="http://fonts.googleapis.com/css?family=Overlock:regular,italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Hind:300,regular,500,600,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="oxtab.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><style>
+      #map {
+        position: relative;
+      }
+      #info {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        z-index: 100;
+      }
+      .tooltip.in {
+        opacity: 1;
+      }
+      .tooltip.top .tooltip-arrow {
+        border-top-color:  #516296;
+      }
+      .tooltip-inner {
+        border: 2px solid white;
+	background-color: #516296;
+      }
+    </style>
+</head>
+<body>
+<p id="demo"></p>
+<div class="row">
+<div class="col-sm-6"><h1>Hotellings' Market Place </h1></div>
+<div class="col-sm-6"><h1> Version </h1></div>
+</div>
+<hr>
+<form action="index.php" method="post">
+<div class="row">
+<div class="col-sm-6">
+<br><div class="rcorners">
+<h2>formula calculator*</h2>
+<p>trade size M : <input type="text" name="M" value="" min="0" id="menge"></p>
+<div class="table-responsive"><table class="table">
+<thead><tr>
+<th>region</th>
+<th>P</th>
+<th>F</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>North (Green)</td>
+<td><span style="width: 5em;"><input type="number" name="PNorth (Green)" id="PNorth (Green)" value="" step="0.01"></span></td>
+<td><input type="number" name="FNorth (Green)" id="FNorth (Green)" value="" step="1"></td>
+</tr>
+<tr>
+<td>East (Blue)</td>
+<td><span style="width: 5em;"><input type="number" name="PEast (Blue)" id="PEast (Blue)" value="" step="0.01"></span></td>
+<td><input type="number" name="FEast (Blue)" id="FEast (Blue)" value="" step="1"></td>
+</tr>
+<tr>
+<td>West (Grey)</td>
+<td><span style="width: 5em;"><input type="number" name="PWest (Grey)" id="PWest (Grey)" value="" step="0.01"></span></td>
+<td><input type="number" name="FWest (Grey)" id="FWest (Grey)" value="" step="1"></td>
+</tr>
+<tr>
+<td>North (Blue)</td>
+<td><span style="width: 5em;"><input type="number" name="PNorth (Blue)" id="PNorth (Blue)" value="" step="0.01"></span></td>
+<td><input type="number" name="FNorth (Blue)" id="FNorth (Blue)" value="" step="1"></td>
+</tr>
+<tr>
+<td>South (Red)</td>
+<td><span style="width: 5em;"><input type="number" name="PSouth (Red)" id="PSouth (Red)" value="" step="0.01"></span></td>
+<td><input type="number" name="FSouth (Red)" id="FSouth (Red)" value="" step="1"></td>
+</tr>
+<tr>
+<td>South-West (Yellow)</td>
+<td><span style="width: 5em;"><input type="number" name="PSouth-West (Yellow)" id="PSouth-West (Yellow)" value="" step="0.01"></span></td>
+<td><input type="number" name="FSouth-West (Yellow)" id="FSouth-West (Yellow)" value="" step="1"></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+  *  E = P x M + F x ( 1 + f<sub>i</sub> ) <br></p>
+</div>
+</div>
+<div class="col-sm-6">
+<br><div class="rcorners">
+<h2>explanation</h2>
+<p>calculation results are shown for each area</p>
+</div>
+<br><div><div class="rcorners">
+<h2>shown in the map</h2>
+<input type="radio" name="kreisanzeige" value="id"> area ID<br><input type="radio" name="kreisanzeige" value="fi"> freight correction fi<br><input type="radio" name="kreisanzeige" value="E"> formula price E<br><br><input type="checkbox" name="typesize" value="extragross">large font
+	   	</div></div>
+</div>
+</div>
+<br><div class="row"><div class="col-sm-12"><div class="rcorners">
+<button type="submit" class="btn btn-default">refresh map</button><br><h3>show in areas: 
+			
+				-
+				</h3>
+<div id="map" class="map" style="width:100%">
+<div id="popup"></div>
+<div id="info"></div>
+</div>
+</div></div></div>
+</form>
+<script>
+	var schriftgr=1.0;
+	
+
+	var zwert=1.4;
+	var zoomvalue=5;
+	var styleCache = {};
+        var styleFunction = function(feature) {
+        var radius = 5 + 20;
+        var style = styleCache[radius];
+        if (!style) {
+          style = new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: radius,
+              fill: new ol.style.Fill({
+                color: 'rgba(0, 153, 0, 0.4)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(255, 204, 0, 0.2)',
+                width: 1
+              })
+            })
+          });
+          styleCache[radius] = style;
+        }
+        return style;
+      };
+
+
+
+        var vector1 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+	var vector1b = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+	style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+
+var geoJbasis = new ol.format.GeoJSON;
+
+
+var pCarea={"type":"MultiPolygon","coordinates":[[[[12,50],[12,55],[13,54],[13,50],[12,50]]]]};
+var pCarea2={
+            'type': 'MultiPolygon',
+            'coordinates': [
+              [[[-5e6, 6e6], [-5e6, 8e6], [-3e6, 8e6], [-3e6, 6e6]], [[-4.5e6, 6.12e6], [-4.5e6, 7.14e6], [-3.5e6, 7.14e6], [-3.5e6, 6.12e6]] ],
+              [[[-2e6, 6e6], [-2e6, 8e6], [0, 8e6], [0, 6e6]]],
+              [[[1e6, 6e6], [1e6, 8e6], [3e6, 8e6], [3e6, 6e6]]]
+            ]
+          };
+
+	var geoJgeom=geoJbasis.readGeometry(pCarea);	
+	geoJgeom.transform('EPSG:4326', 'EPSG:3857');
+
+	var geoJstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+			width: 1 
+ 		 		}),
+		fill: new ol.style.Fill({
+			color: 'rgba(105,105,0,0.4)'
+				}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+				})
+		});
+
+	var geoJfeature = new ol.Feature({
+	  geometry: geoJgeom,
+	  propA: 'Some feature property',
+	});
+	geoJfeature.setStyle(geoJstyle);
+	vector1b.getSource().addFeature(geoJfeature); 
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.796066700892,51.149696496049 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:01<br>center: 51.149696496049°N/ 13.796066700892°O<br>radius: 3000 m<br>freight correction f : 1.155<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+       var raster = new ol.layer.Tile({
+source: new ol.source.OSM()	
+});
+
+
+        var vector2 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+     
+ 
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.796066700892,51.149696496049 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+       var raster = new ol.layer.Tile({
+	source: new ol.source.OSM() 
+	});
+
+
+
+        var vector3 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+	minResolution : 0.001,
+	maxResolution : 7500
+      });
+
+    var iconFeatures = [];
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
+      });
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-100.88, 46.85], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','1');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_mandan.jpg');
+      iconFeature.set('txt','<p>Mandan Refinery<br/> TESORO</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
+      });
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-93.04, 44.74], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','2');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_pine_bend.jpg');
+      iconFeature.set('txt','<p>Pine Bent Refinery<br/>Flint Hill</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+     
+     console.log(iconFeatures.length);
+     vector3.getSource().addFeatures(iconFeatures);
+
+      
+      var map = new ol.Map({
+      interactions: ol.interaction.defaults({mouseWheelZoom:false}),
+        layers: [raster,vector1,vector1b,vector2,vector3],
+        target: 'map',
+        view: new ol.View({
+          center: [11250000,4800000],
+          zoom: zoomvalue 
+        })
+      });
+
+      var info = $('#info');
+      info.tooltip({
+        animation: false,
+        trigger: 'manual',
+	html: true
+      });
+
+      var displayFeatureInfo = function(pixel) {
+        info.css({
+          left: pixel[0] + 'px',
+          top: (pixel[1]-15) + 'px'
+        });
+        var feature = map.forEachFeatureAtPixel(
+	pixel, 
+	function(feature) {
+          return feature;},
+	null,
+	function(layer){return layer===vector1;});
+
+        if (feature) {
+          info.tooltip('hide')
+              .attr('data-original-title', feature.get('name'))
+              .tooltip('fixTitle')
+              .tooltip('show')
+	      .tooltip('html',true);
+	      ;
+        } else {
+          info.tooltip('hide');
+        }
+      };
+
+      map.on('pointermove', function(evt) {
+        if (evt.dragging) {
+          info.tooltip('hide');
+          return;
+        }
+        displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+      });
+      
+
+
+ var element = document.getElementById('popup');
+
+      var popup = new ol.Overlay({
+        element: element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+      });
+      map.addOverlay(popup);
+
+
+
+   map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature) {
+              return feature;
+            },
+	    null,
+	    function(layer){return layer===vector3;}
+	    );
+        if (feature) {
+          $(element).popover('destroy');
+          var coordinates = feature.getGeometry().getCoordinates();
+	  var fotofile=feature.get('foto');
+
+
+          popup.setPosition(coordinates);
+          $(element).popover({
+	    'title': '<h3>'+feature.get('head')+' - '+feature.get('name')+'</h3>',
+            'placement': 'top',
+            'html': true,
+            'content': '<p>'+feature.get('txt')+'</p><img src="'+feature.get('foto')+'" width="250px"/>' 
+	   });
+          $(element).popover('show');
+        } else {
+          $(element).popover('destroy');
+        }
+      });
+    
+    </script>
+</body>
+</html>
+ 

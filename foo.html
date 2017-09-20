@@ -1,0 +1,3830 @@
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>product name</title>
+<link rel="stylesheet" href="http://openlayers.org/en/v4.3.2/css/ol.css" type="text/css">
+<script src="http://openlayers.org/en/v4.3.2/build/ol.js"></script><script src="https://code.jquery.com/jquery-2.2.3.min.js"></script><link href="http://fonts.googleapis.com/css?family=Overlock:regular,italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Hind:300,regular,500,600,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="oxtab.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><style>
+      #map {
+        position: relative;
+      }
+      #info {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        z-index: 100;
+      }
+      .tooltip.in {
+        opacity: 1;
+      }
+      .tooltip.top .tooltip-arrow {
+        border-top-color:  #516296;
+      }
+      .tooltip-inner {
+        border: 2px solid white;
+	background-color: #516296;
+      }
+    </style>
+</head>
+<body>
+<p id="demo"></p>
+<div class="row">
+<div class="col-sm-6"><h1>Hotellings' Market Place </h1></div>
+<div class="col-sm-6"><h1> Version </h1></div>
+</div>
+<hr>
+<form action="index.php" method="post">
+<div class="row">
+<div class="col-sm-6">
+<br><div class="rcorners">
+<h2>formula calculator*</h2>
+<p>trade size M : <input type="text" name="M" value="" min="0" id="menge"></p>
+<div class="table-responsive"><table class="table">
+<thead><tr>
+<th>region</th>
+<th>P</th>
+<th>F</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>North (Green)</td>
+<td><span style="width: 5em;"><input type="number" name="PNorth (Green)" id="PNorth (Green)" value="" step="0.01"></span></td>
+<td><input type="number" name="FNorth (Green)" id="FNorth (Green)" value="" step="1"></td>
+</tr>
+<tr>
+<td>East (Blue)</td>
+<td><span style="width: 5em;"><input type="number" name="PEast (Blue)" id="PEast (Blue)" value="" step="0.01"></span></td>
+<td><input type="number" name="FEast (Blue)" id="FEast (Blue)" value="" step="1"></td>
+</tr>
+<tr>
+<td>West (Grey)</td>
+<td><span style="width: 5em;"><input type="number" name="PWest (Grey)" id="PWest (Grey)" value="" step="0.01"></span></td>
+<td><input type="number" name="FWest (Grey)" id="FWest (Grey)" value="" step="1"></td>
+</tr>
+<tr>
+<td>North (Blue)</td>
+<td><span style="width: 5em;"><input type="number" name="PNorth (Blue)" id="PNorth (Blue)" value="" step="0.01"></span></td>
+<td><input type="number" name="FNorth (Blue)" id="FNorth (Blue)" value="" step="1"></td>
+</tr>
+<tr>
+<td>South (Red)</td>
+<td><span style="width: 5em;"><input type="number" name="PSouth (Red)" id="PSouth (Red)" value="" step="0.01"></span></td>
+<td><input type="number" name="FSouth (Red)" id="FSouth (Red)" value="" step="1"></td>
+</tr>
+<tr>
+<td>South-West (Yellow)</td>
+<td><span style="width: 5em;"><input type="number" name="PSouth-West (Yellow)" id="PSouth-West (Yellow)" value="" step="0.01"></span></td>
+<td><input type="number" name="FSouth-West (Yellow)" id="FSouth-West (Yellow)" value="" step="1"></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+  *  E = P x M + F x ( 1 + f<sub>i</sub> ) <br></p>
+</div>
+</div>
+<div class="col-sm-6">
+<br><div class="rcorners">
+<h2>explanation</h2>
+<p>calculation results are shown for each area</p>
+</div>
+<br><div><div class="rcorners">
+<h2>shown in the map</h2>
+<input type="radio" name="kreisanzeige" value="id"> area ID<br><input type="radio" name="kreisanzeige" value="fi"> freight correction fi<br><input type="radio" name="kreisanzeige" value="E"> formula price E<br><br><input type="checkbox" name="typesize" value="extragross">large font
+	   	</div></div>
+</div>
+</div>
+<br><div class="row"><div class="col-sm-12"><div class="rcorners">
+<button type="submit" class="btn btn-default">refresh map</button><br><h3>show in areas: 
+			
+				-
+				</h3>
+<div id="map" class="map" style="width:100%">
+<div id="popup"></div>
+<div id="info"></div>
+</div>
+</div></div></div>
+</form>
+<script>
+	var schriftgr=1.0;
+	
+
+	var zwert=1.4;
+	var zoomvalue=5;
+	var styleCache = {};
+        var styleFunction = function(feature) {
+        var radius = 5 + 20;
+        var style = styleCache[radius];
+        if (!style) {
+          style = new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: radius,
+              fill: new ol.style.Fill({
+                color: 'rgba(0, 153, 0, 0.4)'
+              }),
+              stroke: new ol.style.Stroke({
+                color: 'rgba(255, 204, 0, 0.2)',
+                width: 1
+              })
+            })
+          });
+          styleCache[radius] = style;
+        }
+        return style;
+      };
+
+
+
+        var vector1 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.796066700892,51.149696496049 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:01<br>center: 51.149696496049°N/ 13.796066700892°O<br>radius: 3000 m<br>freight correction f : 1.155<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [14.6009132074977,51.258233613381 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:02<br>center: 51.258233613381°N/ 14.6009132074977°O<br>radius: 3000 m<br>freight correction f : 1.326<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [14.1701062745443,51.7288998219103 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:03<br>center: 51.7288998219103°N/ 14.1701062745443°O<br>radius: 3000 m<br>freight correction f : 1.248<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.8130085445041,51.3554214486479 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:04<br>center: 51.3554214486479°N/ 12.8130085445041°O<br>radius: 3000 m<br>freight correction f : 0.954<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.9085747789858,51.5655017652138 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:06<br>center: 51.5655017652138°N/ 11.9085747789858°O<br>radius: 3000 m<br>freight correction f : 0.777<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.7307766856933,50.7201345498611 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:07<br>center: 50.7201345498611°N/ 11.7307766856933°O<br>radius: 3000 m<br>freight correction f : 0.726<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.4174152000023,50.5481401545188 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:08<br>center: 50.5481401545188°N/ 12.4174152000023°O<br>radius: 3000 m<br>freight correction f : 0.876<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.076459721532,50.8017508556412 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:09<br>center: 50.8017508556412°N/ 13.076459721532°O<br>radius: 3000 m<br>freight correction f : 1.008<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.4137437112391,52.5098205560286 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:10<br>center: 52.5098205560286°N/ 13.4137437112391°O<br>radius: 3000 m<br>freight correction f : 1.158<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.527742962115,52.4328909493692 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:12<br>center: 52.4328909493692°N/ 13.527742962115°O<br>radius: 3000 m<br>freight correction f : 1.173<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.3375270628106,52.580719970814 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:13<br>center: 52.580719970814°N/ 13.3375270628106°O<br>radius: 3000 m<br>freight correction f : 1.152<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.7769248281642,52.336814697202 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:14<br>center: 52.336814697202°N/ 12.7769248281642°O<br>radius: 3000 m<br>freight correction f : 1.017<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [14.0005708492543,52.2303155999357 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:15<br>center: 52.2303155999357°N/ 14.0005708492543°O<br>radius: 3000 m<br>freight correction f : 1.245<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.1597751204052,52.9617637072957 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:16<br>center: 52.9617637072957°N/ 13.1597751204052°O<br>radius: 3000 m<br>freight correction f : 1.167<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.3507747444511,53.5888035192686 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:17<br>center: 53.5888035192686°N/ 13.3507747444511°O<br>radius: 3000 m<br>freight correction f : 1.302<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.5776102778535,54.1186491265304 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:18<br>center: 54.1186491265304°N/ 12.5776102778535°O<br>radius: 3000 m<br>freight correction f : 1.284<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.5144639199796,53.4171420131918 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:19<br>center: 53.4171420131918°N/ 11.5144639199796°O<br>radius: 3000 m<br>freight correction f : 0.972<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.0029239677122,53.5469177383935 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:20<br>center: 53.5469177383935°N/ 10.0029239677122°O<br>radius: 3000 m<br>freight correction f : 0.795<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.88184785249949,53.4440261761586 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:21<br>center: 53.4440261761586°N/ 9.88184785249949°O<br>radius: 3000 m<br>freight correction f : 0.753<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.1396866447239,53.6375186587986 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:22<br>center: 53.6375186587986°N/ 10.1396866447239°O<br>radius: 3000 m<br>freight correction f : 0.837<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.8332827082493,53.9492765490795 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:23<br>center: 53.9492765490795°N/ 10.8332827082493°O<br>radius: 3000 m<br>freight correction f : 1.002<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.83710960884522,54.3609895785926 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:24<br>center: 54.3609895785926°N/ 9.83710960884522°O<br>radius: 3000 m<br>freight correction f : 1.008<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.18195907826793,54.2401927085048 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:25<br>center: 54.2401927085048°N/ 9.18195907826793°O<br>radius: 3000 m<br>freight correction f : 0.915<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.75009038026336,53.3092538603431 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:26<br>center: 53.3092538603431°N/ 7.75009038026336°O<br>radius: 3000 m<br>freight correction f : 0.531<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.95817650059324,53.16900249777 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:27<br>center: 53.16900249777°N/ 8.95817650059324°O<br>radius: 3000 m<br>freight correction f : 0.576<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.84797816926934,53.0876779871405 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:28<br>center: 53.0876779871405°N/ 8.84797816926934°O<br>radius: 3000 m<br>freight correction f : 0.54<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.4056508546268,52.8781831426142 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:29<br>center: 52.8781831426142°N/ 10.4056508546268°O<br>radius: 3000 m<br>freight correction f : 0.687<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.70974354205914,52.4138298960477 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:30<br>center: 52.4138298960477°N/ 9.70974354205914°O<br>radius: 3000 m<br>freight correction f : 0.477<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.55738725553283,52.3045782375964 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:31<br>center: 52.3045782375964°N/ 9.55738725553283°O<br>radius: 3000 m<br>freight correction f : 0.429<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.82597961667635,52.1664599887362 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:32<br>center: 52.1664599887362°N/ 8.82597961667635°O<br>radius: 3000 m<br>freight correction f : 0.288<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.63547925235744,51.8017925044262 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:33<br>center: 51.8017925044262°N/ 8.63547925235744°O<br>radius: 3000 m<br>freight correction f : 0.177<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.25609367278233,51.2713457453738 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:34<br>center: 51.2713457453738°N/ 9.25609367278233°O<br>radius: 3000 m<br>freight correction f : 0.213<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.66701290150343,50.7298932703552 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:35<br>center: 50.7298932703552°N/ 8.66701290150343°O<br>radius: 3000 m<br>freight correction f : 0.078<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.70217242757442,50.6882977676236 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:36<br>center: 50.6882977676236°N/ 9.70217242757442°O<br>radius: 3000 m<br>freight correction f : 0.297<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.95551998206446,51.5683349936132 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:37<br>center: 51.5683349936132°N/ 9.95551998206446°O<br>radius: 3000 m<br>freight correction f : 0.381<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.6947318415159,52.1673233730116 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:38<br>center: 52.1673233730116°N/ 10.6947318415159°O<br>radius: 3000 m<br>freight correction f : 0.6<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.6729112685019,52.3670192899085 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:39<br>center: 52.3670192899085°N/ 11.6729112685019°O<br>radius: 3000 m<br>freight correction f : 0.81<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.84466834697717,51.236231135345 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:40<br>center: 51.236231135345°N/ 6.84466834697717°O<br>radius: 3000 m<br>freight correction f : -0.18<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.42550531121614,51.1579116898391 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:41<br>center: 51.1579116898391°N/ 6.42550531121614°O<br>radius: 3000 m<br>freight correction f : -0.165<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.15911484938874,51.2129721806382 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:42<br>center: 51.2129721806382°N/ 7.15911484938874°O<br>radius: 3000 m<br>freight correction f : -0.174<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.37917048952978,51.5207682783809 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:44<br>center: 51.5207682783809°N/ 7.37917048952978°O<br>radius: 3000 m<br>freight correction f : -0.063<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.12444121008496,51.555132618584 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:45<br>center: 51.555132618584°N/ 7.12444121008496°O<br>radius: 3000 m<br>freight correction f : -0.069<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.7123013101327,51.7356550626293 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:46<br>center: 51.7356550626293°N/ 6.7123013101327°O<br>radius: 3000 m<br>freight correction f : -0.012<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.39618881350417,51.5327467510711 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:47<br>center: 51.5327467510711°N/ 6.39618881350417°O<br>radius: 3000 m<br>freight correction f : -0.06<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.39675769795693,52.0892270269859 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:48<br>center: 52.0892270269859°N/ 7.39675769795693°O<br>radius: 3000 m<br>freight correction f : 0.117<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.82561938650066,52.5595767477592 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:49<br>center: 52.5595767477592°N/ 7.82561938650066°O<br>radius: 3000 m<br>freight correction f : 0.294<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.76602882134338,50.9188791037478 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:50<br>center: 50.9188791037478°N/ 6.76602882134338°O<br>radius: 3000 m<br>freight correction f : -0.27<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.39977346081474,50.9703459511433 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:51<br>center: 50.9703459511433°N/ 7.39977346081474°O<br>radius: 3000 m<br>freight correction f : -0.189<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.30159458690048,50.817239170991 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:52<br>center: 50.817239170991°N/ 6.30159458690048°O<br>radius: 3000 m<br>freight correction f : -0.174<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.96472353900863,50.6002659823547 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:53<br>center: 50.6002659823547°N/ 6.96472353900863°O<br>radius: 3000 m<br>freight correction f : -0.204<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.65787985310023,49.9657586682236 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:54<br>center: 49.9657586682236°N/ 6.65787985310023°O<br>radius: 3000 m<br>freight correction f : 0.00900000000000001<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.69748820078407,49.8436282859001 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:55<br>center: 49.8436282859001°N/ 7.69748820078407°O<br>radius: 3000 m<br>freight correction f : 0.087<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.51190421162689,50.3087287419626 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:56<br>center: 50.3087287419626°N/ 7.51190421162689°O<br>radius: 3000 m<br>freight correction f : -0.069<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.03729672162953,50.9398975211933 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:57<br>center: 50.9398975211933°N/ 8.03729672162953°O<br>radius: 3000 m<br>freight correction f : -0.057<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.63094346001903,51.3018806731755 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:58<br>center: 51.3018806731755°N/ 7.63094346001903°O<br>radius: 3000 m<br>freight correction f : -0.09<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.11685821293872,51.5312268157176 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:59<br>center: 51.5312268157176°N/ 8.11685821293872°O<br>radius: 3000 m<br>freight correction f : 0.036<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.66200733303035,50.1202301796483 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:60<br>center: 50.1202301796483°N/ 8.66200733303035°O<br>radius: 3000 m<br>freight correction f : 0.153<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.65661917399304,50.2952069760613 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:61<br>center: 50.2952069760613°N/ 8.65661917399304°O<br>radius: 3000 m<br>freight correction f : 0.123<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.14584135012857,50.0941874959024 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:63<br>center: 50.0941874959024°N/ 9.14584135012857°O<br>radius: 3000 m<br>freight correction f : 0.246<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.78365374726249,49.7733664616772 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:64<br>center: 49.7733664616772°N/ 8.78365374726249°O<br>radius: 3000 m<br>freight correction f : 0.249<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.18279938304069,50.1925561964571 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:65<br>center: 50.1925561964571°N/ 8.18279938304069°O<br>radius: 3000 m<br>freight correction f : 0.057<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.16287114574979,49.3620990563299 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:66<br>center: 49.3620990563299°N/ 7.16287114574979°O<br>radius: 3000 m<br>freight correction f : 0.21<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.03241949664451,49.5102683786492 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:67<br>center: 49.5102683786492°N/ 8.03241949664451°O<br>radius: 3000 m<br>freight correction f : 0.219<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.51923104077175,49.4746355339056 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:68<br>center: 49.4746355339056°N/ 8.51923104077175°O<br>radius: 3000 m<br>freight correction f : 0.285<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.8355494979008,49.4535922194288 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:69<br>center: 49.4535922194288°N/ 8.8355494979008°O<br>radius: 3000 m<br>freight correction f : 0.333<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.17401830448994,48.7674682409812 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:70<br>center: 48.7674682409812°N/ 9.17401830448994°O<br>radius: 3000 m<br>freight correction f : 0.528<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.16570156893141,48.8406595893025 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:71<br>center: 48.8406595893025°N/ 9.16570156893141°O<br>radius: 3000 m<br>freight correction f : 0.537<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.98155360305922,48.3913592291411 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:72<br>center: 48.3913592291411°N/ 8.98155360305922°O<br>radius: 3000 m<br>freight correction f : 0.552<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.85978799300826,48.7926497165811 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:73<br>center: 48.7926497165811°N/ 9.85978799300826°O<br>radius: 3000 m<br>freight correction f : 0.384<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.48851519705863,49.2389879646994 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:74<br>center: 49.2389879646994°N/ 9.48851519705863°O<br>radius: 3000 m<br>freight correction f : 0.483<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.71089858143075,48.8851672287933 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:75<br>center: 48.8851672287933°N/ 8.71089858143075°O<br>radius: 3000 m<br>freight correction f : 0.636<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.27416183017132,49.0253805047254 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:76<br>center: 49.0253805047254°N/ 8.27416183017132°O<br>radius: 3000 m<br>freight correction f : 0.387<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.03936159484882,48.4476649893614 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:77<br>center: 48.4476649893614°N/ 8.03936159484882°O<br>radius: 3000 m<br>freight correction f : 0.762<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.64531644252126,47.9969045546064 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:78<br>center: 47.9969045546064°N/ 8.64531644252126°O<br>radius: 3000 m<br>freight correction f : 0.63<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.96706879370022,47.8594285985515 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:79<br>center: 47.8594285985515°N/ 7.96706879370022°O<br>radius: 3000 m<br>freight correction f : 0.786<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.5399281775985,48.1834044944657 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:80<br>center: 48.1834044944657°N/ 11.5399281775985°O<br>radius: 3000 m<br>freight correction f : -0.018<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.5531089806756,48.1298690001357 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:81<br>center: 48.1298690001357°N/ 11.5531089806756°O<br>radius: 3000 m<br>freight correction f : -0.021<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.2293739553509,47.8355516913584 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:82<br>center: 47.8355516913584°N/ 11.2293739553509°O<br>radius: 3000 m<br>freight correction f : 0.069<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.2401427147936,47.8144957459655 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:83<br>center: 47.8144957459655°N/ 12.2401427147936°O<br>radius: 3000 m<br>freight correction f : -0.126<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.4168362642125,48.4483132447716 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:84<br>center: 48.4483132447716°N/ 12.4168362642125°O<br>radius: 3000 m<br>freight correction f : -0.174<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.6031368226757,48.4674463313509 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:85<br>center: 48.4674463313509°N/ 11.6031368226757°O<br>radius: 3000 m<br>freight correction f : -0.015<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.838684558855,48.412264660707 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:86<br>center: 48.412264660707°N/ 10.838684558855°O<br>radius: 3000 m<br>freight correction f : 0.144<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.3958647828322,47.7512949628466 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:87<br>center: 47.7512949628466°N/ 10.3958647828322°O<br>radius: 3000 m<br>freight correction f : 0.255<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.65087341309316,47.9102410050771 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:88<br>center: 47.9102410050771°N/ 9.65087341309316°O<br>radius: 3000 m<br>freight correction f : 0.411<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.1076680709181,48.4649555217167 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:89<br>center: 48.4649555217167°N/ 10.1076680709181°O<br>radius: 3000 m<br>freight correction f : 0.306<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.0558910384431,49.4223013701107 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:90<br>center: 49.4223013701107°N/ 11.0558910384431°O<br>radius: 3000 m<br>freight correction f : 0.717<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.8628104951996,49.388446715916 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:91<br>center: 49.388446715916°N/ 10.8628104951996°O<br>radius: 3000 m<br>freight correction f : 0.687<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.9534378322391,49.4438996110778 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:92<br>center: 49.4438996110778°N/ 11.9534378322391°O<br>radius: 3000 m<br>freight correction f : 0.885<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.2680465783146,49.0799423691968 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:93<br>center: 49.0799423691968°N/ 12.2680465783146°O<br>radius: 3000 m<br>freight correction f : 1.002<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.0982914236182,48.7701944847034 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(244,108,74,0.6)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:94<br>center: 48.7701944847034°N/ 13.0982914236182°O<br>radius: 3000 m<br>freight correction f : -0.09<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.8603769526887,50.0573948247592 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:95<br>center: 50.0573948247592°N/ 11.8603769526887°O<br>radius: 3000 m<br>freight correction f : 0.792<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.0081376099039,50.1117045598931 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:96<br>center: 50.1117045598931°N/ 11.0081376099039°O<br>radius: 3000 m<br>freight correction f : 0.612<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.0043717087871,49.9509987695955 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:97<br>center: 49.9509987695955°N/ 10.0043717087871°O<br>radius: 3000 m<br>freight correction f : 0.432<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.6627148215246,50.5579364351821 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:98<br>center: 50.5579364351821°N/ 10.6627148215246°O<br>radius: 3000 m<br>freight correction f : 0.507<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.8261147853767,51.1026041825822 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+    	featureA = new ol.Feature(circle3857);
+	var fAstyle = new ol.style.Style({
+		stroke: new ol.style.Stroke({
+		width: 1 
+ 		 	}),
+		fill: new ol.style.Fill({
+		color: 'rgba(105,105,105,0.59)'
+			}),
+		text: new ol.style.Text({
+			text:'',
+			scale: 0.8
+		})
+		});
+	featureA.setStyle(fAstyle);
+	featureA.set('name','<p>Area ID:99<br>center: 51.1026041825822°N/ 10.8261147853767°O<br>radius: 3000 m<br>freight correction f : 0.531<br>E=NaN US Dollar </p>');
+	vector1.getSource().addFeature(featureA);
+
+       var raster = new ol.layer.Tile({
+source: new ol.source.OSM()	
+});
+
+
+        var vector2 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: styleFunction,
+	minResolution : 0.001,
+	maxResolution : 12500,
+	visible : true
+      });
+     
+ 
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.796066700892,51.149696496049 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [14.6009132074977,51.258233613381 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [14.1701062745443,51.7288998219103 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.8130085445041,51.3554214486479 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.9085747789858,51.5655017652138 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.7307766856933,50.7201345498611 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.4174152000023,50.5481401545188 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.076459721532,50.8017508556412 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.4137437112391,52.5098205560286 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.527742962115,52.4328909493692 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.3375270628106,52.580719970814 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.7769248281642,52.336814697202 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [14.0005708492543,52.2303155999357 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.1597751204052,52.9617637072957 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.3507747444511,53.5888035192686 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.5776102778535,54.1186491265304 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.5144639199796,53.4171420131918 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.0029239677122,53.5469177383935 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.88184785249949,53.4440261761586 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.1396866447239,53.6375186587986 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.8332827082493,53.9492765490795 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.83710960884522,54.3609895785926 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.18195907826793,54.2401927085048 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.75009038026336,53.3092538603431 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.95817650059324,53.16900249777 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.84797816926934,53.0876779871405 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.4056508546268,52.8781831426142 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.70974354205914,52.4138298960477 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.55738725553283,52.3045782375964 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.82597961667635,52.1664599887362 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.63547925235744,51.8017925044262 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.25609367278233,51.2713457453738 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.66701290150343,50.7298932703552 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.70217242757442,50.6882977676236 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.95551998206446,51.5683349936132 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.6947318415159,52.1673233730116 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.6729112685019,52.3670192899085 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.84466834697717,51.236231135345 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.42550531121614,51.1579116898391 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.15911484938874,51.2129721806382 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.37917048952978,51.5207682783809 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.12444121008496,51.555132618584 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.7123013101327,51.7356550626293 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.39618881350417,51.5327467510711 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.39675769795693,52.0892270269859 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.82561938650066,52.5595767477592 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.76602882134338,50.9188791037478 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.39977346081474,50.9703459511433 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.30159458690048,50.817239170991 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.96472353900863,50.6002659823547 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [6.65787985310023,49.9657586682236 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.69748820078407,49.8436282859001 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.51190421162689,50.3087287419626 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.03729672162953,50.9398975211933 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.63094346001903,51.3018806731755 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.11685821293872,51.5312268157176 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.66200733303035,50.1202301796483 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.65661917399304,50.2952069760613 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.14584135012857,50.0941874959024 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.78365374726249,49.7733664616772 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.18279938304069,50.1925561964571 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.16287114574979,49.3620990563299 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.03241949664451,49.5102683786492 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.51923104077175,49.4746355339056 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.8355494979008,49.4535922194288 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.17401830448994,48.7674682409812 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.16570156893141,48.8406595893025 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.98155360305922,48.3913592291411 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.85978799300826,48.7926497165811 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.48851519705863,49.2389879646994 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.71089858143075,48.8851672287933 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.27416183017132,49.0253805047254 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.03936159484882,48.4476649893614 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [8.64531644252126,47.9969045546064 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [7.96706879370022,47.8594285985515 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.5399281775985,48.1834044944657 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.5531089806756,48.1298690001357 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.2293739553509,47.8355516913584 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.2401427147936,47.8144957459655 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.4168362642125,48.4483132447716 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.6031368226757,48.4674463313509 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.838684558855,48.412264660707 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.3958647828322,47.7512949628466 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [9.65087341309316,47.9102410050771 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.1076680709181,48.4649555217167 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.0558910384431,49.4223013701107 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.8628104951996,49.388446715916 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.9534378322391,49.4438996110778 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [12.2680465783146,49.0799423691968 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [13.0982914236182,48.7701944847034 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.8603769526887,50.0573948247592 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [11.0081376099039,50.1117045598931 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.0043717087871,49.9509987695955 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.6627148215246,50.5579364351821 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+
+	var radius=3000;
+        var wgs84Sphere = new ol.Sphere(6378137);
+	var circle4326 = ol.geom.Polygon.circular(wgs84Sphere, [10.8261147853767,51.1026041825822 ],radius,64);
+    	var circle3857 = circle4326.clone().transform('EPSG:4326', 'EPSG:3857');
+	featureA = new ol.Feature(circle3857);
+
+	var fAstyle = new ol.style.Style({
+		text: new ol.style.Text({
+		
+		})
+		});
+	featureA.setStyle(fAstyle);
+	vector2.getSource().addFeature(featureA);
+
+       var raster = new ol.layer.Tile({
+	source: new ol.source.OSM() 
+	});
+
+
+
+        var vector3 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+	minResolution : 0.001,
+	maxResolution : 7500
+      });
+
+    var iconFeatures = [];
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
+      });
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-100.88, 46.85], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','1');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_mandan.jpg');
+      iconFeature.set('txt','<p>Mandan Refinery<br/> TESORO</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+    
+     var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.05, 20],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: './pictures/HexFactory.white.png',
+	  scale: 0.1
+        }))
+      });
+     iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([-93.04, 44.74], 'EPSG:4326',     
+  'EPSG:3857')), 
+        name: 'Refinery - 550kbbl/d'
+      });
+      iconFeature.set('name','2');
+      iconFeature.set('head','Refinery (USA)');
+      iconFeature.set('foto','./pictures/ref_pine_bend.jpg');
+      iconFeature.set('txt','<p>Pine Bent Refinery<br/>Flint Hill</p>');
+      iconFeature.setStyle(iconStyle);
+      iconFeatures.push(iconFeature);
+     
+     console.log(iconFeatures.length);
+     vector3.getSource().addFeatures(iconFeatures);
+
+      
+      var map = new ol.Map({
+      interactions: ol.interaction.defaults({mouseWheelZoom:false}),
+        layers: [raster,vector1, vector2,vector3],
+        target: 'map',
+        view: new ol.View({
+          center: [-11250000,4800000],
+          zoom: zoomvalue 
+        })
+      });
+
+      var info = $('#info');
+      info.tooltip({
+        animation: false,
+        trigger: 'manual',
+	html: true
+      });
+
+      var displayFeatureInfo = function(pixel) {
+        info.css({
+          left: pixel[0] + 'px',
+          top: (pixel[1]-15) + 'px'
+        });
+        var feature = map.forEachFeatureAtPixel(
+	pixel, 
+	function(feature) {
+          return feature;},
+	null,
+	function(layer){return layer===vector1;});
+
+        if (feature) {
+          info.tooltip('hide')
+              .attr('data-original-title', feature.get('name'))
+              .tooltip('fixTitle')
+              .tooltip('show')
+	      .tooltip('html',true);
+	      ;
+        } else {
+          info.tooltip('hide');
+        }
+      };
+
+      map.on('pointermove', function(evt) {
+        if (evt.dragging) {
+          info.tooltip('hide');
+          return;
+        }
+        displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+      });
+      
+
+
+ var element = document.getElementById('popup');
+
+      var popup = new ol.Overlay({
+        element: element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -50]
+      });
+      map.addOverlay(popup);
+
+
+
+   map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature) {
+              return feature;
+            },
+	    null,
+	    function(layer){return layer===vector3;}
+	    );
+        if (feature) {
+          $(element).popover('destroy');
+          var coordinates = feature.getGeometry().getCoordinates();
+	  var fotofile=feature.get('foto');
+
+
+          popup.setPosition(coordinates);
+          $(element).popover({
+	    'title': '<h3>'+feature.get('head')+' - '+feature.get('name')+'</h3>',
+            'placement': 'top',
+            'html': true,
+            'content': '<p>'+feature.get('txt')+'</p><img src="'+feature.get('foto')+'" width="250px"/>' 
+	   });
+          $(element).popover('show');
+        } else {
+          $(element).popover('destroy');
+        }
+      });
+    
+    </script>
+</body>
+</html>
+ 
