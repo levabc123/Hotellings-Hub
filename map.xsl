@@ -197,7 +197,7 @@
       };
 
 
-<!--Layer for CIRCLES  AND areas-->
+<!--Layers for CIRCLES  AND areas-->
         var vector1 = new ol.layer.Vector({
         source: new ol.source.Vector(),
         style: styleFunction,
@@ -243,6 +243,9 @@ var geoJbasis = new ol.format.GeoJSON;
 	  propA: 'Some feature property',
 	});
 	geoJfeature.setStyle(geoJstyle);
+	geoJfeature.set('name','<p>Area Postal Code ID:<xsl:value-of select="field[@name='punkt']"/><br/>freight correction f : <xsl:value-of select="field[@name='fi']"/><br/>E=<xsl:value-of select=" format-number(( $currentP * $M) + ( $currentF * ( 1 + field[@name='fi'])),0) " /> US Dollar </p>');
+
+
 	vector1.getSource().addFeature(geoJfeature); 
 
 	var radius=<xsl:value-of select="field[@name='radius']"/>;
@@ -264,7 +267,7 @@ var geoJbasis = new ol.format.GeoJSON;
 		});
 	featureA.setStyle(fAstyle);
 	featureA.set('name','<p>Area ID:<xsl:value-of select="field[@name='punkt']"/><br/>center: <xsl:value-of select="field[@name='N']"/>°N/ <xsl:value-of select="field[@name='O']"/>°O<br/>radius: <xsl:value-of select="field[@name='radius']"/> m<br/>freight correction f : <xsl:value-of select="field[@name='fi']"/><br/>E=<xsl:value-of select=" format-number(( $currentP * $M) + ( $currentF * ( 1 + field[@name='fi'])),0) " /> US Dollar </p>');
-	vector1.getSource().addFeature(featureA);
+//	vector1.getSource().addFeature(featureA);
 </xsl:for-each>
        var raster = new ol.layer.Tile({
 source: new ol.source.OSM()	
@@ -375,12 +378,12 @@ source: new ol.source.OSM()
         layers: [raster,vector1, vector2,vector3],
         target: 'map',
         view: new ol.View({
-          center: [-11250000,4800000],
+          center: [6250000,4800000],
           zoom: zoomvalue 
         })
       });
 <!--==================== interactions..================ -->
-<!-- 1) Mouse over Circles -->
+<!-- 1) Mouse over Circles OR areas-->
       var info = $('#info');
       info.tooltip({
         animation: false,
