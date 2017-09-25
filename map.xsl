@@ -173,7 +173,7 @@
   	</xsl:if>
 
 	var zwert=1.4;
-	var zoomvalue=5;
+	var zoomvalue=7;
 	var styleCache = {};
         var styleFunction = function(feature) {
         var radius = 5 + 20;
@@ -266,7 +266,7 @@ var geoJbasis = new ol.format.GeoJSON;
 		})
 		});
 	featureA.setStyle(fAstyle);
-	featureA.set('name','<p>Area ID:<xsl:value-of select="field[@name='punkt']"/><br/>center: <xsl:value-of select="field[@name='N']"/>°N/ <xsl:value-of select="field[@name='O']"/>°O<br/>radius: <xsl:value-of select="field[@name='radius']"/> m<br/>freight correction f : <xsl:value-of select="field[@name='fi']"/><br/>E=<xsl:value-of select=" format-number(( $currentP * $M) + ( $currentF * ( 1 + field[@name='fi'])),0) " /> US Dollar </p>');
+	featureA.set('name','<p>Area ID:<xsl:value-of select="field[@name='punkt']"/><br/>center: <xsl:value-of select="field[@name='N']"/>°N/ <xsl:value-of select="field[@name='O']"/>°O<br/>radius: <xsl:value-of select="field[@name='radius']"/> m<br/>freight correction f : <xsl:value-of select="round(field[@name='fi']*100) div 100"/><br/>E=<xsl:value-of select=" format-number(( $currentP * $M) + ( $currentF * ( 1 + field[@name='fi'])),0) " /> US Dollar </p>');
 //	vector1.getSource().addFeature(featureA);
 </xsl:for-each>
        var raster = new ol.layer.Tile({
@@ -378,7 +378,7 @@ source: new ol.source.OSM()
         layers: [raster,vector1, vector2,vector3],
         target: 'map',
         view: new ol.View({
-          center: [6250000,4800000],
+          center: [1000000,6500000],
           zoom: zoomvalue 
         })
       });
